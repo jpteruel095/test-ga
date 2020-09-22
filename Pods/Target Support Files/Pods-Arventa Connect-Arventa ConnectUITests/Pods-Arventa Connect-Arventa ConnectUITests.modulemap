@@ -1,0 +1,6 @@
+framework module Pods_Arventa_Connect_Arventa_ConnectUITests {
+  umbrella header "Pods-Arventa Connect-Arventa ConnectUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

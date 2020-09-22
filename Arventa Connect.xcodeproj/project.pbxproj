@@ -1,0 +1,768 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		74CDD6D98EF8FCE52D46BD6A /* Pods_Arventa_Connect_Arventa_ConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF879205325117C5F78B1661 /* Pods_Arventa_Connect_Arventa_ConnectUITests.framework */; };
+		7A45EF1C02BDDE1078D655E4 /* Pods_Arventa_ConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFB63A154AEAF5B4E32647D /* Pods_Arventa_ConnectTests.framework */; };
+		C6D3312A2519FEAB003DD32D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D331292519FEAB003DD32D /* AppDelegate.swift */; };
+		C6D3312E2519FEAB003DD32D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3312D2519FEAB003DD32D /* ViewController.swift */; };
+		C6D331312519FEAB003DD32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D3312F2519FEAB003DD32D /* Main.storyboard */; };
+		C6D331342519FEAB003DD32D /* Arventa_Connect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6D331322519FEAB003DD32D /* Arventa_Connect.xcdatamodeld */; };
+		C6D331362519FEAD003DD32D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D331352519FEAD003DD32D /* Assets.xcassets */; };
+		C6D331392519FEAD003DD32D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D331372519FEAD003DD32D /* LaunchScreen.storyboard */; };
+		C6D331442519FEAD003DD32D /* Arventa_ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D331432519FEAD003DD32D /* Arventa_ConnectTests.swift */; };
+		C6D3314F2519FEAD003DD32D /* Arventa_ConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3314E2519FEAD003DD32D /* Arventa_ConnectUITests.swift */; };
+		F559DAA4BC99C0E60D099311 /* Pods_Arventa_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C8508D681506DA7C6408DA /* Pods_Arventa_Connect.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C6D331402519FEAD003DD32D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6D3311E2519FEAB003DD32D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6D331252519FEAB003DD32D;
+			remoteInfo = "Arventa Connect";
+		};
+		C6D3314B2519FEAD003DD32D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6D3311E2519FEAB003DD32D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6D331252519FEAB003DD32D;
+			remoteInfo = "Arventa Connect";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		14EE442AE514D9F61133A0A9 /* Pods-Arventa ConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arventa ConnectTests.debug.xcconfig"; path = "Target Support Files/Pods-Arventa ConnectTests/Pods-Arventa ConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		38BAC5C68978B5ECF6F942DD /* Pods-Arventa Connect-Arventa ConnectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arventa Connect-Arventa ConnectUITests.debug.xcconfig"; path = "Target Support Files/Pods-Arventa Connect-Arventa ConnectUITests/Pods-Arventa Connect-Arventa ConnectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5D893796608F176F3EFF4214 /* Pods-Arventa ConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arventa ConnectTests.release.xcconfig"; path = "Target Support Files/Pods-Arventa ConnectTests/Pods-Arventa ConnectTests.release.xcconfig"; sourceTree = "<group>"; };
+		5FF1E4395685E6661FE98B49 /* Pods-Arventa Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arventa Connect.release.xcconfig"; path = "Target Support Files/Pods-Arventa Connect/Pods-Arventa Connect.release.xcconfig"; sourceTree = "<group>"; };
+		6CFB63A154AEAF5B4E32647D /* Pods_Arventa_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arventa_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D47AF189A6AB72E36A3650B /* Pods-Arventa Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arventa Connect.debug.xcconfig"; path = "Target Support Files/Pods-Arventa Connect/Pods-Arventa Connect.debug.xcconfig"; sourceTree = "<group>"; };
+		BF879205325117C5F78B1661 /* Pods_Arventa_Connect_Arventa_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arventa_Connect_Arventa_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6D331262519FEAB003DD32D /* Arventa Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Arventa Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6D331292519FEAB003DD32D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C6D3312D2519FEAB003DD32D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C6D331302519FEAB003DD32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C6D331332519FEAB003DD32D /* Arventa_Connect.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Arventa_Connect.xcdatamodel; sourceTree = "<group>"; };
+		C6D331352519FEAD003DD32D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6D331382519FEAD003DD32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C6D3313A2519FEAD003DD32D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6D3313F2519FEAD003DD32D /* Arventa ConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Arventa ConnectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6D331432519FEAD003DD32D /* Arventa_ConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arventa_ConnectTests.swift; sourceTree = "<group>"; };
+		C6D331452519FEAD003DD32D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6D3314A2519FEAD003DD32D /* Arventa ConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Arventa ConnectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6D3314E2519FEAD003DD32D /* Arventa_ConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arventa_ConnectUITests.swift; sourceTree = "<group>"; };
+		C6D331502519FEAD003DD32D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF6A7316D96444FB6AC2133D /* Pods-Arventa Connect-Arventa ConnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arventa Connect-Arventa ConnectUITests.release.xcconfig"; path = "Target Support Files/Pods-Arventa Connect-Arventa ConnectUITests/Pods-Arventa Connect-Arventa ConnectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F0C8508D681506DA7C6408DA /* Pods_Arventa_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arventa_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6D331232519FEAB003DD32D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F559DAA4BC99C0E60D099311 /* Pods_Arventa_Connect.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6D3313C2519FEAD003DD32D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A45EF1C02BDDE1078D655E4 /* Pods_Arventa_ConnectTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6D331472519FEAD003DD32D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CDD6D98EF8FCE52D46BD6A /* Pods_Arventa_Connect_Arventa_ConnectUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		542F87208A38DF9437142558 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0C8508D681506DA7C6408DA /* Pods_Arventa_Connect.framework */,
+				BF879205325117C5F78B1661 /* Pods_Arventa_Connect_Arventa_ConnectUITests.framework */,
+				6CFB63A154AEAF5B4E32647D /* Pods_Arventa_ConnectTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9659E84B48E8A5F8915F4CB2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D47AF189A6AB72E36A3650B /* Pods-Arventa Connect.debug.xcconfig */,
+				5FF1E4395685E6661FE98B49 /* Pods-Arventa Connect.release.xcconfig */,
+				38BAC5C68978B5ECF6F942DD /* Pods-Arventa Connect-Arventa ConnectUITests.debug.xcconfig */,
+				EF6A7316D96444FB6AC2133D /* Pods-Arventa Connect-Arventa ConnectUITests.release.xcconfig */,
+				14EE442AE514D9F61133A0A9 /* Pods-Arventa ConnectTests.debug.xcconfig */,
+				5D893796608F176F3EFF4214 /* Pods-Arventa ConnectTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C6D3311D2519FEAB003DD32D = {
+			isa = PBXGroup;
+			children = (
+				C6D331282519FEAB003DD32D /* Arventa Connect */,
+				C6D331422519FEAD003DD32D /* Arventa ConnectTests */,
+				C6D3314D2519FEAD003DD32D /* Arventa ConnectUITests */,
+				C6D331272519FEAB003DD32D /* Products */,
+				9659E84B48E8A5F8915F4CB2 /* Pods */,
+				542F87208A38DF9437142558 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C6D331272519FEAB003DD32D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6D331262519FEAB003DD32D /* Arventa Connect.app */,
+				C6D3313F2519FEAD003DD32D /* Arventa ConnectTests.xctest */,
+				C6D3314A2519FEAD003DD32D /* Arventa ConnectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6D331282519FEAB003DD32D /* Arventa Connect */ = {
+			isa = PBXGroup;
+			children = (
+				C6D331292519FEAB003DD32D /* AppDelegate.swift */,
+				C6D3312D2519FEAB003DD32D /* ViewController.swift */,
+				C6D3312F2519FEAB003DD32D /* Main.storyboard */,
+				C6D331352519FEAD003DD32D /* Assets.xcassets */,
+				C6D331372519FEAD003DD32D /* LaunchScreen.storyboard */,
+				C6D3313A2519FEAD003DD32D /* Info.plist */,
+				C6D331322519FEAB003DD32D /* Arventa_Connect.xcdatamodeld */,
+			);
+			path = "Arventa Connect";
+			sourceTree = "<group>";
+		};
+		C6D331422519FEAD003DD32D /* Arventa ConnectTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6D331432519FEAD003DD32D /* Arventa_ConnectTests.swift */,
+				C6D331452519FEAD003DD32D /* Info.plist */,
+			);
+			path = "Arventa ConnectTests";
+			sourceTree = "<group>";
+		};
+		C6D3314D2519FEAD003DD32D /* Arventa ConnectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C6D3314E2519FEAD003DD32D /* Arventa_ConnectUITests.swift */,
+				C6D331502519FEAD003DD32D /* Info.plist */,
+			);
+			path = "Arventa ConnectUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C6D331252519FEAB003DD32D /* Arventa Connect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6D331532519FEAD003DD32D /* Build configuration list for PBXNativeTarget "Arventa Connect" */;
+			buildPhases = (
+				32850690E23EA802625DAF3F /* [CP] Check Pods Manifest.lock */,
+				C6D331222519FEAB003DD32D /* Sources */,
+				C6D331232519FEAB003DD32D /* Frameworks */,
+				C6D331242519FEAB003DD32D /* Resources */,
+				9DDEF742DACEA217C7F649F8 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Arventa Connect";
+			productName = "Arventa Connect";
+			productReference = C6D331262519FEAB003DD32D /* Arventa Connect.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C6D3313E2519FEAD003DD32D /* Arventa ConnectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6D331562519FEAD003DD32D /* Build configuration list for PBXNativeTarget "Arventa ConnectTests" */;
+			buildPhases = (
+				657984AB64856BA2E9DFBE62 /* [CP] Check Pods Manifest.lock */,
+				C6D3313B2519FEAD003DD32D /* Sources */,
+				C6D3313C2519FEAD003DD32D /* Frameworks */,
+				C6D3313D2519FEAD003DD32D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6D331412519FEAD003DD32D /* PBXTargetDependency */,
+			);
+			name = "Arventa ConnectTests";
+			productName = "Arventa ConnectTests";
+			productReference = C6D3313F2519FEAD003DD32D /* Arventa ConnectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C6D331492519FEAD003DD32D /* Arventa ConnectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6D331592519FEAD003DD32D /* Build configuration list for PBXNativeTarget "Arventa ConnectUITests" */;
+			buildPhases = (
+				D8D6F873C7727B2574EEB7E1 /* [CP] Check Pods Manifest.lock */,
+				C6D331462519FEAD003DD32D /* Sources */,
+				C6D331472519FEAD003DD32D /* Frameworks */,
+				C6D331482519FEAD003DD32D /* Resources */,
+				CD54FEC256F88EB6B2479602 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6D3314C2519FEAD003DD32D /* PBXTargetDependency */,
+			);
+			name = "Arventa ConnectUITests";
+			productName = "Arventa ConnectUITests";
+			productReference = C6D3314A2519FEAD003DD32D /* Arventa ConnectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6D3311E2519FEAB003DD32D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					C6D331252519FEAB003DD32D = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					C6D3313E2519FEAD003DD32D = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = C6D331252519FEAB003DD32D;
+					};
+					C6D331492519FEAD003DD32D = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = C6D331252519FEAB003DD32D;
+					};
+				};
+			};
+			buildConfigurationList = C6D331212519FEAB003DD32D /* Build configuration list for PBXProject "Arventa Connect" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C6D3311D2519FEAB003DD32D;
+			productRefGroup = C6D331272519FEAB003DD32D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6D331252519FEAB003DD32D /* Arventa Connect */,
+				C6D3313E2519FEAD003DD32D /* Arventa ConnectTests */,
+				C6D331492519FEAD003DD32D /* Arventa ConnectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6D331242519FEAB003DD32D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6D331392519FEAD003DD32D /* LaunchScreen.storyboard in Resources */,
+				C6D331362519FEAD003DD32D /* Assets.xcassets in Resources */,
+				C6D331312519FEAB003DD32D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6D3313D2519FEAD003DD32D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6D331482519FEAD003DD32D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32850690E23EA802625DAF3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Arventa Connect-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		657984AB64856BA2E9DFBE62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Arventa ConnectTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DDEF742DACEA217C7F649F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Arventa Connect/Pods-Arventa Connect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Arventa Connect/Pods-Arventa Connect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Arventa Connect/Pods-Arventa Connect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD54FEC256F88EB6B2479602 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Arventa Connect-Arventa ConnectUITests/Pods-Arventa Connect-Arventa ConnectUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Arventa Connect-Arventa ConnectUITests/Pods-Arventa Connect-Arventa ConnectUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Arventa Connect-Arventa ConnectUITests/Pods-Arventa Connect-Arventa ConnectUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8D6F873C7727B2574EEB7E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Arventa Connect-Arventa ConnectUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6D331222519FEAB003DD32D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6D3312E2519FEAB003DD32D /* ViewController.swift in Sources */,
+				C6D3312A2519FEAB003DD32D /* AppDelegate.swift in Sources */,
+				C6D331342519FEAB003DD32D /* Arventa_Connect.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6D3313B2519FEAD003DD32D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6D331442519FEAD003DD32D /* Arventa_ConnectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6D331462519FEAD003DD32D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6D3314F2519FEAD003DD32D /* Arventa_ConnectUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6D331412519FEAD003DD32D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6D331252519FEAB003DD32D /* Arventa Connect */;
+			targetProxy = C6D331402519FEAD003DD32D /* PBXContainerItemProxy */;
+		};
+		C6D3314C2519FEAD003DD32D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6D331252519FEAB003DD32D /* Arventa Connect */;
+			targetProxy = C6D3314B2519FEAD003DD32D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C6D3312F2519FEAB003DD32D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6D331302519FEAB003DD32D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C6D331372519FEAD003DD32D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6D331382519FEAD003DD32D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C6D331512519FEAD003DD32D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C6D331522519FEAD003DD32D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6D331542519FEAD003DD32D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D47AF189A6AB72E36A3650B /* Pods-Arventa Connect.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XYNUDY2FG5;
+				INFOPLIST_FILE = "Arventa Connect/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect.Arventa-Connect";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C6D331552519FEAD003DD32D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FF1E4395685E6661FE98B49 /* Pods-Arventa Connect.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XYNUDY2FG5;
+				INFOPLIST_FILE = "Arventa Connect/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect.Arventa-Connect";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C6D331572519FEAD003DD32D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14EE442AE514D9F61133A0A9 /* Pods-Arventa ConnectTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XYNUDY2FG5;
+				INFOPLIST_FILE = "Arventa ConnectTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect.Arventa-ConnectTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arventa Connect.app/Arventa Connect";
+			};
+			name = Debug;
+		};
+		C6D331582519FEAD003DD32D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D893796608F176F3EFF4214 /* Pods-Arventa ConnectTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XYNUDY2FG5;
+				INFOPLIST_FILE = "Arventa ConnectTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect.Arventa-ConnectTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arventa Connect.app/Arventa Connect";
+			};
+			name = Release;
+		};
+		C6D3315A2519FEAD003DD32D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38BAC5C68978B5ECF6F942DD /* Pods-Arventa Connect-Arventa ConnectUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XYNUDY2FG5;
+				INFOPLIST_FILE = "Arventa ConnectUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect.Arventa-ConnectUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Arventa Connect";
+			};
+			name = Debug;
+		};
+		C6D3315B2519FEAD003DD32D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF6A7316D96444FB6AC2133D /* Pods-Arventa Connect-Arventa ConnectUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XYNUDY2FG5;
+				INFOPLIST_FILE = "Arventa ConnectUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect.Arventa-ConnectUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Arventa Connect";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6D331212519FEAB003DD32D /* Build configuration list for PBXProject "Arventa Connect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6D331512519FEAD003DD32D /* Debug */,
+				C6D331522519FEAD003DD32D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6D331532519FEAD003DD32D /* Build configuration list for PBXNativeTarget "Arventa Connect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6D331542519FEAD003DD32D /* Debug */,
+				C6D331552519FEAD003DD32D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6D331562519FEAD003DD32D /* Build configuration list for PBXNativeTarget "Arventa ConnectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6D331572519FEAD003DD32D /* Debug */,
+				C6D331582519FEAD003DD32D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6D331592519FEAD003DD32D /* Build configuration list for PBXNativeTarget "Arventa ConnectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6D3315A2519FEAD003DD32D /* Debug */,
+				C6D3315B2519FEAD003DD32D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C6D331322519FEAB003DD32D /* Arventa_Connect.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C6D331332519FEAB003DD32D /* Arventa_Connect.xcdatamodel */,
+			);
+			currentVersion = C6D331332519FEAB003DD32D /* Arventa_Connect.xcdatamodel */;
+			path = Arventa_Connect.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C6D3311E2519FEAB003DD32D /* Project object */;
+}
