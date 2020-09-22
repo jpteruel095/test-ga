@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -111,7 +111,6 @@
 				14EE442AE514D9F61133A0A9 /* Pods-Arventa ConnectTests.debug.xcconfig */,
 				5D893796608F176F3EFF4214 /* Pods-Arventa ConnectTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -587,6 +586,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20201002.1.1;
 				DEVELOPMENT_TEAM = XYNUDY2FG5;
 				INFOPLIST_FILE = "Arventa Connect/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -608,6 +608,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20201002.1.1;
 				DEVELOPMENT_TEAM = XYNUDY2FG5;
 				INFOPLIST_FILE = "Arventa Connect/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
