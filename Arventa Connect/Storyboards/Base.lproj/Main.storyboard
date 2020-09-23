@@ -1,24 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tRP-ZB-7nn">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+        <array key="Lato-Semibold.ttf">
+            <string>Lato-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Arventa_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <segue destination="tRP-ZB-7nn" kind="presentation" modalPresentationStyle="fullScreen" id="xxR-5Q-9YM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="130" y="110"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="ndG-Ho-M31">
+            <objects>
+                <viewController id="tRP-ZB-7nn" customClass="SignInViewController" customModule="Arventa_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VP0-pX-XWP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login/login-bg" translatesAutoresizingMaskIntoConstraints="NO" id="B9L-RJ-JJX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3n-Wy-eZA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5S-52-KI3">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login/login-logo" translatesAutoresizingMaskIntoConstraints="NO" id="KCv-Mk-ZEB">
+                                                <rect key="frame" x="159" y="100" width="96" height="96"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A R V E N T A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDf-YV-3NW">
+                                                <rect key="frame" x="126.5" y="196" width="161" height="33"/>
+                                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="27"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RISK &amp; COMPLIANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8f-EL-aNA">
+                                                <rect key="frame" x="128.5" y="239" width="157" height="19.5"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiF-oo-OPc" customClass="FloatingPlaceholderField" customModule="Arventa_Connect" customModuleProvider="target">
+                                                <rect key="frame" x="18" y="354.5" width="378" height="48"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="UZh-Oi-G2a"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="yiF-oo-OPc" secondAttribute="trailing" constant="18" id="3Ei-xh-1xF"/>
+                                            <constraint firstItem="KCv-Mk-ZEB" firstAttribute="top" secondItem="k5S-52-KI3" secondAttribute="top" constant="100" id="8dE-5C-qWS"/>
+                                            <constraint firstItem="tDf-YV-3NW" firstAttribute="centerX" secondItem="k5S-52-KI3" secondAttribute="centerX" id="CKi-YS-TlY"/>
+                                            <constraint firstItem="tDf-YV-3NW" firstAttribute="top" secondItem="KCv-Mk-ZEB" secondAttribute="bottom" id="IHH-eq-b1Z"/>
+                                            <constraint firstItem="yiF-oo-OPc" firstAttribute="leading" secondItem="k5S-52-KI3" secondAttribute="leading" constant="18" id="Jtj-j8-MdA"/>
+                                            <constraint firstItem="yiF-oo-OPc" firstAttribute="top" secondItem="j8f-EL-aNA" secondAttribute="bottom" constant="96" id="ZAL-y7-HAc"/>
+                                            <constraint firstItem="KCv-Mk-ZEB" firstAttribute="centerX" secondItem="k5S-52-KI3" secondAttribute="centerX" id="Zmw-mA-KM5"/>
+                                            <constraint firstAttribute="height" constant="500" id="hDx-On-3nx"/>
+                                            <constraint firstItem="j8f-EL-aNA" firstAttribute="centerX" secondItem="k5S-52-KI3" secondAttribute="centerX" id="itl-fM-g5M"/>
+                                            <constraint firstItem="j8f-EL-aNA" firstAttribute="top" secondItem="tDf-YV-3NW" secondAttribute="bottom" constant="10" id="jes-iz-C6v"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="k5S-52-KI3" firstAttribute="trailing" secondItem="y9j-6x-uZc" secondAttribute="trailing" id="6AK-Pa-MFY"/>
+                                    <constraint firstItem="k5S-52-KI3" firstAttribute="bottom" secondItem="y9j-6x-uZc" secondAttribute="bottom" id="Hfh-jv-bG2"/>
+                                    <constraint firstItem="k5S-52-KI3" firstAttribute="width" secondItem="Lx1-Sf-a9F" secondAttribute="width" id="J1h-Nm-dJ2"/>
+                                    <constraint firstItem="k5S-52-KI3" firstAttribute="top" secondItem="y9j-6x-uZc" secondAttribute="top" id="VOn-fK-rZ0"/>
+                                    <constraint firstItem="k5S-52-KI3" firstAttribute="leading" secondItem="y9j-6x-uZc" secondAttribute="leading" id="uOh-0W-Uxe"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="y9j-6x-uZc"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Lx1-Sf-a9F"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ctl-jf-sGr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="B9L-RJ-JJX" secondAttribute="bottom" id="7dN-KQ-8pL"/>
+                            <constraint firstItem="e3n-Wy-eZA" firstAttribute="top" secondItem="VP0-pX-XWP" secondAttribute="top" id="LCt-G4-mer"/>
+                            <constraint firstItem="e3n-Wy-eZA" firstAttribute="leading" secondItem="Ctl-jf-sGr" secondAttribute="leading" id="O2Y-fY-TFT"/>
+                            <constraint firstAttribute="bottom" secondItem="e3n-Wy-eZA" secondAttribute="bottom" id="Rez-sR-d2q"/>
+                            <constraint firstItem="B9L-RJ-JJX" firstAttribute="leading" secondItem="Ctl-jf-sGr" secondAttribute="leading" id="TZO-xg-pYg"/>
+                            <constraint firstItem="B9L-RJ-JJX" firstAttribute="top" secondItem="VP0-pX-XWP" secondAttribute="top" id="bGe-6v-py0"/>
+                            <constraint firstItem="B9L-RJ-JJX" firstAttribute="trailing" secondItem="Ctl-jf-sGr" secondAttribute="trailing" id="feq-cp-EBN"/>
+                            <constraint firstItem="e3n-Wy-eZA" firstAttribute="trailing" secondItem="Ctl-jf-sGr" secondAttribute="trailing" id="om1-F3-eob"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="usernameField" destination="yiF-oo-OPc" id="xhf-cV-eoa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l46-3X-CHN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.98550724637681" y="823.66071428571422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="login/login-bg" width="375" height="810"/>
+        <image name="login/login-logo" width="96" height="96"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -17,8 +17,29 @@
 		C61DD486251AFEEC006546DF /* ArventaWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD46B251AFBA4006546DF /* ArventaWeb.swift */; };
 		C61DD48A251AFF4E006546DF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD478251AFC64006546DF /* Extensions.swift */; };
 		C61DD48B251AFF4E006546DF /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD47D251AFCA3006546DF /* Helpers.swift */; };
+		C61DD4BE251B1DD3006546DF /* FloatingPlaceholderField.xib in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4BD251B1DD3006546DF /* FloatingPlaceholderField.xib */; };
+		C61DD4E1251B1FC2006546DF /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D6251B1FB9006546DF /* Lato-BlackItalic.ttf */; };
+		C61DD4E2251B1FC2006546DF /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4DF251B1FBE006546DF /* Lato-Light.ttf */; };
+		C61DD4E3251B1FC2006546DF /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D8251B1FBA006546DF /* Lato-LightItalic.ttf */; };
+		C61DD4E4251B1FC2006546DF /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D0251B1FB6006546DF /* Lato-Italic.ttf */; };
+		C61DD4E5251B1FC2006546DF /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D7251B1FBA006546DF /* Lato-Hairline.ttf */; };
+		C61DD4E6251B1FC2006546DF /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4DA251B1FBB006546DF /* Lato-MediumItalic.ttf */; };
+		C61DD4E7251B1FC2006546DF /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D5251B1FB9006546DF /* Lato-Semibold.ttf */; };
+		C61DD4E8251B1FC2006546DF /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D1251B1FB7006546DF /* Lato-ThinItalic.ttf */; };
+		C61DD4E9251B1FC2006546DF /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D4251B1FB8006546DF /* Lato-Bold.ttf */; };
+		C61DD4EA251B1FC2006546DF /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D2251B1FB7006546DF /* Lato-HairlineItalic.ttf */; };
+		C61DD4EB251B1FC2006546DF /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4E0251B1FBE006546DF /* Lato-Medium.ttf */; };
+		C61DD4EC251B1FC2006546DF /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4DD251B1FBD006546DF /* Lato-Black.ttf */; };
+		C61DD4ED251B1FC2006546DF /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4DE251B1FBD006546DF /* Lato-BoldItalic.ttf */; };
+		C61DD4EE251B1FC2006546DF /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4DC251B1FBC006546DF /* Lato-Regular.ttf */; };
+		C61DD4EF251B1FC2006546DF /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D9251B1FBB006546DF /* Lato-Heavy.ttf */; };
+		C61DD4F0251B1FC2006546DF /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4CF251B1FB6006546DF /* Lato-Thin.ttf */; };
+		C61DD4F1251B1FC2006546DF /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D3251B1FB8006546DF /* Lato-SemiboldItalic.ttf */; };
+		C61DD4F2251B1FC2006546DF /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4DB251B1FBC006546DF /* Lato-HeavyItalic.ttf */; };
+		C61DD4F7251B1FD5006546DF /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD4F6251B1FD5006546DF /* LandingViewController.swift */; };
+		C61DD4FF251B20F0006546DF /* FloatingPlaceholderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD4FE251B20F0006546DF /* FloatingPlaceholderField.swift */; };
+		C6AFA5A0251B391C003551B4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AFA59F251B391C003551B4 /* SignInViewController.swift */; };
 		C6D3312A2519FEAB003DD32D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D331292519FEAB003DD32D /* AppDelegate.swift */; };
-		C6D3312E2519FEAB003DD32D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3312D2519FEAB003DD32D /* ViewController.swift */; };
 		C6D331312519FEAB003DD32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D3312F2519FEAB003DD32D /* Main.storyboard */; };
 		C6D331342519FEAB003DD32D /* Arventa_Connect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6D331322519FEAB003DD32D /* Arventa_Connect.xcdatamodeld */; };
 		C6D331362519FEAD003DD32D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D331352519FEAD003DD32D /* Assets.xcassets */; };
@@ -57,9 +78,30 @@
 		C61DD473251AFBF1006546DF /* ArventaWeb+Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArventaWeb+Endpoint.swift"; sourceTree = "<group>"; };
 		C61DD478251AFC64006546DF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C61DD47D251AFCA3006546DF /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		C61DD4BD251B1DD3006546DF /* FloatingPlaceholderField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingPlaceholderField.xib; sourceTree = "<group>"; };
+		C61DD4CF251B1FB6006546DF /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		C61DD4D0251B1FB6006546DF /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		C61DD4D1251B1FB7006546DF /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C61DD4D2251B1FB7006546DF /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		C61DD4D3251B1FB8006546DF /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		C61DD4D4251B1FB8006546DF /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		C61DD4D5251B1FB9006546DF /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		C61DD4D6251B1FB9006546DF /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C61DD4D7251B1FBA006546DF /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		C61DD4D8251B1FBA006546DF /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		C61DD4D9251B1FBB006546DF /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		C61DD4DA251B1FBB006546DF /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C61DD4DB251B1FBC006546DF /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		C61DD4DC251B1FBC006546DF /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		C61DD4DD251B1FBD006546DF /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		C61DD4DE251B1FBD006546DF /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C61DD4DF251B1FBE006546DF /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		C61DD4E0251B1FBE006546DF /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
+		C61DD4F6251B1FD5006546DF /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		C61DD4FE251B20F0006546DF /* FloatingPlaceholderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPlaceholderField.swift; sourceTree = "<group>"; };
+		C6AFA59F251B391C003551B4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C6D331262519FEAB003DD32D /* Arventa Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Arventa Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D331292519FEAB003DD32D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C6D3312D2519FEAB003DD32D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6D331302519FEAB003DD32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6D331332519FEAB003DD32D /* Arventa_Connect.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Arventa_Connect.xcdatamodel; sourceTree = "<group>"; };
 		C6D331352519FEAD003DD32D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				C6D3312F2519FEAB003DD32D /* Main.storyboard */,
+				C6D331372519FEAD003DD32D /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -156,8 +199,53 @@
 		C61DD494251B12FA006546DF /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C61DD4F6251B1FD5006546DF /* LandingViewController.swift */,
+				C6AFA59F251B391C003551B4 /* SignInViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C61DD4BC251B1D9E006546DF /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				C61DD4BD251B1DD3006546DF /* FloatingPlaceholderField.xib */,
+				C61DD4FE251B20F0006546DF /* FloatingPlaceholderField.swift */,
+			);
+			path = XIB;
+			sourceTree = "<group>";
+		};
+		C61DD4C2251B1EFE006546DF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C61DD4CE251B1FAD006546DF /* Fonts */,
+				C6D331352519FEAD003DD32D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C61DD4CE251B1FAD006546DF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C61DD4DD251B1FBD006546DF /* Lato-Black.ttf */,
+				C61DD4D6251B1FB9006546DF /* Lato-BlackItalic.ttf */,
+				C61DD4D4251B1FB8006546DF /* Lato-Bold.ttf */,
+				C61DD4DE251B1FBD006546DF /* Lato-BoldItalic.ttf */,
+				C61DD4D7251B1FBA006546DF /* Lato-Hairline.ttf */,
+				C61DD4D2251B1FB7006546DF /* Lato-HairlineItalic.ttf */,
+				C61DD4D9251B1FBB006546DF /* Lato-Heavy.ttf */,
+				C61DD4DB251B1FBC006546DF /* Lato-HeavyItalic.ttf */,
+				C61DD4D0251B1FB6006546DF /* Lato-Italic.ttf */,
+				C61DD4DF251B1FBE006546DF /* Lato-Light.ttf */,
+				C61DD4D8251B1FBA006546DF /* Lato-LightItalic.ttf */,
+				C61DD4E0251B1FBE006546DF /* Lato-Medium.ttf */,
+				C61DD4DA251B1FBB006546DF /* Lato-MediumItalic.ttf */,
+				C61DD4DC251B1FBC006546DF /* Lato-Regular.ttf */,
+				C61DD4D5251B1FB9006546DF /* Lato-Semibold.ttf */,
+				C61DD4D3251B1FB8006546DF /* Lato-SemiboldItalic.ttf */,
+				C61DD4CF251B1FB6006546DF /* Lato-Thin.ttf */,
+				C61DD4D1251B1FB7006546DF /* Lato-ThinItalic.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		C6D3311D2519FEAB003DD32D = {
@@ -186,12 +274,11 @@
 			isa = PBXGroup;
 			children = (
 				C61DD469251AFB3E006546DF /* Core */,
+				C61DD4C2251B1EFE006546DF /* Resources */,
 				C61DD468251AFB32006546DF /* Storyboards */,
 				C61DD494251B12FA006546DF /* View Controllers */,
+				C61DD4BC251B1D9E006546DF /* XIB */,
 				C6D331292519FEAB003DD32D /* AppDelegate.swift */,
-				C6D3312D2519FEAB003DD32D /* ViewController.swift */,
-				C6D331352519FEAD003DD32D /* Assets.xcassets */,
-				C6D331372519FEAD003DD32D /* LaunchScreen.storyboard */,
 				C6D3313A2519FEAD003DD32D /* Info.plist */,
 				C6D331322519FEAB003DD32D /* Arventa_Connect.xcdatamodeld */,
 			);
@@ -324,9 +411,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61DD4BE251B1DD3006546DF /* FloatingPlaceholderField.xib in Resources */,
+				C61DD4EF251B1FC2006546DF /* Lato-Heavy.ttf in Resources */,
+				C61DD4E8251B1FC2006546DF /* Lato-ThinItalic.ttf in Resources */,
 				C6D331392519FEAD003DD32D /* LaunchScreen.storyboard in Resources */,
+				C61DD4E7251B1FC2006546DF /* Lato-Semibold.ttf in Resources */,
+				C61DD4EC251B1FC2006546DF /* Lato-Black.ttf in Resources */,
+				C61DD4EA251B1FC2006546DF /* Lato-HairlineItalic.ttf in Resources */,
+				C61DD4ED251B1FC2006546DF /* Lato-BoldItalic.ttf in Resources */,
+				C61DD4E1251B1FC2006546DF /* Lato-BlackItalic.ttf in Resources */,
+				C61DD4E9251B1FC2006546DF /* Lato-Bold.ttf in Resources */,
+				C61DD4E2251B1FC2006546DF /* Lato-Light.ttf in Resources */,
 				C6D331362519FEAD003DD32D /* Assets.xcassets in Resources */,
+				C61DD4E5251B1FC2006546DF /* Lato-Hairline.ttf in Resources */,
+				C61DD4EB251B1FC2006546DF /* Lato-Medium.ttf in Resources */,
+				C61DD4EE251B1FC2006546DF /* Lato-Regular.ttf in Resources */,
 				C6D331312519FEAB003DD32D /* Main.storyboard in Resources */,
+				C61DD4F2251B1FC2006546DF /* Lato-HeavyItalic.ttf in Resources */,
+				C61DD4E4251B1FC2006546DF /* Lato-Italic.ttf in Resources */,
+				C61DD4F0251B1FC2006546DF /* Lato-Thin.ttf in Resources */,
+				C61DD4E3251B1FC2006546DF /* Lato-LightItalic.ttf in Resources */,
+				C61DD4E6251B1FC2006546DF /* Lato-MediumItalic.ttf in Resources */,
+				C61DD4F1251B1FC2006546DF /* Lato-SemiboldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,10 +560,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6D3312E2519FEAB003DD32D /* ViewController.swift in Sources */,
+				C61DD4FF251B20F0006546DF /* FloatingPlaceholderField.swift in Sources */,
 				C61DD47E251AFCA3006546DF /* Helpers.swift in Sources */,
+				C61DD4F7251B1FD5006546DF /* LandingViewController.swift in Sources */,
 				C61DD479251AFC64006546DF /* Extensions.swift in Sources */,
 				C6D3312A2519FEAB003DD32D /* AppDelegate.swift in Sources */,
+				C6AFA5A0251B391C003551B4 /* SignInViewController.swift in Sources */,
 				C61DD474251AFBF1006546DF /* ArventaWeb+Endpoint.swift in Sources */,
 				C61DD46C251AFBA4006546DF /* ArventaWeb.swift in Sources */,
 				C6D331342519FEAB003DD32D /* Arventa_Connect.xcdatamodeld in Sources */,
@@ -650,10 +758,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect.Arventa-Connect";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -672,10 +780,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect.Arventa-Connect";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -16,6 +16,7 @@ target 'Arventa Connect' do
   pod 'IBAnimatable'
   pod 'IQKeyboardManagerSwift'
   pod 'MBProgressHUD'
+  pod 'SideMenu'
   
   # Firebase
   pod 'Firebase/Analytics'
