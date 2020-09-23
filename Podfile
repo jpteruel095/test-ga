@@ -17,6 +17,7 @@ target 'Arventa Connect' do
   pod 'IQKeyboardManagerSwift'
   pod 'MBProgressHUD'
   pod 'SideMenu'
+  pod 'JVFloatLabeledTextField'
   
   # Firebase
   pod 'Firebase/Analytics'

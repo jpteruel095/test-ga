@@ -62,13 +62,6 @@ class Arventa_ConnectTests: XCTestCase {
         XCTAssertEqual(Helpers.makeOfflineError().localizedDescription, "You are currently offline.")
     }
     
-    func testAppDelegate() throws{
-        let delegate = AppDelegate()
-        XCTAssertTrue(delegate.application(UIApplication.shared, didFinishLaunchingWithOptions: nil))
-        XCTAssertEqual(delegate.persistentContainer.name, "Arventa_Connect")
-        XCTAssertNoThrow(delegate.saveContext())
-    }
-    
     func testExtensions() throws{
         let testString = """
               This is a test string
@@ -99,13 +92,5 @@ class Arventa_ConnectTests: XCTestCase {
         
         field.text = " 5 "
         XCTAssertEqual(field.parsedInteger, 5)
-        
-        let dict = ["name": "Pat", "age": "25"]
-        XCTAssertEqual(dict.toJSONString(), """
-        {
-          "name" : "Pat",
-          "age" : "25"
-        }
-        """.trimmed)
     }
 }

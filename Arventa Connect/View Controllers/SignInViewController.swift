@@ -6,25 +6,38 @@
 //
 
 import UIKit
+import JVFloatLabeledTextField
 
-class SignInViewController: UIViewController {
-    @IBOutlet weak var usernameField: FloatingPlaceholderField!
-    @IBOutlet weak var passwordField: FloatingPlaceholderField!
+class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
+    @IBOutlet weak var usernameField: JVFloatLabeledTextField!
+    @IBOutlet weak var passwordField: JVFloatLabeledTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    
+    @IBAction func didTapLogin(_ sender: Any) {
+        guard let username = usernameField.nullableTrimmmedText else{
+            self.showInvalidInputMessageAlert(message: "Username must not be empty.")
+            return
+        }
+        
+        guard let password = passwordField.nullableTrimmmedText else{
+            self.showInvalidInputMessageAlert(message: "Password must not be empty.")
+            return
+        }
+        
+//        self.showHUD()
+//        ArventaWeb.shared.getSomething
+        self.performSegue(withIdentifier: "showVerificationView", sender: sender)
+    }
 }
 
-extension SignInViewController: FloatingPlaceholderFieldDelegate{
-    func fieldEditingChanged(_ field: FloatingPlaceholderField) {
-        
-    }
-    func fieldShouldReturn(_ field: FloatingPlaceholderField) -> Bool {
-        field.textField.resignFirstResponder()
+extension SignInViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
 }

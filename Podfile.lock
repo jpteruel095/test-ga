@@ -71,6 +71,7 @@ PODS:
     - GoogleUtilities/Logger
   - IBAnimatable (6.1.0)
   - IQKeyboardManagerSwift (6.5.5)
+  - JVFloatLabeledTextField (1.2.2)
   - MBProgressHUD (1.2.0)
   - nanopb (1.30905.0):
     - nanopb/decode (= 1.30905.0)
@@ -90,6 +91,7 @@ DEPENDENCIES:
   - Firebase/Crashlytics
   - IBAnimatable
   - IQKeyboardManagerSwift
+  - JVFloatLabeledTextField
   - MBProgressHUD
   - ObjectMapper
   - ReachabilitySwift
@@ -112,6 +114,7 @@ SPEC REPOS:
     - GoogleUtilities
     - IBAnimatable
     - IQKeyboardManagerSwift
+    - JVFloatLabeledTextField
     - MBProgressHUD
     - nanopb
     - ObjectMapper
@@ -135,6 +138,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
   IBAnimatable: 99dddd4c0625884a301ba3ecbc1615f8a390368e
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  JVFloatLabeledTextField: df48598472ee015701d509f43e59492a0d4ca208
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -144,6 +148,6 @@ SPEC CHECKSUMS:
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 71ec2a8ca6b520d646e584497137b3d5289d04ca
+PODFILE CHECKSUM: e74ffeb8ed39e83e11adff6779ddbee96dca8e43
 
 COCOAPODS: 1.9.3
