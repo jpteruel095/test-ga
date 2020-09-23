@@ -73,6 +73,25 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="UZh-Oi-G2a"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Username"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tRP-ZB-7nn" id="xIt-fB-ToY"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLD-M8-UAD" customClass="FloatingPlaceholderField" customModule="Arventa_Connect" customModuleProvider="target">
+                                                <rect key="frame" x="18" y="418.5" width="378" height="48"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="P42-lm-F7c"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tRP-ZB-7nn" id="9kU-24-IpI"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -81,11 +100,14 @@
                                             <constraint firstItem="tDf-YV-3NW" firstAttribute="centerX" secondItem="k5S-52-KI3" secondAttribute="centerX" id="CKi-YS-TlY"/>
                                             <constraint firstItem="tDf-YV-3NW" firstAttribute="top" secondItem="KCv-Mk-ZEB" secondAttribute="bottom" id="IHH-eq-b1Z"/>
                                             <constraint firstItem="yiF-oo-OPc" firstAttribute="leading" secondItem="k5S-52-KI3" secondAttribute="leading" constant="18" id="Jtj-j8-MdA"/>
+                                            <constraint firstAttribute="trailing" secondItem="sLD-M8-UAD" secondAttribute="trailing" constant="18" id="TRv-FZ-u6Q"/>
                                             <constraint firstItem="yiF-oo-OPc" firstAttribute="top" secondItem="j8f-EL-aNA" secondAttribute="bottom" constant="96" id="ZAL-y7-HAc"/>
                                             <constraint firstItem="KCv-Mk-ZEB" firstAttribute="centerX" secondItem="k5S-52-KI3" secondAttribute="centerX" id="Zmw-mA-KM5"/>
                                             <constraint firstAttribute="height" constant="500" id="hDx-On-3nx"/>
                                             <constraint firstItem="j8f-EL-aNA" firstAttribute="centerX" secondItem="k5S-52-KI3" secondAttribute="centerX" id="itl-fM-g5M"/>
                                             <constraint firstItem="j8f-EL-aNA" firstAttribute="top" secondItem="tDf-YV-3NW" secondAttribute="bottom" constant="10" id="jes-iz-C6v"/>
+                                            <constraint firstItem="sLD-M8-UAD" firstAttribute="leading" secondItem="k5S-52-KI3" secondAttribute="leading" constant="18" id="ltu-qm-z0l"/>
+                                            <constraint firstItem="sLD-M8-UAD" firstAttribute="top" secondItem="yiF-oo-OPc" secondAttribute="bottom" constant="16" id="mr7-b3-aF8"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -115,6 +137,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="passwordField" destination="sLD-M8-UAD" id="mfN-6v-VE5"/>
                         <outlet property="usernameField" destination="yiF-oo-OPc" id="xhf-cV-eoa"/>
                     </connections>
                 </viewController>

@@ -7,22 +7,14 @@
 
 import UIKit
 
-protocol FloatingPlaceholderFieldDelegate{
-    func fieldDidBeginEditing(_ field: FloatingPlaceholderField)
-    func fieldDidEndEditing(_ field: FloatingPlaceholderField)
-    func fieldEditingChanged(_ field: FloatingPlaceholderField)
-    func fieldShouldReturn(_ field: FloatingPlaceholderField) -> Bool
+@objc protocol FloatingPlaceholderFieldDelegate{
+    @objc optional func fieldDidBeginEditing(_ field: FloatingPlaceholderField)
+    @objc optional func fieldDidEndEditing(_ field: FloatingPlaceholderField)
+    @objc optional func fieldEditingChanged(_ field: FloatingPlaceholderField)
+    @objc optional func fieldShouldReturn(_ field: FloatingPlaceholderField) -> Bool
 }
 
-extension FloatingPlaceholderFieldDelegate{
-    func fieldDidBeginEditing(_ field: FloatingPlaceholderField){}
-    func fieldDidEndEditing(_ field: FloatingPlaceholderField){}
-    func fieldEditingChanged(_ field: FloatingPlaceholderField){}
-    func fieldShouldReturn(_ field: FloatingPlaceholderField) -> Bool{return true}
-}
-
-@IBDesignable
-final class FloatingPlaceholderField: UIView{
+class FloatingPlaceholderField: UIView{
     @IBOutlet weak var textField: UITextField!
     
     @IBOutlet weak var floatingPlaceholderLabel: UILabel!
@@ -31,7 +23,7 @@ final class FloatingPlaceholderField: UIView{
     private let nibName = "FloatingPlaceholderField"
     private var placeholderLabel: UILabel?
     
-    var delegate: FloatingPlaceholderFieldDelegate?
+    @IBOutlet var delegate: FloatingPlaceholderFieldDelegate?
     
     var contentView: UIView?
     var isFloating = false
@@ -47,11 +39,23 @@ final class FloatingPlaceholderField: UIView{
         }
     }
     
+    @IBInspectable
+    var placeholder: String?{
+        get{
+            return placeholderLabel?.text
+        }set{
+            largePlaceholderLabel.text = newValue
+            floatingPlaceholderLabel.text = newValue
+            placeholderLabel?.text = newValue
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         loadViewFromNib()
     }
+    
     func loadViewFromNib() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName, bundle: bundle)
@@ -60,12 +64,13 @@ final class FloatingPlaceholderField: UIView{
         view.frame = self.bounds
         
         //add here?
-        let label = UILabel(frame: largePlaceholderLabel.frame)
-        view.addSubview(label)
+        let label = UILabel(frame: .zero)
         label.text = largePlaceholderLabel.text
         label.font = largePlaceholderLabel.font
         label.textColor = largePlaceholderLabel.textColor
         label.sizeToFit()
+        view.addSubview(label)
+        label.center = largePlaceholderLabel.center
         placeholderLabel = label
         
         self.addSubview(view)
@@ -75,6 +80,11 @@ final class FloatingPlaceholderField: UIView{
     override func awakeFromNib() {
         textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        
+        layoutSubviews()
+        isFloating = true
+        toggleFloatingLabel()
+        layoutIfNeeded()
     }
     
     func toggleFloatingLabel(){
@@ -86,7 +96,8 @@ final class FloatingPlaceholderField: UIView{
             isFloating = true
             UIView.animate(withDuration: 0.25) {
                 self.placeholderLabel?.font = self.floatingPlaceholderLabel.font
-                self.placeholderLabel?.frame = self.floatingPlaceholderLabel.frame
+                self.placeholderLabel?.sizeToFit()
+                self.placeholderLabel?.center = self.floatingPlaceholderLabel.center
             }
         }else{
             if !isFloating{
@@ -96,7 +107,8 @@ final class FloatingPlaceholderField: UIView{
             isFloating = false
             UIView.animate(withDuration: 0.25) {
                 self.placeholderLabel?.font = self.largePlaceholderLabel.font
-                self.placeholderLabel?.frame = self.largePlaceholderLabel.frame
+                self.placeholderLabel?.sizeToFit()
+                self.placeholderLabel?.center = self.largePlaceholderLabel.center
             }
         }
     }
@@ -109,22 +121,22 @@ final class FloatingPlaceholderField: UIView{
 extension FloatingPlaceholderField: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.toggleFloatingLabel()
-        delegate?.fieldDidBeginEditing(self)
+        delegate?.fieldDidBeginEditing?(self)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.toggleFloatingLabel()
-        delegate?.fieldDidEndEditing(self)
+        delegate?.fieldDidEndEditing?(self)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let delegate = delegate{
-            return delegate.fieldShouldReturn(self)
+            return delegate.fieldShouldReturn?(self) ?? true
         }
         return true
     }
     
     @objc func textFieldEditingChanged(_ textField: UITextField){
-        delegate?.fieldEditingChanged(self)
+        delegate?.fieldEditingChanged?(self)
     }
 }
