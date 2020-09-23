@@ -17,7 +17,6 @@
 		C61DD486251AFEEC006546DF /* ArventaWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD46B251AFBA4006546DF /* ArventaWeb.swift */; };
 		C61DD48A251AFF4E006546DF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD478251AFC64006546DF /* Extensions.swift */; };
 		C61DD48B251AFF4E006546DF /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD47D251AFCA3006546DF /* Helpers.swift */; };
-		C61DD490251B0123006546DF /* TestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C61DD48F251B0123006546DF /* TestVC.xib */; };
 		C6D3312A2519FEAB003DD32D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D331292519FEAB003DD32D /* AppDelegate.swift */; };
 		C6D3312E2519FEAB003DD32D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3312D2519FEAB003DD32D /* ViewController.swift */; };
 		C6D331312519FEAB003DD32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D3312F2519FEAB003DD32D /* Main.storyboard */; };
@@ -58,7 +57,6 @@
 		C61DD473251AFBF1006546DF /* ArventaWeb+Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArventaWeb+Endpoint.swift"; sourceTree = "<group>"; };
 		C61DD478251AFC64006546DF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C61DD47D251AFCA3006546DF /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		C61DD48F251B0123006546DF /* TestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestVC.xib; sourceTree = "<group>"; };
 		C6D331262519FEAB003DD32D /* Arventa Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Arventa Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D331292519FEAB003DD32D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6D3312D2519FEAB003DD32D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +153,13 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		C61DD494251B12FA006546DF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		C6D3311D2519FEAB003DD32D = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +187,7 @@
 			children = (
 				C61DD469251AFB3E006546DF /* Core */,
 				C61DD468251AFB32006546DF /* Storyboards */,
+				C61DD494251B12FA006546DF /* View Controllers */,
 				C6D331292519FEAB003DD32D /* AppDelegate.swift */,
 				C6D3312D2519FEAB003DD32D /* ViewController.swift */,
 				C6D331352519FEAD003DD32D /* Assets.xcassets */,
@@ -197,7 +203,6 @@
 			children = (
 				C6D331432519FEAD003DD32D /* Arventa_ConnectTests.swift */,
 				C6D331452519FEAD003DD32D /* Info.plist */,
-				C61DD48F251B0123006546DF /* TestVC.xib */,
 			);
 			path = "Arventa ConnectTests";
 			sourceTree = "<group>";
@@ -329,7 +334,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C61DD490251B0123006546DF /* TestVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

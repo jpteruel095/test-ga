@@ -28,7 +28,7 @@ class Arventa_ConnectTests: XCTestCase {
         XCTAssertNotNil(ArventaWeb.shared.reachability)
         XCTAssertTrue(ArventaWeb.Endpoint.login.isGuest)
         XCTAssert(ArventaWeb.Endpoint.login.httpMethod == .post)
-        ArventaWeb.Endpoint.login.request()
+        XCTAssertNoThrow(ArventaWeb.Endpoint.login.request())
     }
     
     func testHelpers() throws{
@@ -58,5 +58,14 @@ class Arventa_ConnectTests: XCTestCase {
         
         XCTAssertEqual(actionSheet.title, "Test Sheet")
         XCTAssertEqual(actionSheet.actions.count, 4)
+        
+        XCTAssertEqual(Helpers.makeOfflineError().localizedDescription, "You are currently offline.")
+    }
+    
+    func testAppDelegate() throws{
+        let delegate = AppDelegate()
+        XCTAssertTrue(delegate.application(UIApplication.shared, didFinishLaunchingWithOptions: nil))
+        XCTAssertEqual(delegate.persistentContainer.name, "Arventa_Connect")
+        XCTAssertNoThrow(delegate.saveContext())
     }
 }
