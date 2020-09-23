@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		74CDD6D98EF8FCE52D46BD6A /* Pods_Arventa_Connect_Arventa_ConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF879205325117C5F78B1661 /* Pods_Arventa_Connect_Arventa_ConnectUITests.framework */; };
 		7A45EF1C02BDDE1078D655E4 /* Pods_Arventa_ConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFB63A154AEAF5B4E32647D /* Pods_Arventa_ConnectTests.framework */; };
+		C61DD46C251AFBA4006546DF /* ArventaWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD46B251AFBA4006546DF /* ArventaWeb.swift */; };
+		C61DD474251AFBF1006546DF /* ArventaWeb+Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD473251AFBF1006546DF /* ArventaWeb+Endpoint.swift */; };
+		C61DD479251AFC64006546DF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD478251AFC64006546DF /* Extensions.swift */; };
+		C61DD47E251AFCA3006546DF /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD47D251AFCA3006546DF /* Helpers.swift */; };
+		C61DD482251AFEE9006546DF /* ArventaWeb+Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD473251AFBF1006546DF /* ArventaWeb+Endpoint.swift */; };
+		C61DD486251AFEEC006546DF /* ArventaWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD46B251AFBA4006546DF /* ArventaWeb.swift */; };
+		C61DD48A251AFF4E006546DF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD478251AFC64006546DF /* Extensions.swift */; };
+		C61DD48B251AFF4E006546DF /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD47D251AFCA3006546DF /* Helpers.swift */; };
+		C61DD490251B0123006546DF /* TestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C61DD48F251B0123006546DF /* TestVC.xib */; };
 		C6D3312A2519FEAB003DD32D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D331292519FEAB003DD32D /* AppDelegate.swift */; };
 		C6D3312E2519FEAB003DD32D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3312D2519FEAB003DD32D /* ViewController.swift */; };
 		C6D331312519FEAB003DD32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D3312F2519FEAB003DD32D /* Main.storyboard */; };
@@ -45,6 +54,11 @@
 		6CFB63A154AEAF5B4E32647D /* Pods_Arventa_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arventa_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D47AF189A6AB72E36A3650B /* Pods-Arventa Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arventa Connect.debug.xcconfig"; path = "Target Support Files/Pods-Arventa Connect/Pods-Arventa Connect.debug.xcconfig"; sourceTree = "<group>"; };
 		BF879205325117C5F78B1661 /* Pods_Arventa_Connect_Arventa_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arventa_Connect_Arventa_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61DD46B251AFBA4006546DF /* ArventaWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArventaWeb.swift; sourceTree = "<group>"; };
+		C61DD473251AFBF1006546DF /* ArventaWeb+Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArventaWeb+Endpoint.swift"; sourceTree = "<group>"; };
+		C61DD478251AFC64006546DF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C61DD47D251AFCA3006546DF /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		C61DD48F251B0123006546DF /* TestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestVC.xib; sourceTree = "<group>"; };
 		C6D331262519FEAB003DD32D /* Arventa Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Arventa Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D331292519FEAB003DD32D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6D3312D2519FEAB003DD32D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +128,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C61DD468251AFB32006546DF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C6D3312F2519FEAB003DD32D /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C61DD469251AFB3E006546DF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C61DD46A251AFB72006546DF /* API */,
+				C61DD478251AFC64006546DF /* Extensions.swift */,
+				C61DD47D251AFCA3006546DF /* Helpers.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C61DD46A251AFB72006546DF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C61DD46B251AFBA4006546DF /* ArventaWeb.swift */,
+				C61DD473251AFBF1006546DF /* ArventaWeb+Endpoint.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		C6D3311D2519FEAB003DD32D = {
 			isa = PBXGroup;
 			children = (
@@ -139,9 +180,10 @@
 		C6D331282519FEAB003DD32D /* Arventa Connect */ = {
 			isa = PBXGroup;
 			children = (
+				C61DD469251AFB3E006546DF /* Core */,
+				C61DD468251AFB32006546DF /* Storyboards */,
 				C6D331292519FEAB003DD32D /* AppDelegate.swift */,
 				C6D3312D2519FEAB003DD32D /* ViewController.swift */,
-				C6D3312F2519FEAB003DD32D /* Main.storyboard */,
 				C6D331352519FEAD003DD32D /* Assets.xcassets */,
 				C6D331372519FEAD003DD32D /* LaunchScreen.storyboard */,
 				C6D3313A2519FEAD003DD32D /* Info.plist */,
@@ -155,6 +197,7 @@
 			children = (
 				C6D331432519FEAD003DD32D /* Arventa_ConnectTests.swift */,
 				C6D331452519FEAD003DD32D /* Info.plist */,
+				C61DD48F251B0123006546DF /* TestVC.xib */,
 			);
 			path = "Arventa ConnectTests";
 			sourceTree = "<group>";
@@ -286,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61DD490251B0123006546DF /* TestVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +451,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6D3312E2519FEAB003DD32D /* ViewController.swift in Sources */,
+				C61DD47E251AFCA3006546DF /* Helpers.swift in Sources */,
+				C61DD479251AFC64006546DF /* Extensions.swift in Sources */,
 				C6D3312A2519FEAB003DD32D /* AppDelegate.swift in Sources */,
+				C61DD474251AFBF1006546DF /* ArventaWeb+Endpoint.swift in Sources */,
+				C61DD46C251AFBA4006546DF /* ArventaWeb.swift in Sources */,
 				C6D331342519FEAB003DD32D /* Arventa_Connect.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,7 +464,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61DD486251AFEEC006546DF /* ArventaWeb.swift in Sources */,
 				C6D331442519FEAD003DD32D /* Arventa_ConnectTests.swift in Sources */,
+				C61DD482251AFEE9006546DF /* ArventaWeb+Endpoint.swift in Sources */,
+				C61DD48B251AFF4E006546DF /* Helpers.swift in Sources */,
+				C61DD48A251AFF4E006546DF /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
