@@ -68,4 +68,44 @@ class Arventa_ConnectTests: XCTestCase {
         XCTAssertEqual(delegate.persistentContainer.name, "Arventa_Connect")
         XCTAssertNoThrow(delegate.saveContext())
     }
+    
+    func testExtensions() throws{
+        let testString = """
+              This is a test string
+
+
+        """
+
+        XCTAssertEqual(testString.trimmed, "This is a test string")
+        XCTAssertNotNil(testString.nullableTrimmed)
+        XCTAssertNil("       ".nullableTrimmed)
+        XCTAssertNotNil("11/12/1995".toDate(withFormat: "MM/dd/yyyy"))
+        XCTAssertNil("11/12/1995".toDate())
+        XCTAssertEqual("This is a test string for 21 days".convertedToSlug(), "this-is-a-test-string-for-21-days")
+        XCTAssertTrue("test@rogomi.com".isValidEmail())
+        XCTAssertFalse("usern12345".isValidEmail())
+        
+        let field = UITextField()
+        
+        field.text = "     1 Test string      "
+        XCTAssertEqual(field.trimmedText, "1 Test string")
+        XCTAssertNotNil(field.nullableTrimmmedText)
+        
+        field.text = "        "
+        XCTAssertNil(field.nullableTrimmmedText)
+        
+        field.text = " One "
+        XCTAssertNil(field.parsedInteger)
+        
+        field.text = " 5 "
+        XCTAssertEqual(field.parsedInteger, 5)
+        
+        let dict = ["name": "Pat", "age": "25"]
+        XCTAssertEqual(dict.toJSONString(), """
+        {
+          "name" : "Pat",
+          "age" : "25"
+        }
+        """.trimmed)
+    }
 }

@@ -59,13 +59,6 @@ extension String{
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: self)
     }
-    
-    func isValidPHNumber() -> Bool {
-        let numberRegEx = "(\\+?\\d{2}?\\s?\\d{3}\\s?\\d{3}\\s?\\d{4})|([0]\\d{3}\\s?\\d{3}\\s?\\d{4})"
-
-        let numberPred = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
-        return numberPred.evaluate(with: self)
-    }
 }
 
 //Date Extension
@@ -292,37 +285,6 @@ extension NSMutableAttributedString {
     
 }
 
-extension Formatter {
-    static var withSeparator: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "fil_PH")
-        formatter.numberStyle = .currency
-        return formatter
-    }
-}
-
-extension Double{
-    func getAmountString(includesCurrencySymbol: Bool = false, customSymbol: String? = nil) -> String?{
-        let formatter = Formatter.withSeparator
-        
-        let currency = String(format: "%@ ", formatter.currencySymbol)
-        formatter.currencySymbol = ""
-        guard let amount = formatter.string(from: NSNumber(value: self)) else{
-            return nil
-        }
-        
-        if !includesCurrencySymbol{
-            return String(format: "%@", amount)
-        }else{
-            if let symbol = customSymbol{
-                return String(format: "%@ %@", symbol, amount)
-            }else{
-                return String(format: "%@%@", currency, amount)
-            }
-        }
-    }
-}
-
 extension UIStackView{
     func removeAllSubviews(permanently: Bool = true){
         arrangedSubviews.forEach { (view) in
@@ -338,7 +300,6 @@ extension UIStackView{
 }
 
 extension UIView {
-
     // Using a function since `var image` might conflict with an existing variable
     // (like on `UIImageView`)
     func asImage() -> UIImage? {
