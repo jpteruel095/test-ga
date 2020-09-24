@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>459490055868-hb8sao6nvrhivkuah6etnr34hmkd39bi.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.459490055868-hb8sao6nvrhivkuah6etnr34hmkd39bi</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCiZGvOeLB9yoq5r5-e8hqp2hHhN0FAO5o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>459490055868</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.arventa.tmp.connect</string>
+	<key>PROJECT_ID</key>
+	<string>arventa-connect</string>
+	<key>STORAGE_BUCKET</key>
+	<string>arventa-connect.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:459490055868:ios:385c8cc36d985632cda2b9</string>
+	<key>DATABASE_URL</key>
+	<string>https://arventa-connect.firebaseio.com</string>
+</dict>
+</plist>
