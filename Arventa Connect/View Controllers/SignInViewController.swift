@@ -46,6 +46,7 @@ class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
 extension SignInViewController{
     func signInTest(u: String, p: String) -> Bool{
         if u == "testaccount01" && p == "password123"{
+            User(JSON: [:])?.saveAsCurrentUser()
             self.dismiss(animated: true, completion: nil)
             return true
         }else if u == "testaccount02" && p == "password123"{

@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import Firebase
 import IQKeyboardManagerSwift
+import SideMenu
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()
+        ArventaInterface.shared.configure()
         return true
     }
 

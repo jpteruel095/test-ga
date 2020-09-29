@@ -93,6 +93,16 @@ extension ArventaViewDelegate where Self: UIViewController{
                        ])
     }
     
+    func willShowLogin() -> Bool{
+        if User.current == nil,
+           let signInNVC = StoryboardVC.main.viewController(forIdentifier: "signInNVC"){
+            signInNVC.modalPresentationStyle = .fullScreen
+            self.present(signInNVC, animated: true, completion: nil)
+            return true
+        }
+        return false
+    }
+    
     func willShowOfflineError() -> Bool{
         if ArventaWeb.shared.isOffline() {
             self.showErrorMessageAlert(error: Helpers.makeOfflineError())
