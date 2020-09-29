@@ -35,8 +35,14 @@ class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
             return
         }
         
+        self.showHUD()
         let request = SignInRequest(userName: username, password: password, app: selectedApp)
         ArventaInterface.shared.signIn(request: request) { (error) in
+            self.hideHUD()
+            if let error = error{
+                self.showErrorMessageAlert(error: error)
+                return
+            }
             //go to
             self.performSegue(withIdentifier: "showVerificationView", sender: sender)
         }

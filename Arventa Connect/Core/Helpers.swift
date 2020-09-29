@@ -74,11 +74,7 @@ struct Helpers{
     }
     
     static func makeOfflineError(code: Int = 0) -> Error{
-        NSError(domain: ArventaWeb.Constants.domainName,
-                       code: code,
-                       userInfo: [
-                        NSLocalizedDescriptionKey: "You are currently offline."
-                       ])
+        makeError(with: "You are currently offline.", code: code)
     }
     
     static func isOffline() -> Bool{

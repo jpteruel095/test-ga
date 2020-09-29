@@ -47,6 +47,7 @@
 		C64AEAAC252386CE00B3E187 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64AEAAB252386CE00B3E187 /* AppTheme.swift */; };
 		C64AEAB4252389E000B3E187 /* Interface+Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64AEAB3252389E000B3E187 /* Interface+Dashboard.swift */; };
 		C64AEAB925238F1700B3E187 /* LoginHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64AEAB825238F1700B3E187 /* LoginHistory.swift */; };
+		C64AEABE252397F100B3E187 /* Arventa_ConnectLoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64AEABD252397F100B3E187 /* Arventa_ConnectLoginUITest.swift */; };
 		C692AE082523439E00BDA109 /* ArventaInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692AE072523439E00BDA109 /* ArventaInterface.swift */; };
 		C692AE0B252343FB00BDA109 /* ArventaWeb+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692AE0A252343FB00BDA109 /* ArventaWeb+Auth.swift */; };
 		C692AE0D2523441200BDA109 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692AE0C2523441200BDA109 /* RequestProtocol.swift */; };
@@ -127,6 +128,7 @@
 		C64AEAAB252386CE00B3E187 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		C64AEAB3252389E000B3E187 /* Interface+Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface+Dashboard.swift"; sourceTree = "<group>"; };
 		C64AEAB825238F1700B3E187 /* LoginHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHistory.swift; sourceTree = "<group>"; };
+		C64AEABD252397F100B3E187 /* Arventa_ConnectLoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arventa_ConnectLoginUITest.swift; sourceTree = "<group>"; };
 		C692AE072523439E00BDA109 /* ArventaInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArventaInterface.swift; sourceTree = "<group>"; };
 		C692AE0A252343FB00BDA109 /* ArventaWeb+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArventaWeb+Auth.swift"; sourceTree = "<group>"; };
 		C692AE0C2523441200BDA109 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				C6D3314E2519FEAD003DD32D /* Arventa_ConnectUITests.swift */,
+				C64AEABD252397F100B3E187 /* Arventa_ConnectLoginUITest.swift */,
 				C6D331502519FEAD003DD32D /* Info.plist */,
 			);
 			path = "Arventa ConnectUITests";
@@ -704,6 +707,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64AEABE252397F100B3E187 /* Arventa_ConnectLoginUITest.swift in Sources */,
 				C6D3314F2519FEAD003DD32D /* Arventa_ConnectUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

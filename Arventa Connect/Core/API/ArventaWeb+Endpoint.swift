@@ -36,14 +36,6 @@ extension ArventaWeb{
             return URL(string: "\(ArventaWeb.Constants.host)\(self.path)")!
         }
     }
-
-    enum LaravelMethod: String{
-        typealias RawValue = String
-        
-        case patch = "patch"
-        case put = "put"
-        case delete = "delete"
-    }
 }
 
 // MARK: Endpoints Extension
@@ -313,8 +305,15 @@ extension ArventaWeb.Endpoint{
                     statusCode != 200{
                 print("Status \(statusCode)")
                 print(response)
+                
+                guard let json = try? JSON(response.result.get()),
+                      let code = json["code"].int,
+                      let message = json["message"].string else{
+                    completion?(nil, Helpers.makeError(with: "Unknown server error."))
+                    return
+                }
+                
                 if statusCode == 404{
-                    
                     return
                 }
                 else if statusCode == 401{
@@ -329,8 +328,13 @@ extension ArventaWeb.Endpoint{
                     
                 }
                 else if statusCode == 500{
-                    
+                    completion?(nil, Helpers.makeError(with: "The credentials you entered are not valid.",
+                                                       code: code))
+                    return
                 }
+                
+                completion?(nil, Helpers.makeError(with: message,
+                                                   code: code))
             }
             
             switch response.result{
