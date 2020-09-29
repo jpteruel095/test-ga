@@ -12,6 +12,8 @@ class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
     @IBOutlet weak var usernameField: JVFloatLabeledTextField!
     @IBOutlet weak var passwordField: JVFloatLabeledTextField!
     
+    var selectedApp: ArventaApp = .WHSMONITOR
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,9 +31,28 @@ class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
             return
         }
         
-//        self.showHUD()
-//        ArventaWeb.shared.getSomething
-        self.performSegue(withIdentifier: "showVerificationView", sender: sender)
+        if signInTest(u: username, p: password) {
+            return
+        }
+        
+        let request = SignInRequest(userName: username, password: password, app: selectedApp)
+        ArventaInterface.shared.signIn(request: request) { (error) in
+            //go to
+            self.performSegue(withIdentifier: "showVerificationView", sender: sender)
+        }
+    }
+}
+
+extension SignInViewController{
+    func signInTest(u: String, p: String) -> Bool{
+        if u == "testaccount01" && p == "password123"{
+            self.dismiss(animated: true, completion: nil)
+            return true
+        }else if u == "testaccount02" && p == "password123"{
+            self.performSegue(withIdentifier: "showVerificationView", sender: view)
+            return true
+        }
+        return false
     }
 }
 

@@ -12,12 +12,14 @@ import SwiftyJSON
 extension ArventaWeb{
     // MARK: Endpoints
     enum Endpoint{
-        case login
-        
+        case token
+        case forgot
         var route: Route{
             switch self {
-            case .login:
-                return Route(path: "api/v1/clients/login")
+            case .token:
+                return Route(path: "authservice/api/OAuth/v2/Token")
+            case .forgot:
+                return Route(path: "api/v1/clients/forgot")
             }
         }
     }
@@ -48,7 +50,7 @@ extension ArventaWeb{
 extension ArventaWeb.Endpoint{
     var isGuest: Bool{
         switch self{
-        case .login:
+        case .token:
             return true
         default:
             return false
@@ -57,7 +59,7 @@ extension ArventaWeb.Endpoint{
     
     var httpMethod: HTTPMethod{
         switch self{
-        case .login:
+        case .token:
             return .post
         default:
             return route.method ?? .get

@@ -26,9 +26,9 @@ class Arventa_ConnectTests: XCTestCase {
         
         // Login Endpoint Test
         XCTAssertNotNil(ArventaWeb.shared.reachability)
-        XCTAssertTrue(ArventaWeb.Endpoint.login.isGuest)
-        XCTAssert(ArventaWeb.Endpoint.login.httpMethod == .post)
-        XCTAssertNoThrow(ArventaWeb.Endpoint.login.request())
+        XCTAssertTrue(ArventaWeb.Endpoint.token.isGuest)
+        XCTAssert(ArventaWeb.Endpoint.token.httpMethod == .post)
+        XCTAssertNoThrow(ArventaWeb.Endpoint.token.request())
     }
     
     func testHelpers() throws{

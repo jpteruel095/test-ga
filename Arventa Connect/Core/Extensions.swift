@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftyJSON
+import SAMKeychain
 
 //String Extension
 extension String{
@@ -307,5 +308,43 @@ extension UIView {
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)
         }
+    }
+}
+
+extension StringProtocol {
+    subscript(offset: Int) -> Character { self[index(startIndex, offsetBy: offset)] }
+    subscript(range: Range<Int>) -> SubSequence {
+        let startIndex = index(self.startIndex, offsetBy: range.lowerBound)
+        return self[startIndex..<index(startIndex, offsetBy: range.count)]
+    }
+    subscript(range: ClosedRange<Int>) -> SubSequence {
+        let startIndex = index(self.startIndex, offsetBy: range.lowerBound)
+        return self[startIndex..<index(startIndex, offsetBy: range.count)]
+    }
+    subscript(range: PartialRangeFrom<Int>) -> SubSequence { self[index(startIndex, offsetBy: range.lowerBound)...] }
+    subscript(range: PartialRangeThrough<Int>) -> SubSequence { self[...index(startIndex, offsetBy: range.upperBound)] }
+    subscript(range: PartialRangeUpTo<Int>) -> SubSequence { self[..<index(startIndex, offsetBy: range.upperBound)] }
+}
+
+//Bundle Extension
+extension Bundle{
+    //Returns default bundle identifier
+    static var bundleID: String{
+        return Bundle.main.bundleIdentifier ?? "com.arventa.connect"
+    }
+}
+
+//UUID Extension
+extension UUID{
+    static var deviceUUID: String{
+        var finalUUID = ""
+        if let uuid = SAMKeychain.password(forService: Bundle.bundleID, account: Bundle.bundleID){
+            finalUUID = uuid
+        }else{
+            let uuid = UUID().uuidString
+            SAMKeychain.setPassword(uuid, forService: Bundle.bundleID, account: Bundle.bundleID)
+            finalUUID = uuid
+        }
+        return finalUUID
     }
 }
