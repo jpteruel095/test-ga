@@ -29,7 +29,10 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Arventa Connect.xctestplan"
+            reference = "container:Local.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:FirebaseTestlab.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

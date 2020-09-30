@@ -8,9 +8,6 @@
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Arventa Connect.xctestplan">
-   </FileRef>
-   <FileRef
       location = "group:Local.xctestplan">
    </FileRef>
    <FileRef
