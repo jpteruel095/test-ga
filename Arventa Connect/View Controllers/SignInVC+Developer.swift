@@ -150,6 +150,7 @@ extension SignInViewController{
                 self.usernameField.text = account.username
                 self.passwordField.text = account.password
                 self.selectedApp = account.app
+                self.appDropdownLabel.text = account.app.labelText
             }
         }
         actions.append(.cancelButton())

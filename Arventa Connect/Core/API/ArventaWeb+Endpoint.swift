@@ -155,10 +155,7 @@ extension ArventaWeb.Endpoint{
         //If the current request is a guest,
         // the header is not null
         guard let headers = headers else {
-            if let completion = completion{
-                completion(nil, Helpers.makeError(with: "Unauthorized access. Token may have expired."))
-                //must implement a force logout functionality here
-            }
+            completion?(nil, Helpers.makeError(with: "Unauthorized access. Token may have expired."))
             return
         }
         
@@ -240,10 +237,7 @@ extension ArventaWeb.Endpoint{
         //If the current request is a guest,
         // the header is not null
         guard let headers = headers else {
-            if let completion = completion{
-                completion(nil, Helpers.makeError(with: "Unauthorized access. Token may have expired."))
-                //must implement a force logout functionality here
-            }
+            completion?(nil, Helpers.makeError(with: "Unauthorized access. Token may have expired."))
             return
         }
         
@@ -345,7 +339,7 @@ extension ArventaWeb.Endpoint{
                     
                 }
                 else if statusCode == 500{
-                    completion?(nil, Helpers.makeError(with: "The credentials you entered are not valid.",
+                    completion?(nil, Helpers.makeError(with: message,
                                                        code: code))
                     return
                 }

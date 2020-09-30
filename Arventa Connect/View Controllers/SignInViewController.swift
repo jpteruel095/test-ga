@@ -9,6 +9,7 @@ import UIKit
 import JVFloatLabeledTextField
 
 class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
+    @IBOutlet weak var appDropdownLabel: UILabel!
     @IBOutlet weak var usernameField: JVFloatLabeledTextField!
     @IBOutlet weak var passwordField: JVFloatLabeledTextField!
     
@@ -18,6 +19,20 @@ class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        appDropdownLabel.text = selectedApp.labelText
+    }
+    
+    @IBAction func didTapAppDropdown(_ sender: Any) {
+        var actions = ArventaApp.allCases.map({ app in
+            UIAlertAction(title: app.labelText, style: .default) { (action) in
+                self.selectedApp = app
+                self.appDropdownLabel.text = app.labelText
+            }
+        })
+        actions.append(.cancelButton())
+        self.showActionSheet(title: "Which app would you like to log into?",
+                             actions: actions,
+                             popoverSourceView: self.appDropdownLabel)
     }
     
     @IBAction func didTapLogin(_ sender: Any) {

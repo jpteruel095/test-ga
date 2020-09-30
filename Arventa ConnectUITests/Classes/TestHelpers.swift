@@ -19,4 +19,14 @@ class TestHelpers{
         XCTAssert(app.buttons["LOG IN"].exists)
     }
     
+    public class func enterCredentialsAndTapLogin(app: XCUIApplication, username: String, password: String){
+        app.textFields["Username"].tap()
+        app.textFields["Username"].typeText(username)
+        
+        app.secureTextFields["Password"].tap()
+        app.secureTextFields["Password"].typeText(password)
+        
+        app.keyboards.buttons["done"].tap()
+        app.buttons["LOG IN"].tap()
+    }
 }

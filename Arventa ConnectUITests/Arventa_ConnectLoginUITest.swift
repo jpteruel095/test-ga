@@ -55,15 +55,22 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         TestHelpers.validateLoginPage(app: app)
         
-        app.textFields["Username"].tap()
-        app.textFields["Username"].typeText("testaccount02")
+        // Initially, the default selected app is always WHS Monitor
+        XCTAssert(app.staticTexts["WHS Monitor"].exists)
+        app.buttons["appSelectionButton"].tap()
         
-        app.secureTextFields["Password"].tap()
-        app.secureTextFields["Password"].typeText("password123")
+        let actionsheet = app.sheets["Which app would you like to log into?"]
+        actionsheet.buttons["Store Manifest"].tap()
+        XCTAssert(app.staticTexts["Store Manifest"].exists)
         
-        app.keyboards.buttons["done"].tap()
-        app.buttons["LOG IN"].tap()
+        TestHelpers.enterCredentialsAndTapLogin(app: app,
+                                                username: "sm_numlock1",
+                                                password: "watsoN#12345")
         
+        let verifyLabel = app.staticTexts["Verify your account"]
+        let exists = NSPredicate(format: "exists == 1")
+        expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
         XCTAssert(app.staticTexts["Verify your account"].exists)
     }
     
@@ -75,16 +82,9 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        app.textFields["Username"].tap()
-        app.textFields["Username"].typeText("failaccount01")
-        
-        app.secureTextFields["Password"].tap()
-        app.secureTextFields["Password"].typeText("password123")
-        
-        app.keyboards.buttons["done"].tap()
-        app.buttons["LOG IN"].tap()
+        TestHelpers.enterCredentialsAndTapLogin(app: app,
+                                                username: "failaccount01",
+                                                password: "password123")
         
         // wait
         let alert = app.alerts["Error"]
@@ -93,11 +93,9 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         expectation(for: exists, evaluatedWith: alert, handler: nil)
         waitForExpectations(timeout: 5, handler: nil)
 
-        XCTAssert(alert.staticTexts["The credentials you entered are not valid."].exists)
+        XCTAssert(alert.staticTexts["Please enter a valid Username and Password."].exists)
         alert.buttons["OK"].tap()
         TestHelpers.validateLoginPage(app: app, emptyFields: false)
-        
-        Springboard.deleteMyApp()
     }
     
     /**

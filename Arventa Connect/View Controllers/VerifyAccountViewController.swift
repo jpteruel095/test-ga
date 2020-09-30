@@ -29,6 +29,7 @@ class VerifyAccountViewController: UIViewController, ArventaViewDelegate {
             field.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
             field.delegate = self
         }
+        otpFields.first?.becomeFirstResponder()
     }
 
     override func viewDidAppear(_ animated: Bool) {

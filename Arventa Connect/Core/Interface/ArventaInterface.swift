@@ -37,6 +37,11 @@ class ArventaInterface{
                 return
             }
             
+            guard token?.isMultifactorRequired == false else{
+                completion(token, error)
+                return
+            }
+            
             ArventaWeb.shared.refreshUserDetails { (user, error) in
                 completion(token, error)
             }
