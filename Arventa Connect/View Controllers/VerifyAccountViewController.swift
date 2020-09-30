@@ -54,7 +54,30 @@ class VerifyAccountViewController: UIViewController, ArventaViewDelegate, HUDDel
     }
     
     @IBAction func didTapResendButton(_ sender: Any) {
-        self.showMessageAlert(title: "Resend code", message: "Soon to rise")
+        guard let request = self.resendRequest else{
+            return
+        }
+        
+        self.showHUD()
+        ArventaInterface.shared.signIn(request: request) { (token, error) in
+            self.hideHUD()
+            if let error = error{
+                if error.getCode() == 500{
+                    self.showInvalidInputMessageAlert(message: error.localizedDescription)
+                }else{
+                    self.showErrorMessageAlert(message: error.localizedDescription)
+                }
+                return
+            }
+            
+            guard let token = token else {
+                self.showErrorMessageAlert(message: "Invalid Token Returned")
+                return
+            }
+
+            self.userToken = token
+            self.showMessageAlert(title: "Success", message: "The code has been sent.")
+        }
     }
     
     @IBAction func didTapContinueButton(_ sender: Any) {
