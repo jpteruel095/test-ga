@@ -38,7 +38,9 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         XCTAssertNotNil(greetingUserLabel.label.range(of:"whs_numlock Rogomi"))
         
         app.buttons["sideMenuButton"].tap()
-        app.staticTexts["Logout"].tap()
+        app.staticTexts["Log out"]
+            .coordinate(withNormalizedOffset: .zero)
+            .tap()
         
         TestHelpers.validateLoginPage(app: app)
     }

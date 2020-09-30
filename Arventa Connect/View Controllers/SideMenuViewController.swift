@@ -14,20 +14,19 @@ class SideMenuViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-}
-
-class SideMenuTableViewController: UITableViewController{
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0{
-            ArventaInterface.shared
-                .signOut()
-            ArventaInterface.shared
-                .sideMenu
-                .leftMenuNavigationController?
-                .dismiss(animated: true, completion: {
-                    LandingViewController.shared?.userDidLogout(self)
-                })
-        }
+    
+    @IBAction func didTapCloseButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapLogoutButton(_ sender: Any) {
+        ArventaInterface.shared
+            .signOut()
+        ArventaInterface.shared
+            .sideMenu
+            .leftMenuNavigationController?
+            .dismiss(animated: true, completion: {
+                LandingViewController.shared?.userDidLogout(self)
+            })
     }
 }

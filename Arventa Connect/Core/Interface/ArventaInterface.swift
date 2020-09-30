@@ -20,6 +20,7 @@ class ArventaInterface{
         let sideMenuNVC = SideMenuNavigationController(rootViewController: sideMenuVC)
         sideMenuNVC.menuWidth = UIScreen.main.bounds.width * 0.75
         sideMenuNVC.presentationStyle = .menuSlideIn
+        sideMenuNVC.setNavigationBarHidden(true, animated: false)
         sideMenu.leftMenuNavigationController = sideMenuNVC
         return sideMenu
     }()
