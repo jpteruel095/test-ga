@@ -27,6 +27,7 @@
     {
       "skippedTests" : [
         "Arventa_ConnectLoginUITest\/test_TC1a02_LoginSuccessWVerification()",
+        "Arventa_ConnectLoginUITest\/test_TC1a02t09_LoginVerification()",
         "Arventa_ConnectLoginUITest\/test_TC1a05_LoginWrongCode()",
         "Arventa_ConnectLoginUITest\/test_TC1a06_LoginCodeOffline()",
         "Arventa_ConnectLoginUITest\/test_TC1a07_ResendCode()",
