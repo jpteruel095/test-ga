@@ -21,10 +21,10 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         app.textFields["Username"].tap()
-        app.textFields["Username"].typeText("testaccount01")
+        app.textFields["Username"].typeText("whs_numlock")
         
         app.secureTextFields["Password"].tap()
-        app.secureTextFields["Password"].typeText("password123")
+        app.secureTextFields["Password"].typeText("watsoN#12345")
         
         app.keyboards.buttons["done"].tap()
         app.buttons["LOG IN"].tap()
@@ -35,7 +35,7 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         expectation(for: exists, evaluatedWith: greetingUserLabel, handler: nil)
         waitForExpectations(timeout: 5, handler: nil)
         
-        XCTAssertNotNil(greetingUserLabel.label.range(of:"John Doe"))
+        XCTAssertNotNil(greetingUserLabel.label.range(of:"whs_numlock Rogomi"))
         
         app.buttons["sideMenuButton"].tap()
         app.staticTexts["Logout"].tap()

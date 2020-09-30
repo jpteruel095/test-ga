@@ -23,12 +23,6 @@ extension SignInViewController{
     func shakeAction(){
         var actions: [UIAlertAction] = []
         
-        
-        actions.append(UIAlertAction(title: "Demo Accounts",
-                                            style: .default, handler: { (action) in
-                                                self.encodedDemoAccounts()
-        }))
-        
         actions.append(UIAlertAction(title: "Autofill Credentials",
                                             style: .default, handler: { (action) in
                                                 self.autofillCredentials(accountType: .siteAccount)
@@ -56,29 +50,6 @@ extension SignInViewController{
         case siteAccountMobileVerification = "Site Account with Mobile Verification"
         case auditor = "Auditor"
         case auditorMobileVerification = "Auditor with Mobile Verification"
-    }
-    
-    func encodedDemoAccounts(){
-        let accounts: [Account] = [
-            Account(username: "testaccount01",
-                    password: "password123",
-                    app: .CHEMICALCADDY),
-            Account(username: "testaccount02",
-                    password: "password123",
-                    app: .CHEMICALCADDY)
-        ]
-        
-        var actions = accounts.map{ account in
-            UIAlertAction(title: account.selectionLabel(),
-                          style: .default) { (action) in
-                self.usernameField.text = account.username
-                self.passwordField.text = account.password
-                self.selectedApp = account.app
-            }
-        }
-        actions.append(.cancelButton())
-        self.showActionSheet(title: "Select Encoded Accounts",
-                             actions: actions)
     }
     
     func autofillCredentials(accountType: AccountType){

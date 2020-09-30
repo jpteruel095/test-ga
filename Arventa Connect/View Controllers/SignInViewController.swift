@@ -47,7 +47,7 @@ class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
             if token!.isMultifactorRequired{
                 self.performSegue(withIdentifier: "showVerificationView", sender: sender)
             }else{
-                self.dismiss(animated: false, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
