@@ -71,7 +71,10 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
         waitForExpectations(timeout: 5, handler: nil)
-        XCTAssert(app.staticTexts["Verify your account"].exists)
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        
+        app.textFields.firstMatch.tap()
+        TestHelpers.enterOTPCode(app: app, code: "123123")
     }
     
     /**

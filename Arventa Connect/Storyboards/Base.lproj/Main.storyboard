@@ -188,19 +188,19 @@ John Doe</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5S-52-KI3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="833"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="835"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login/login-logo" translatesAutoresizingMaskIntoConstraints="NO" id="KCv-Mk-ZEB">
                                                 <rect key="frame" x="159" y="100" width="96" height="96"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A R V E N T A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDf-YV-3NW">
-                                                <rect key="frame" x="123.66666666666667" y="196" width="166.66666666666663" height="32.666666666666657"/>
+                                                <rect key="frame" x="127.00000000000001" y="196" width="160.33333333333337" height="32.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="27"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RISK &amp; COMPLIANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8f-EL-aNA">
-                                                <rect key="frame" x="127.33333333333333" y="238.66666666666666" width="159.66666666666669" height="18.999999999999972"/>
+                                                <rect key="frame" x="128.66666666666666" y="238.66666666666666" width="156.99999999999997" height="18.999999999999972"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -306,7 +306,7 @@ John Doe</string>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubo-jf-BTt" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="18" y="714" width="378" height="44"/>
+                                                <rect key="frame" x="18" y="715" width="378" height="45"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="loginButton"/>
                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
@@ -326,7 +326,7 @@ John Doe</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRQ-VH-3oc">
-                                                <rect key="frame" x="22" y="507" width="139" height="32"/>
+                                                <rect key="frame" x="22" y="507" width="133" height="33"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <state key="normal" title="Forgot Password?">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -399,14 +399,17 @@ John Doe</string>
         <!--Verify Account View Controller-->
         <scene sceneID="UyH-y1-5RT">
             <objects>
-                <viewController id="iO2-NI-TVr" customClass="VerifyAccountViewController" customModule="Arventa_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="verifyAccountVC" id="iO2-NI-TVr" customClass="VerifyAccountViewController" customModule="Arventa_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qtR-Vm-D8F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4F-Bq-a92">
-                                <rect key="frame" x="16" y="51.333333333333343" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4F-Bq-a92">
+                                <rect key="frame" x="16" y="54.333333333333343" width="24" height="24"/>
+                                <state key="normal" image="back-icon"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="iO2-NI-TVr" eventType="touchUpInside" id="hEe-yT-XyX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usz-Y9-rnv">
                                 <rect key="frame" x="133.33333333333337" y="56.000000000000007" width="147.66666666666663" height="20.333333333333336"/>
@@ -448,7 +451,7 @@ John Doe</string>
                                             <constraint firstAttribute="width" constant="42" id="hbR-46-srS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.74901960784313726" green="0.76862745098039209" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -465,7 +468,7 @@ John Doe</string>
                                             <constraint firstAttribute="width" constant="42" id="hQW-zk-cny"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.74901960784313726" green="0.76862745098039209" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -482,7 +485,7 @@ John Doe</string>
                                             <constraint firstAttribute="width" constant="42" id="ygh-WM-UGY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.74901960784313726" green="0.76862745098039209" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -499,7 +502,7 @@ John Doe</string>
                                             <constraint firstAttribute="width" constant="42" id="hsY-Mx-RfM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.74901960784313726" green="0.76862745098039209" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -516,7 +519,7 @@ John Doe</string>
                                             <constraint firstAttribute="height" constant="54" id="ivz-cp-rfg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.74901960784313726" green="0.76862745098039209" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -533,7 +536,7 @@ John Doe</string>
                                             <constraint firstAttribute="width" constant="42" id="n1x-A2-940"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.74901960784313726" green="0.76862745098039209" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -609,6 +612,7 @@ John Doe</string>
                     </view>
                     <navigationItem key="navigationItem" id="RBX-3g-oM6"/>
                     <connections>
+                        <outlet property="codeSentLabel" destination="ObA-Gn-Oey" id="xya-Ft-Mhg"/>
                         <outlet property="continueButton" destination="y9G-MY-hls" id="SOO-d7-dZN"/>
                         <outlet property="otpFieldsStackView" destination="fw2-Wb-Aeq" id="dey-mL-tgW"/>
                         <outlet property="resendButton" destination="s8I-2j-OWB" id="9Qh-ze-8x6"/>
@@ -658,7 +662,7 @@ John Doe</string>
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
         </designable>
         <designable name="5gQ-DJ-zoA">
-            <size key="intrinsicContentSize" width="107.66666666666667" height="49.333333333333336"/>
+            <size key="intrinsicContentSize" width="103.66666666666667" height="49.666666666666664"/>
         </designable>
         <designable name="9Hs-we-YmY">
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
@@ -670,7 +674,7 @@ John Doe</string>
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
         </designable>
         <designable name="Ubo-jf-BTt">
-            <size key="intrinsicContentSize" width="57" height="44"/>
+            <size key="intrinsicContentSize" width="57" height="45"/>
         </designable>
         <designable name="Yz7-PZ-mZb">
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
@@ -679,13 +683,14 @@ John Doe</string>
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
         </designable>
         <designable name="u8S-Pd-64L">
-            <size key="intrinsicContentSize" width="111" height="49.333333333333336"/>
+            <size key="intrinsicContentSize" width="108" height="49.666666666666664"/>
         </designable>
         <designable name="y9G-MY-hls">
             <size key="intrinsicContentSize" width="89" height="45"/>
         </designable>
     </designables>
     <resources>
+        <image name="back-icon" width="24" height="24"/>
         <image name="baseline_keyboard_arrow_down_black_24dp" width="24" height="24"/>
         <image name="greetings/evening" width="68" height="70"/>
         <image name="login/login-bg" width="375" height="810"/>

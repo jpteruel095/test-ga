@@ -9,6 +9,7 @@ import UIKit
 import IBAnimatable
 
 class VerifyAccountViewController: UIViewController, ArventaViewDelegate {
+    @IBOutlet weak var codeSentLabel: UILabel!
     @IBOutlet weak var otpFieldsStackView: UIStackView!
     @IBOutlet weak var resendButton: UIButton!
     @IBOutlet weak var continueButton: AnimatableButton!
@@ -17,6 +18,9 @@ class VerifyAccountViewController: UIViewController, ArventaViewDelegate {
     var otpFields: [AnimatableTextField]{
         otpFieldsStackView.arrangedSubviews.compactMap({$0 as? AnimatableTextField})
     }
+    
+    var userToken: UserToken?
+    var resendRequest: SignInRequest?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +36,21 @@ class VerifyAccountViewController: UIViewController, ArventaViewDelegate {
         otpFields.first?.becomeFirstResponder()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let mobile = userToken?.mobile else{
+            return
+        }
+        codeSentLabel.text = "Code is sent to \(mobile)"
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+    }
+    
+    @IBAction func didTapBackButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func didTapResendButton(_ sender: Any) {

@@ -29,4 +29,11 @@ class TestHelpers{
         app.keyboards.buttons["done"].tap()
         app.buttons["LOG IN"].tap()
     }
+    
+    public class func enterOTPCode(app: XCUIApplication, code: String){
+        let str = Array(code).map { String($0) }
+        str.forEach { (num) in
+            app.keys[num].tap()
+        }
+    }
 }
