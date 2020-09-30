@@ -94,6 +94,8 @@
 		C6DF1697251C97AB0034E9C5 /* ArventaSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF1696251C97AB0034E9C5 /* ArventaSync.swift */; };
 		C6E1A1692524AA6600B4152D /* LoginTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1A1682524AA6600B4152D /* LoginTestHelper.swift */; };
 		C6E1A16E2524BA3400B4152D /* Arventa_ConnectTC2DashboardUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1A16D2524BA3400B4152D /* Arventa_ConnectTC2DashboardUITest.swift */; };
+		C6E1A1942524C8D800B4152D /* DeviceAdaptabilityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1A1932524C8D800B4152D /* DeviceAdaptabilityDelegate.swift */; };
+		C6E1A1992524CB9F00B4152D /* Temp-PAT.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E1A1982524CB9F00B4152D /* Temp-PAT.storyboard */; };
 		F559DAA4BC99C0E60D099311 /* Pods_Arventa_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C8508D681506DA7C6408DA /* Pods_Arventa_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +190,8 @@
 		C6DF1696251C97AB0034E9C5 /* ArventaSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArventaSync.swift; sourceTree = "<group>"; };
 		C6E1A1682524AA6600B4152D /* LoginTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTestHelper.swift; sourceTree = "<group>"; };
 		C6E1A16D2524BA3400B4152D /* Arventa_ConnectTC2DashboardUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arventa_ConnectTC2DashboardUITest.swift; sourceTree = "<group>"; };
+		C6E1A1932524C8D800B4152D /* DeviceAdaptabilityDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAdaptabilityDelegate.swift; sourceTree = "<group>"; };
+		C6E1A1982524CB9F00B4152D /* Temp-PAT.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Temp-PAT.storyboard"; sourceTree = "<group>"; };
 		EF6A7316D96444FB6AC2133D /* Pods-Arventa Connect-Arventa ConnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arventa Connect-Arventa ConnectUITests.release.xcconfig"; path = "Target Support Files/Pods-Arventa Connect-Arventa ConnectUITests/Pods-Arventa Connect-Arventa ConnectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F0C8508D681506DA7C6408DA /* Pods_Arventa_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arventa_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -248,6 +252,7 @@
 			children = (
 				C6D3312F2519FEAB003DD32D /* Main.storyboard */,
 				C6D331372519FEAD003DD32D /* LaunchScreen.storyboard */,
+				C6E1A1982524CB9F00B4152D /* Temp-PAT.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				C6AFA5F0251B4B00003551B4 /* ArventaViewDelegate.swift */,
 				C6AFA5FD251B4B9D003551B4 /* HUDDelegate.swift */,
 				C64AEA6125237D8700B3E187 /* OverlayDelegate.swift */,
+				C6E1A1932524C8D800B4152D /* DeviceAdaptabilityDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -581,6 +587,7 @@
 				C61DD4E4251B1FC2006546DF /* Lato-Italic.ttf in Resources */,
 				C61DD4F0251B1FC2006546DF /* Lato-Thin.ttf in Resources */,
 				C61DD4E3251B1FC2006546DF /* Lato-LightItalic.ttf in Resources */,
+				C6E1A1992524CB9F00B4152D /* Temp-PAT.storyboard in Resources */,
 				C61DD4E6251B1FC2006546DF /* Lato-MediumItalic.ttf in Resources */,
 				C61DD4F1251B1FC2006546DF /* Lato-SemiboldItalic.ttf in Resources */,
 			);
@@ -731,6 +738,7 @@
 				C64AEA9F2523815000B3E187 /* SideMenuViewController.swift in Sources */,
 				C64AEB3725241C1800B3E187 /* RefreshTokenRequest.swift in Sources */,
 				C61DD474251AFBF1006546DF /* ArventaWeb+Endpoint.swift in Sources */,
+				C6E1A1942524C8D800B4152D /* DeviceAdaptabilityDelegate.swift in Sources */,
 				C64AEA5D25236E2000B3E187 /* StoryboardVC.swift in Sources */,
 				C6AFA5FE251B4B9D003551B4 /* HUDDelegate.swift in Sources */,
 				C61DD46C251AFBA4006546DF /* ArventaWeb.swift in Sources */,

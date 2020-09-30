@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "F4F8CD80-5BB4-451B-8F55-CC8D9C174AB2",
+      "id" : "9ACC2B5D-5939-4061-B164-8D4BD8239388",
       "name" : "Configuration 1",
       "options" : {
 
@@ -9,7 +9,6 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false,
     "targetForVariableExpansion" : {
       "containerPath" : "container:Arventa Connect.xcodeproj",
       "identifier" : "C6D331252519FEAB003DD32D",
@@ -26,23 +25,8 @@
     },
     {
       "skippedTests" : [
-        "Arventa_ConnectLoginUITest\/test_TC1a02_LoginSuccessWVerification()",
-        "Arventa_ConnectLoginUITest\/test_TC1a02t09_LoginVerification()",
-        "Arventa_ConnectLoginUITest\/test_TC1a05_LoginWrongCode()",
-        "Arventa_ConnectLoginUITest\/test_TC1a06_LoginCodeOffline()",
-        "Arventa_ConnectLoginUITest\/test_TC1a07_ResendCode()",
-        "Arventa_ConnectLoginUITest\/test_TC1a08_ResendCodeOffline()",
-        "Arventa_ConnectLoginUITest\/test_TC1a09_ExitVerification()",
-        "Arventa_ConnectLoginUITest\/test_TC1a2_LoginSuccessWVerification()",
-        "Arventa_ConnectLoginUITest\/test_TC1a4_LoginWhileOffline()",
-        "Arventa_ConnectLoginUITest\/test_TC1a5_LoginWrongCode()",
-        "Arventa_ConnectLoginUITest\/test_TC1a6_LoginCodeOffline()",
-        "Arventa_ConnectLoginUITest\/test_TC1a7_ResendCode()",
-        "Arventa_ConnectLoginUITest\/test_TC1a8_ResendCodeOffline()",
-        "Arventa_ConnectLoginUITest\/test_TC1a9_ExitVerification()",
         "Arventa_ConnectTC1LoginUITest\/test_TC1a02_LoginSuccessWVerification()",
         "Arventa_ConnectTC1LoginUITest\/test_TC1a02t09_LoginVerification()",
-        "Arventa_ConnectTC1LoginUITest\/test_TC1a04_LoginWhileOffline()",
         "Arventa_ConnectTC1LoginUITest\/test_TC1a05_LoginWrongCode()",
         "Arventa_ConnectTC1LoginUITest\/test_TC1a06_LoginCodeOffline()",
         "Arventa_ConnectTC1LoginUITest\/test_TC1a07_ResendCode()",

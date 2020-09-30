@@ -16,7 +16,7 @@ class LoginTestHelper{
             XCTAssert(app.textFields["Username"].exists)
             XCTAssert(app.secureTextFields["Password"].exists)
         }
-        XCTAssert(app.buttons["Forgot Password?"].exists)
+//        XCTAssert(app.buttons["Forgot Password?"].exists)
         XCTAssert(app.buttons["LOG IN"].exists)
     }
     

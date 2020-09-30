@@ -13,6 +13,10 @@ class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
     @IBOutlet weak var usernameField: JVFloatLabeledTextField!
     @IBOutlet weak var passwordField: JVFloatLabeledTextField!
     
+    @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loginButtonTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loginButtonBottomConstraint: NSLayoutConstraint!
+    
     var selectedApp: ArventaApp = .WHSMONITOR
     
     override func viewDidLoad() {
@@ -20,6 +24,7 @@ class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
 
         // Do any additional setup after loading the view.
         appDropdownLabel.text = selectedApp.labelText
+        self.adaptToDeviceHeight()
     }
     
     @IBAction func didTapAppDropdown(_ sender: Any) {
@@ -89,6 +94,47 @@ extension SignInViewController{
 //        }
         return false
     }
+}
+
+extension SignInViewController: DeviceHeightAdaptabilityDelegate{
+    func adjustForIphone11ProMax() {
+        //ignore, remain as is
+        logoTopConstraint.constant = 100
+        loginButtonTopConstraint.constant = 175
+        loginButtonBottomConstraint.constant = 75
+    }
+    
+    func adjustForIphone11Pro() {
+        logoTopConstraint.constant = 100
+        loginButtonTopConstraint.constant = 120
+        loginButtonBottomConstraint.constant = 20
+    }
+    
+    func adjustForIphone8Plus() {
+        logoTopConstraint.constant = 80
+        loginButtonTopConstraint.constant = 110
+        loginButtonBottomConstraint.constant = 20
+    }
+    
+    func adjustForIphoneSE2() {
+        logoTopConstraint.constant = 20
+        loginButtonTopConstraint.constant = 40
+        loginButtonBottomConstraint.constant = 20
+    }
+    
+    func adjustForIphoneSE() {
+        logoTopConstraint.constant = 20
+        loginButtonTopConstraint.constant = 0
+        loginButtonBottomConstraint.constant = 20
+    }
+    
+    func adjustForIphone4s() {
+        logoTopConstraint.constant = 0
+        loginButtonTopConstraint.constant = 0
+        loginButtonBottomConstraint.constant = 20
+    }
+    
+    
 }
 
 extension SignInViewController: UITextFieldDelegate{

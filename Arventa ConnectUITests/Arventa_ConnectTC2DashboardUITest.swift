@@ -31,7 +31,7 @@ class Arventa_ConnectTC2DashboardUITest: XCTestCase {
     /**
      - Description: 2.3 - Access Side Navigation Menu
      */
-    func test_TC2a03_AccessDashboardScreen() throws {
+    func test_TC2a03_AccessSideNavigationMenu() throws {
         let app = XCUIApplication()
         app.launch()
         
