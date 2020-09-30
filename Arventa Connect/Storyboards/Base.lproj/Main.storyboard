@@ -188,19 +188,19 @@ John Doe</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5S-52-KI3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="835"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="833"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login/login-logo" translatesAutoresizingMaskIntoConstraints="NO" id="KCv-Mk-ZEB">
                                                 <rect key="frame" x="159" y="100" width="96" height="96"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A R V E N T A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDf-YV-3NW">
-                                                <rect key="frame" x="127.00000000000001" y="196" width="160.33333333333337" height="32.666666666666657"/>
+                                                <rect key="frame" x="123.66666666666667" y="196" width="166.66666666666663" height="32.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="27"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RISK &amp; COMPLIANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8f-EL-aNA">
-                                                <rect key="frame" x="128.66666666666666" y="238.66666666666666" width="156.99999999999997" height="18.999999999999972"/>
+                                                <rect key="frame" x="127.33333333333333" y="238.66666666666666" width="159.66666666666669" height="18.999999999999972"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -306,7 +306,7 @@ John Doe</string>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubo-jf-BTt" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="18" y="715" width="378" height="45"/>
+                                                <rect key="frame" x="18" y="714" width="378" height="44"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="loginButton"/>
                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
@@ -326,7 +326,7 @@ John Doe</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRQ-VH-3oc">
-                                                <rect key="frame" x="22" y="507" width="133" height="33"/>
+                                                <rect key="frame" x="22" y="507" width="139" height="32"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <state key="normal" title="Forgot Password?">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -418,7 +418,7 @@ John Doe</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-Gn-Oey">
-                                <rect key="frame" x="91" y="126.33333333333333" width="232" height="19.333333333333329"/>
+                                <rect key="frame" x="90" y="126.33333333333333" width="234" height="18.666666666666671"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Code is sent to ">
                                         <attributes>
@@ -436,13 +436,13 @@ John Doe</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id pulvinar " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-GD-TSq">
-                                <rect key="frame" x="72.333333333333343" y="155.66666666666666" width="269.33333333333326" height="33.666666666666657"/>
+                                <rect key="frame" x="72.333333333333343" y="155" width="269.33333333333326" height="32.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                 <color key="textColor" red="0.24705882352941178" green="0.26666666666666666" blue="0.3529411764705882" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fw2-Wb-Aeq">
-                                <rect key="frame" x="51" y="229.33333333333337" width="312" height="54"/>
+                                <rect key="frame" x="51" y="227.66666666666666" width="312" height="53.999999999999972"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRl-IZ-KxI" customClass="AnimatableTextField" customModule="IBAnimatable">
                                         <rect key="frame" x="0.0" y="0.0" width="42" height="54"/>
@@ -550,13 +550,13 @@ John Doe</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did not receive the code?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVL-lj-JQs">
-                                <rect key="frame" x="72.333333333333343" y="347.33333333333331" width="269.33333333333326" height="17"/>
+                                <rect key="frame" x="72.333333333333343" y="345.66666666666669" width="269.33333333333326" height="16.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                 <color key="textColor" red="0.2470588235" green="0.2666666667" blue="0.35294117650000001" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8I-2j-OWB">
-                                <rect key="frame" x="167.66666666666666" y="368.33333333333331" width="79" height="29"/>
+                                <rect key="frame" x="165.66666666666666" y="366" width="83" height="29"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                 <state key="normal" title="Resend code">
                                     <color key="titleColor" red="0.24705882352941178" green="0.26666666666666666" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -566,7 +566,7 @@ John Doe</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9G-MY-hls" customClass="AnimatableButton" customModule="IBAnimatable">
-                                <rect key="frame" x="17" y="454.33333333333331" width="380" height="45"/>
+                                <rect key="frame" x="17" y="452" width="380" height="44"/>
                                 <accessibility key="accessibilityConfiguration" identifier="loginButton"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
@@ -662,7 +662,7 @@ John Doe</string>
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
         </designable>
         <designable name="5gQ-DJ-zoA">
-            <size key="intrinsicContentSize" width="103.66666666666667" height="49.666666666666664"/>
+            <size key="intrinsicContentSize" width="107.66666666666667" height="49.333333333333336"/>
         </designable>
         <designable name="9Hs-we-YmY">
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
@@ -674,7 +674,7 @@ John Doe</string>
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
         </designable>
         <designable name="Ubo-jf-BTt">
-            <size key="intrinsicContentSize" width="57" height="45"/>
+            <size key="intrinsicContentSize" width="57" height="44"/>
         </designable>
         <designable name="Yz7-PZ-mZb">
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
@@ -683,10 +683,10 @@ John Doe</string>
             <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
         </designable>
         <designable name="u8S-Pd-64L">
-            <size key="intrinsicContentSize" width="108" height="49.666666666666664"/>
+            <size key="intrinsicContentSize" width="111" height="49.333333333333336"/>
         </designable>
         <designable name="y9G-MY-hls">
-            <size key="intrinsicContentSize" width="89" height="45"/>
+            <size key="intrinsicContentSize" width="87" height="44"/>
         </designable>
     </designables>
     <resources>

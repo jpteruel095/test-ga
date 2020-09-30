@@ -56,8 +56,9 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         TestHelpers.validateLoginPage(app: app)
         
         // Initially, the default selected app is always WHS Monitor
-        XCTAssert(app.staticTexts["WHS Monitor"].exists)
-        app.buttons["appSelectionButton"].tap()
+        app.staticTexts["WHS Monitor"]
+            .coordinate(withNormalizedOffset: .zero)
+            .tap()
         
         let actionsheet = app.sheets["Which app would you like to log into?"]
         actionsheet.buttons["Store Manifest"].tap()
@@ -70,7 +71,7 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         let verifyLabel = app.staticTexts["Verify your account"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
         
         app.textFields.firstMatch.tap()
