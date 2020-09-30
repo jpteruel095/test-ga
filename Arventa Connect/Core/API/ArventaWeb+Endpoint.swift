@@ -314,7 +314,12 @@ extension ArventaWeb.Endpoint{
                 }
                 
                 if statusCode == 404{
-                    return
+                    let exceptions: [Self] = [
+                        .menuasync
+                    ]
+                    if !exceptions.contains(self) {
+                        return
+                    }
                 }
                 else if statusCode == 401{
                     if !self.isGuest{

@@ -54,6 +54,7 @@ extension ArventaInterface{
     }
     
     func signOut(){
+        MenuItem.deleteAll()
         UserDefaults.clearObject(forKey: .userObject)
         UserDefaults.clearObject(forKey: .accessToken)
         NotificationCenter.default.post(name: .userDidLogout, object: nil)

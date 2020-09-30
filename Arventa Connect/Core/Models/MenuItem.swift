@@ -46,16 +46,6 @@ class MenuItem: Mappable, MenuItemProtocol{
         menuItem.menuID = Int32(menuID)
         menuItem.json = self.toJSONString()
         AppDelegate.shared.saveContext()
-//            if let contact = findContact(with: id) {
-//                // Existing Contact
-//                contact.latestContactDate = Date()
-//            }else{
-//                // New Contact
-//                let contact = Contact(context: AppDelegate.shared.currentContext())
-//                contact.contactID = id
-//                contact.firstContactDate = Date()
-//                contact.latestContactDate = Date()
-//            }
     }
 }
 
@@ -93,5 +83,6 @@ extension MenuItem{
             print("Could not fetch. \(error)")
         }
         AppDelegate.shared.saveContext()
+        NotificationCenter.default.post(name: .menuItemsDidUpdate, object: nil)
     }
 }

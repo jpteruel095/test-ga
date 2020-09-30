@@ -23,7 +23,7 @@ class LoginTestHelper{
     public class func didForceLogout() -> Bool{
         let app = XCUIApplication()
         if app.staticTexts["greetingUserLabel"].exists {
-            //will execute only if exists - it works
+            //will execute only if exists
             app.buttons["sideMenuButton"].tap()
             app.staticTexts["Log out"]
                 .coordinate(withNormalizedOffset: .zero)
@@ -52,5 +52,69 @@ class LoginTestHelper{
         
         app.toolbars["Toolbar"].buttons["Done"].tap()
         app.buttons["LOG IN"].tap()
+    }
+}
+
+enum TestAccount: CaseIterable{
+    case whs
+    case msds
+    case sm
+    case pg
+    case fm
+    case cc
+    
+    func getUsername(withCode: Bool = false) -> String{
+        switch self {
+        case .whs:
+            return "whs_numlock"
+        case .msds:
+            return "msds_rogomi"
+        case .sm:
+            return "sm_rogomi"
+        case .pg:
+            return "pg_rogomi"
+        case .fm:
+            return "fm_rogomi"
+        case .cc:
+            return "cc_rogomi"
+        }
+    }
+    
+    func getPassword() -> String{
+        return "watsoN#12345"
+    }
+    
+    var appName: String{
+        switch self {
+        case .whs:
+            return "WHS Monitor"
+        case .msds:
+            return "MSDS"
+        case .sm:
+            return "Store Manifest"
+        case .pg:
+            return "Pest Genie"
+        case .fm:
+            return "Farm Minder"
+        case .cc:
+            return "Chemical Caddy"
+        }
+    }
+    
+    func getName() -> String{
+        switch self {
+        case .whs:
+            return "whs_numlock Rogomi"
+        case .msds:
+            return "msds_rogomi Rogomi"
+        case .sm:
+            return "sm_rogomi Rogomi"
+        case .pg:
+            return "pg_rogomi Rogomi"
+        case .fm:
+            return "fm_rogomi Rogomi"
+        case .cc:
+            return "cc_rogomi Rogomi"
+        }
     }
 }

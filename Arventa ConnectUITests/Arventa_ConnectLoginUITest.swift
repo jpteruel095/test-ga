@@ -370,6 +370,38 @@ class Arventa_ConnectLoginUITest: XCTestCase {
      - Description: 1.11 - Login Into The Apps - Success
      */
     func test_TC1a11_LoginToAllApps() throws {
+        let app = XCUIApplication()
+        app.launch()
         
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
+        
+        TestAccount.allCases.forEach { (account) in
+            //WHS Monitor is always the default selected app
+            TestHelpers.tapOverStaticText("WHS Monitor")
+            TestHelpers.expectActionSheet(title: "Which app would you like to log into?",
+                                          andTap: account.appName,
+                                          inTestCase: self)
+            
+            XCTAssert(app.staticTexts[account.appName].exists)
+            
+            LoginTestHelper.enterCredentialsAndTapLogin(username: account.getUsername(),
+                                                        password: account.getPassword())
+            
+            let greetingUserLabel = app.staticTexts["greetingUserLabel"]
+            let exists = NSPredicate(format: "exists == 1")
+            expectation(for: exists, evaluatedWith: greetingUserLabel, handler: nil)
+            waitForExpectations(timeout: 10, handler: nil)
+            
+            XCTAssertNotNil(greetingUserLabel.label.range(of: account.getName()))
+            
+            app.buttons["sideMenuButton"].tap()
+            app.staticTexts["Log out"]
+                .coordinate(withNormalizedOffset: .zero)
+                .tap()
+            
+            LoginTestHelper.validateLoginPage()
+        }
     }
 }
