@@ -33,15 +33,23 @@ extension ArventaWeb{
         })
     }
     
-    func verify(request: VerificationRequest, completion:@escaping((Error?) -> Void)){
+    func verify(request: VerificationRequest, completion:@escaping((UserToken?, Error?) -> Void)){
         Endpoint.token.request(parameters: request.getFinalParameters(), completion: { (json, error) in
             if let error = error{
-                completion(error)
+                completion(nil, error)
                 return
             }
             
             //check response here for json
-            completion(nil)
+            guard let json = json?.dictionaryObject,
+                  let userToken = UserToken(JSON: json) else{
+                completion(nil, Helpers.makeError(with: "Impossible..."))
+                return
+            }
+            
+            userToken.saveToken()
+            completion(userToken, nil)
+            NotificationCenter.default.post(name: .userDidLogin, object: nil)
         })
     }
     

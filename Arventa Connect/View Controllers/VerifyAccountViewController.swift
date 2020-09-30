@@ -8,7 +8,7 @@
 import UIKit
 import IBAnimatable
 
-class VerifyAccountViewController: UIViewController, ArventaViewDelegate {
+class VerifyAccountViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
     @IBOutlet weak var codeSentLabel: UILabel!
     @IBOutlet weak var otpFieldsStackView: UIStackView!
     @IBOutlet weak var resendButton: UIButton!
@@ -58,11 +58,22 @@ class VerifyAccountViewController: UIViewController, ArventaViewDelegate {
     }
     
     @IBAction func didTapContinueButton(_ sender: Any) {
-        guard getOTP().count == 6 else{
+        guard let code = userToken?.code,
+              getOTP().count == 6 else{
             return
         }
         
-        self.showMessageAlert(title: "OTP", message: "Will use \(getOTP()) and log the user in"){
+        self.showHUD()
+        let request = VerificationRequest(code: code,
+                                          securityCode: getOTP())
+        ArventaInterface.shared.verify(request: request) { (token, error) in
+            self.hideHUD()
+            
+            if let error = error{
+                self.showErrorMessageAlert(error: error)
+                return
+            }
+            
             self.dismiss(animated: true, completion: nil)
         }
     }

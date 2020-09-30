@@ -48,6 +48,19 @@ class ArventaInterface{
         })
     }
     
+    func verify(request: VerificationRequest, completion:@escaping((UserToken?, Error?) -> Void)){
+        ArventaWeb.shared.verify(request: request, completion: { token, error in
+            if let error = error{
+                completion(token, error)
+                return
+            }
+            
+            ArventaWeb.shared.refreshUserDetails { (user, error) in
+                completion(token, error)
+            }
+        })
+    }
+    
     func signOut(){
         UserDefaults.clearObject(forKey: .userObject)
         UserDefaults.clearObject(forKey: .accessToken)
