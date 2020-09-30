@@ -77,6 +77,7 @@
 		C673B04D2524843D00A628A2 /* Arventa_Connect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6D331322519FEAB003DD32D /* Arventa_Connect.xcdatamodeld */; };
 		C67930032524F47100280D24 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C67930022524F47100280D24 /* libsqlcipher.a */; };
 		C67930232524FA0300280D24 /* DB+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930222524FA0300280D24 /* DB+Demo.swift */; };
+		C67930282524FD7B00280D24 /* DB+Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930272524FD7B00280D24 /* DB+Migration.swift */; };
 		C692AE082523439E00BDA109 /* ArventaInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692AE072523439E00BDA109 /* ArventaInterface.swift */; };
 		C692AE0B252343FB00BDA109 /* ArventaWeb+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692AE0A252343FB00BDA109 /* ArventaWeb+Auth.swift */; };
 		C692AE0D2523441200BDA109 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692AE0C2523441200BDA109 /* RequestProtocol.swift */; };
@@ -170,6 +171,7 @@
 		C67930012524F46B00280D24 /* Arventa-Connect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Arventa-Connect-Bridging-Header.h"; path = "sqlcipher/Arventa-Connect-Bridging-Header.h"; sourceTree = "<group>"; };
 		C67930022524F47100280D24 /* libsqlcipher.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsqlcipher.a; path = sqlcipher/libsqlcipher.a; sourceTree = "<group>"; };
 		C67930222524FA0300280D24 /* DB+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+Demo.swift"; sourceTree = "<group>"; };
+		C67930272524FD7B00280D24 /* DB+Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+Migration.swift"; sourceTree = "<group>"; };
 		C692AE072523439E00BDA109 /* ArventaInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArventaInterface.swift; sourceTree = "<group>"; };
 		C692AE0A252343FB00BDA109 /* ArventaWeb+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArventaWeb+Auth.swift"; sourceTree = "<group>"; };
 		C692AE0C2523441200BDA109 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			children = (
 				C6DF1693251C976F0034E9C5 /* ArventaDB.swift */,
 				C67930222524FA0300280D24 /* DB+Demo.swift */,
+				C67930272524FD7B00280D24 /* DB+Migration.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				C6E1A1942524C8D800B4152D /* DeviceAdaptabilityDelegate.swift in Sources */,
 				C64AEA5D25236E2000B3E187 /* StoryboardVC.swift in Sources */,
 				C6AFA5FE251B4B9D003551B4 /* HUDDelegate.swift in Sources */,
+				C67930282524FD7B00280D24 /* DB+Migration.swift in Sources */,
 				C61DD46C251AFBA4006546DF /* ArventaWeb.swift in Sources */,
 				C64AEA6225237D8700B3E187 /* OverlayDelegate.swift in Sources */,
 				C692AE0F2523447800BDA109 /* SignInRequest.swift in Sources */,

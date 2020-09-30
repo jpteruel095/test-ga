@@ -28,6 +28,7 @@ extension ArventaInterface{
                 
                 ArventaWeb.shared.getMenuItems { (error) in
                     completion(token, error)
+                    NotificationCenter.default.post(name: .userDidLogin, object: nil)
                 }
             }
         })
@@ -48,6 +49,7 @@ extension ArventaInterface{
                 
                 ArventaWeb.shared.getMenuItems { (error) in
                     completion(token, error)
+                    NotificationCenter.default.post(name: .userDidLogin, object: nil)
                 }
             }
         })

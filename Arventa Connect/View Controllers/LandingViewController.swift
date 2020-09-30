@@ -42,12 +42,6 @@ class LandingViewController: UIViewController, ArventaViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        do{
-            let demo = try ArventaDB.shared.getDemoDBValue()
-            print(demo)
-        }catch{
-            self.showErrorMessageAlert(error: error)
-        }
     }
     
     @objc func userDidLogout(_ sender: Any){

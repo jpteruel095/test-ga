@@ -27,7 +27,6 @@ class ArventaSync: NSObject{
     
     // MARK: Initial configuration
     func configure(){
-        
         NotificationCenter
             .default
             .addObserver(self,
@@ -67,6 +66,11 @@ class ArventaSync: NSObject{
         
         shouldInterrupt = false
         
+        do{
+            try ArventaDB.shared.initializeUserDB()
+        }catch{
+            print(error)
+        }
         //initial download process
         //check if user has logged in and downloaded before
         if let _ = LoginHistory.allHistory.first(where: {$0.userID == user.userID}){

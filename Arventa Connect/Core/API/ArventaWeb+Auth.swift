@@ -29,7 +29,6 @@ extension ArventaWeb{
             
             userToken.saveToken()
             completion(userToken, nil)
-            NotificationCenter.default.post(name: .userDidLogin, object: nil)
         })
     }
     
@@ -49,7 +48,6 @@ extension ArventaWeb{
             
             userToken.saveToken()
             completion(userToken, nil)
-            NotificationCenter.default.post(name: .userDidLogin, object: nil)
         })
     }
     
