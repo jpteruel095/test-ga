@@ -13,11 +13,15 @@ extension ArventaWeb{
     // MARK: Endpoints
     enum Endpoint{
         case token
+        case useridentity
+        
         case forgot
         var route: Route{
             switch self {
             case .token:
                 return Route(path: "authservice/api/OAuth/v2/Token")
+            case .useridentity:
+                return Route(path: "authservice/api/OAuth/v2/GetUserIdentity")
             case .forgot:
                 return Route(path: "api/v1/clients/forgot")
             }
@@ -80,12 +84,12 @@ extension ArventaWeb.Endpoint{
         ])
         
         if !self.isGuest{
-//            if let current = User.current,
-//                let accessToken = current.accessToken{
-//                headers["Authorization"] = "Bearer \(accessToken)"
-//            }else{
-//                return nil
-//            }
+            if let current = UserToken.current,
+                let accessToken = current.accessToken{
+                headers["Authorization"] = "Bearer \(accessToken)"
+            }else{
+                return nil
+            }
         }
         
         return headers
@@ -318,9 +322,22 @@ extension ArventaWeb.Endpoint{
                 }
                 else if statusCode == 401{
                     if !self.isGuest{
-                        
+                        ArventaWeb.shared.refreshToken { (token, error) in
+                            if let error = error{
+                                print(error)
+                                NotificationCenter.default.post(name: .userTokenExpired, object: nil)
+                                return
+                            }
+                            
+                            self.request(parameters: parameters,
+                                         progressCallback: progressCallback,
+                                         completion: completion,
+                                         shouldLog: shouldLog,
+                                         shouldLogResult: shouldLogResult)
+                        }
                     }else{
-                        
+                        completion?(nil, Helpers.makeError(with: message,
+                                                           code: code))
                     }
                     return
                 }
@@ -332,9 +349,6 @@ extension ArventaWeb.Endpoint{
                                                        code: code))
                     return
                 }
-                
-                completion?(nil, Helpers.makeError(with: message,
-                                                   code: code))
             }
             
             switch response.result{

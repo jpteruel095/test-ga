@@ -98,9 +98,7 @@ class UserToken: Mappable{
     var metadata: String?
     
     func saveToken(){
-        let token = self.toJSON()
-        UserDefaults.clearObject(forKey: .accessToken)
-        UserDefaults.storeObject(token, forKey: .accessToken)
+        UserDefaults.storeObject(self.toJSON(), forKey: .accessToken)
     }
     
     // Object Mapper Functions

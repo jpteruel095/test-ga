@@ -348,3 +348,9 @@ extension UUID{
         return finalUUID
     }
 }
+
+extension Error{
+    func getCode() -> Int{
+        return (self as NSError).code
+    }
+}

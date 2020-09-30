@@ -94,7 +94,7 @@ extension ArventaViewDelegate where Self: UIViewController{
     }
     
     func willShowLogin() -> Bool{
-        if User.current == nil,
+        if UserToken.current == nil,
            let signInNVC = StoryboardVC.main.viewController(forIdentifier: "signInNVC"){
             signInNVC.modalPresentationStyle = .fullScreen
             self.present(signInNVC, animated: true, completion: nil)

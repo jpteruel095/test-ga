@@ -7,7 +7,7 @@
 import Alamofire
 
 struct SignInRequest: RequestProtocol{
-    let userName: String
+    let username: String
     let password: String
     let app: ArventaApp
     
@@ -17,11 +17,12 @@ struct SignInRequest: RequestProtocol{
         var params = self.getParameters()
         
         params["deviceId"] = UUID.deviceUUID
-        params["scopes"] = "113"
+        params["scopes"] = ["113"]
         params["grantType"] = "password"
         params["clientId"] = ArventaWeb.Constants.clientID
         params["clientKey"] = ArventaWeb.Constants.clientKey
         params["applicationName"] = app.rawValue
+        params["subscriptions"] = app.subscriptionType
         
         return params
     }

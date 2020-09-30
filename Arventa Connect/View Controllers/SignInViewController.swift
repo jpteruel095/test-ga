@@ -36,29 +36,33 @@ class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
         }
         
         self.showHUD()
-        let request = SignInRequest(userName: username, password: password, app: selectedApp)
-        ArventaInterface.shared.signIn(request: request) { (error) in
+        let request = SignInRequest(username: username, password: password, app: selectedApp)
+        ArventaInterface.shared.signIn(request: request) { (token, error) in
             self.hideHUD()
             if let error = error{
                 self.showErrorMessageAlert(error: error)
                 return
             }
             //go to
-            self.performSegue(withIdentifier: "showVerificationView", sender: sender)
+            if token!.isMultifactorRequired{
+                self.performSegue(withIdentifier: "showVerificationView", sender: sender)
+            }else{
+                self.dismiss(animated: false, completion: nil)
+            }
         }
     }
 }
 
 extension SignInViewController{
     func signInTest(u: String, p: String) -> Bool{
-        if u == "testaccount01" && p == "password123"{
-            User(JSON: [:])?.saveAsCurrentUser()
-            self.dismiss(animated: true, completion: nil)
-            return true
-        }else if u == "testaccount02" && p == "password123"{
-            self.performSegue(withIdentifier: "showVerificationView", sender: view)
-            return true
-        }
+//        if u == "testaccount01" && p == "password123"{
+//            User(JSON: [:])?.saveAsCurrentUser()
+//            self.dismiss(animated: true, completion: nil)
+//            return true
+//        }else if u == "testaccount02" && p == "password123"{
+//            self.performSegue(withIdentifier: "showVerificationView", sender: view)
+//            return true
+//        }
         return false
     }
 }

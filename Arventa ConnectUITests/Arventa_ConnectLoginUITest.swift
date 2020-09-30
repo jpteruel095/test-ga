@@ -10,17 +10,6 @@ import XCTest
 class Arventa_ConnectLoginUITest: XCTestCase {
     
     // MARK: Helpers
-    func validateLoginPage(app: XCUIApplication, emptyFields: Bool = true){
-        XCTAssert(app.staticTexts["A R V E N T A"].exists)
-        XCTAssert(app.staticTexts["RISK & COMPLIANCE"].exists)
-        if emptyFields{
-            XCTAssert(app.textFields["Username"].exists)
-            XCTAssert(app.secureTextFields["Password"].exists)
-        }
-        XCTAssert(app.buttons["Forgot Password?"].exists)
-        XCTAssert(app.buttons["LOG IN"].exists)
-    }
-    
     /**
      - 1.1 - Login Success - Without Mobile Verification
      */
@@ -51,7 +40,7 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         app.buttons["sideMenuButton"].tap()
         app.staticTexts["Logout"].tap()
         
-        self.validateLoginPage(app: app)
+        TestHelpers.validateLoginPage(app: app)
     }
     
     /**
@@ -64,7 +53,7 @@ class Arventa_ConnectLoginUITest: XCTestCase {
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        self.validateLoginPage(app: app)
+        TestHelpers.validateLoginPage(app: app)
         
         app.textFields["Username"].tap()
         app.textFields["Username"].typeText("testaccount02")
@@ -106,7 +95,9 @@ class Arventa_ConnectLoginUITest: XCTestCase {
 
         XCTAssert(alert.staticTexts["The credentials you entered are not valid."].exists)
         alert.buttons["OK"].tap()
-        self.validateLoginPage(app: app, emptyFields: false)
+        TestHelpers.validateLoginPage(app: app, emptyFields: false)
+        
+        Springboard.deleteMyApp()
     }
     
     /**

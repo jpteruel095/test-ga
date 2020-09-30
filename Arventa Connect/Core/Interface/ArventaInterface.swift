@@ -30,8 +30,17 @@ class ArventaInterface{
         let _ = ArventaWeb.shared
     }
     
-    func signIn(request: SignInRequest, completion:@escaping((Error?) -> Void)){
-        ArventaWeb.shared.signIn(request: request, completion: completion)
+    func signIn(request: SignInRequest, completion:@escaping((UserToken?, Error?) -> Void)){
+        ArventaWeb.shared.signIn(request: request, completion: { token, error in
+            if let error = error{
+                completion(token, error)
+                return
+            }
+            
+            ArventaWeb.shared.refreshUserDetails { (user, error) in
+                completion(token, error)
+            }
+        })
     }
     
     func signOut(){
