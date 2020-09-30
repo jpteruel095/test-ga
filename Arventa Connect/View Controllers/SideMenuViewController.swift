@@ -8,8 +8,8 @@
 import UIKit
 
 protocol MenuItemProtocol {
-    var id: Int { get set }
-    var name: String { get set }
+    var id: Int { get }
+    var name: String { get }
 }
 
 struct DemoMenuItem: MenuItemProtocol{
@@ -20,6 +20,7 @@ struct DemoMenuItem: MenuItemProtocol{
 class SideMenuViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    var initializeOnce = false
     var menuItems: [MenuItemProtocol] = []
     var selectedMenuItem: MenuItemProtocol?
     
@@ -28,17 +29,30 @@ class SideMenuViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         menuItems = [
-            DemoMenuItem(id: 1, name: "Chemical Inventory"),
-            DemoMenuItem(id: 2, name: "Risk Management"),
-            DemoMenuItem(id: 3, name: "Incident Reporting")
+            DemoMenuItem(id: 1, name: "Home"),
         ]
         
         selectedMenuItem = menuItems.first
+        
+        //add listener
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshMenuItems), name: .menuItemsDidUpdate, object: nil)
+        
+        if !initializeOnce {
+            self.refreshMenuItems(self)
+            initializeOnce = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    @objc func refreshMenuItems(_ sender: Any){
+        ArventaInterface.shared.getMenuItems { (items) in
+            self.menuItems = items
+            self.initializeOnce = true
+        }
     }
     
     @IBAction func didTapCloseButton(_ sender: Any) {

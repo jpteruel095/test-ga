@@ -71,3 +71,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: Singleton
+extension AppDelegate{
+    static var shared: Self{
+        return UIApplication.shared.delegate as! Self
+    }
+}
+
+// MARK: Core Data
+extension AppDelegate{
+    func currentContext() -> NSManagedObjectContext{
+        return persistentContainer.viewContext
+    }
+}

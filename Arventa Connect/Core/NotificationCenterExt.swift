@@ -14,4 +14,6 @@ extension Notification.Name {
     
     static let databaseDidUpdate = Notification.Name("databaseDidUpdate")
     static let recordsDidRetrieve = Notification.Name("recordsDidRetrieve")
+    
+    static let menuItemsDidUpdate = Notification.Name("menuItemsDidUpdate")
 }

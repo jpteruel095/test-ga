@@ -18,6 +18,8 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
+        TestHelpers.forceLogout(app: app)
+        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         app.textFields["Username"].tap()
@@ -52,6 +54,8 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        
+        TestHelpers.forceLogout(app: app)
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -87,6 +91,8 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        
+        TestHelpers.forceLogout(app: app)
 
         TestHelpers.enterCredentialsAndTapLogin(app: app,
                                                 username: "failaccount01",
@@ -112,6 +118,8 @@ class Arventa_ConnectLoginUITest: XCTestCase {
 //        // UI tests must launch the application that they test.
 //        let app = XCUIApplication()
 //        app.launch()
+//        
+//        TestHelpers.forceLogout(app: app)
 //
 //        let settingsApp = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
 //        settingsApp.launch()
@@ -144,7 +152,7 @@ class Arventa_ConnectLoginUITest: XCTestCase {
 //
 //        // Relaunch app without restarting it
 //        app.activate()
-//        self.validateLoginPage(app: app, emptyFields: false)
+//        TestHelpers.validateLoginPage(app: app, emptyFields: false)
 //    }
     
     

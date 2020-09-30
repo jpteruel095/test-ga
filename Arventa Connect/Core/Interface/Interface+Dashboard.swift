@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+extension ArventaInterface{
+    func getMenuItems(completion: @escaping([MenuItem]) -> Void){
+        completion(MenuItem.retrieveAll())
+    }
+}

@@ -30,41 +30,4 @@ class ArventaInterface{
         ArventaSync.shared.configure()
         let _ = ArventaWeb.shared
     }
-    
-    func signIn(request: SignInRequest, completion:@escaping((UserToken?, Error?) -> Void)){
-        ArventaWeb.shared.signIn(request: request, completion: { token, error in
-            if let error = error{
-                completion(token, error)
-                return
-            }
-            
-            guard token?.isMultifactorRequired == false else{
-                completion(token, error)
-                return
-            }
-            
-            ArventaWeb.shared.refreshUserDetails { (user, error) in
-                completion(token, error)
-            }
-        })
-    }
-    
-    func verify(request: VerificationRequest, completion:@escaping((UserToken?, Error?) -> Void)){
-        ArventaWeb.shared.verify(request: request, completion: { token, error in
-            if let error = error{
-                completion(token, error)
-                return
-            }
-            
-            ArventaWeb.shared.refreshUserDetails { (user, error) in
-                completion(token, error)
-            }
-        })
-    }
-    
-    func signOut(){
-        UserDefaults.clearObject(forKey: .userObject)
-        UserDefaults.clearObject(forKey: .accessToken)
-        NotificationCenter.default.post(name: .userDidLogout, object: nil)
-    }
 }

@@ -15,15 +15,17 @@ extension ArventaWeb{
         case token
         case useridentity
         
-        case forgot
+        case menuasync
+        
         var route: Route{
             switch self {
             case .token:
                 return Route(path: "authservice/api/OAuth/v2/Token")
             case .useridentity:
                 return Route(path: "authservice/api/OAuth/v2/GetUserIdentity")
-            case .forgot:
-                return Route(path: "api/v1/clients/forgot")
+                
+            case .menuasync:
+                return Route(path: "userservice/api/Profile/MenuAsync")
             }
         }
     }

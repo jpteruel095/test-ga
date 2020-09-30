@@ -78,15 +78,15 @@ extension ArventaWeb{
         })
     }
     
-    func forgot(request: ForgotPasswordRequest, completion:@escaping((Error?) -> Void)){
-        Endpoint.forgot.request(parameters: request.getParameters(), completion: { (json, error) in
-            if let error = error{
-                completion(error)
-                return
-            }
-            
-            //check response here for json
-            completion(nil)
-        })
-    }
+//    func forgot(request: ForgotPasswordRequest, completion:@escaping((Error?) -> Void)){
+//        Endpoint.forgot.request(parameters: request.getParameters(), completion: { (json, error) in
+//            if let error = error{
+//                completion(error)
+//                return
+//            }
+//            
+//            //check response here for json
+//            completion(nil)
+//        })
+//    }
 }

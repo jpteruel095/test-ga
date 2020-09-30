@@ -36,4 +36,15 @@ class TestHelpers{
             app.keys[num].tap()
         }
     }
+    
+    public class func forceLogout(app: XCUIApplication){
+        if app.staticTexts["greetingUserLabel"].exists {
+            //will execute only if exists - it works
+            app.buttons["sideMenuButton"].tap()
+            app.staticTexts["Log out"]
+                .coordinate(withNormalizedOffset: .zero)
+                .tap()
+            TestHelpers.validateLoginPage(app: app)
+        }
+    }
 }
