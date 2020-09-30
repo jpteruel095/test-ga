@@ -78,6 +78,9 @@
 		C67930032524F47100280D24 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C67930022524F47100280D24 /* libsqlcipher.a */; };
 		C67930232524FA0300280D24 /* DB+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930222524FA0300280D24 /* DB+Demo.swift */; };
 		C67930282524FD7B00280D24 /* DB+Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930272524FD7B00280D24 /* DB+Migration.swift */; };
+		C679302C252509E100280D24 /* DB+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930222524FA0300280D24 /* DB+Demo.swift */; };
+		C679302D252509E100280D24 /* DB+Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930272524FD7B00280D24 /* DB+Migration.swift */; };
+		C679303A25250A7900280D24 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C67930022524F47100280D24 /* libsqlcipher.a */; };
 		C692AE082523439E00BDA109 /* ArventaInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692AE072523439E00BDA109 /* ArventaInterface.swift */; };
 		C692AE0B252343FB00BDA109 /* ArventaWeb+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692AE0A252343FB00BDA109 /* ArventaWeb+Auth.swift */; };
 		C692AE0D2523441200BDA109 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692AE0C2523441200BDA109 /* RequestProtocol.swift */; };
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A45EF1C02BDDE1078D655E4 /* Pods_Arventa_ConnectTests.framework in Frameworks */,
+				C679303A25250A7900280D24 /* libsqlcipher.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,8 +796,10 @@
 				C673B0452524841600A628A2 /* SideMenuViewController.swift in Sources */,
 				C61DD482251AFEE9006546DF /* ArventaWeb+Endpoint.swift in Sources */,
 				C64AEB44252422DC00B3E187 /* ArventaWeb+Profile.swift in Sources */,
+				C679302C252509E100280D24 /* DB+Demo.swift in Sources */,
 				C64AEB542524231F00B3E187 /* AppTheme.swift in Sources */,
 				C61DD48B251AFF4E006546DF /* Helpers.swift in Sources */,
+				C679302D252509E100280D24 /* DB+Migration.swift in Sources */,
 				C673B040252483F200A628A2 /* Interface+Auth.swift in Sources */,
 				C61DD48A251AFF4E006546DF /* Extensions.swift in Sources */,
 				C673B037252483C700A628A2 /* MenuItem.swift in Sources */,
@@ -1107,6 +1113,45 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSRYE7L59C;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"PB_FIELD_32BIT=1",
+					"PB_NO_PACKED_STRUCTS=1",
+					"PB_ENABLE_MALLOC=1",
+					"SQLITE_HAS_CODEC=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations/FirebaseInstallations.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport/GoogleDataTransport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransportCCTSupport/GoogleDataTransportCCTSupport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IBAnimatable/IBAnimatable.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper/ObjectMapper.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReachabilitySwift/Reachability.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SAMKeychain/SAMKeychain.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SideMenu/SideMenu.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftDate/SwiftDate.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"\"${PODS_TARGET_SRCROOT}/Sources/FBLPromises/include\"",
+					"$(PROJECT_DIR)/sqlcipher/include",
+				);
 				INFOPLIST_FILE = "Arventa ConnectTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1114,8 +1159,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sqlcipher",
+				);
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect.Arventa-ConnectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "sqlcipher/Arventa-Connect-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arventa Connect.app/Arventa Connect";
@@ -1130,6 +1181,45 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSRYE7L59C;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"PB_FIELD_32BIT=1",
+					"PB_NO_PACKED_STRUCTS=1",
+					"PB_ENABLE_MALLOC=1",
+					"SQLITE_HAS_CODEC=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations/FirebaseInstallations.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport/GoogleDataTransport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransportCCTSupport/GoogleDataTransportCCTSupport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IBAnimatable/IBAnimatable.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper/ObjectMapper.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReachabilitySwift/Reachability.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SAMKeychain/SAMKeychain.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SideMenu/SideMenu.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftDate/SwiftDate.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"\"${PODS_TARGET_SRCROOT}/Sources/FBLPromises/include\"",
+					"$(PROJECT_DIR)/sqlcipher/include",
+				);
 				INFOPLIST_FILE = "Arventa ConnectTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1137,8 +1227,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sqlcipher",
+				);
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rogomi.init.arventa-connect.Arventa-ConnectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "sqlcipher/Arventa-Connect-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arventa Connect.app/Arventa Connect";
