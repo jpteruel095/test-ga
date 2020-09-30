@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import SwiftDate
 
 class TestHelpers{
     public class func tapOverStaticText(_ text: String){
@@ -70,5 +71,24 @@ class TestHelpers{
 
         // Relaunch app without restarting it
         app.activate()
+    }
+    
+    public class func getCurrentGreeting() -> String{
+        let region = Region.init(calendar: Calendars.gregorian, zone: Zones.asiaManila, locale: Locales.english)
+        let date = Date().convertTo(region: region)
+        guard let midnight = date.dateBySet(hour: 0, min: 0, secs: 0),
+            let noon = date.dateBySet(hour: 12, min: 0, secs: 0),
+            let evening = date.dateBySet(hour: 18, min: 0, secs: 0) else{
+            return "Guten Morgen"
+        }
+        
+        let now = Date().convertTo(region: region)
+        if now.isInRange(date: midnight, and: noon){
+            return "Good morning"
+        }else if now.isInRange(date: noon, and: evening){
+            return "Good afternoon"
+        }else{
+            return "Good evening"
+        }
     }
 }

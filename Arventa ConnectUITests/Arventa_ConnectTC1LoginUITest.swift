@@ -7,7 +7,7 @@
 
 import XCTest
 
-class Arventa_ConnectLoginUITest: XCTestCase {
+class Arventa_ConnectTC1LoginUITest: XCTestCase {
     /**
      - Naming Convention
      - test_TC1a1_LoginSuccessWOVerification
@@ -17,7 +17,6 @@ class Arventa_ConnectLoginUITest: XCTestCase {
      - * LoginSuccessWOVerification - shortening descriptions Login Success Without Mobile Verification
      */
     
-    // MARK: Helpers
     /**
      - Description: 1.1 - Login Success - Without Mobile Verification
      */

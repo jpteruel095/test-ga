@@ -32,6 +32,7 @@ target 'Arventa Connect' do
 
   target 'Arventa ConnectUITests' do
     # Pods for testing
+    pod 'SwiftDate'
   end
 
 end

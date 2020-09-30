@@ -37,7 +37,7 @@ extension ArventaWeb{
                 return
             }
             
-            guard let items = json?.array else{
+            guard let items = json?.dictionary?["menuItems"]?.array else{
                 completion(nil)
                 return
             }

@@ -22,7 +22,6 @@ class MenuItem: Mappable, MenuItemProtocol{
     var parentID: Int?
     var menuLevel: Int = 1
     var access: AccessType = .FULL
-    var actionID: Int?
     var actionName: String?
     var displayOrder: Int = 1
     
@@ -31,12 +30,11 @@ class MenuItem: Mappable, MenuItemProtocol{
     }
     
     func mapping(map: Map) {
-        menuID <- map["menuID"]
+        menuID <- map["menuId"]
         caption <- map["caption"]
-        parentID <- map["parentID"]
+        parentID <- map["parentMenuId"]
         menuLevel <- map["menuLevel"]
         access <- map["access"]
-        actionID <- map["actionID"]
         actionName <- map["actionName"]
         displayOrder <- map["displayOrder"]
     }
@@ -62,7 +60,9 @@ extension MenuItem{
                 
                 return MenuItem(JSONString: json)
             }
-            return menuItems
+            return menuItems.sorted(by: {
+                $0.displayOrder < $1.displayOrder
+            })
         } catch let error as NSError {
             print("Could not fetch. \(error)")
             return []

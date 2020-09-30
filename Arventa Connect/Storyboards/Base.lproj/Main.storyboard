@@ -45,6 +45,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebY-7T-Q8d">
                                         <rect key="frame" x="369" y="25" width="30" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="closeButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="VQW-la-faa"/>
                                             <constraint firstAttribute="width" constant="30" id="xVK-2l-Tu4"/>

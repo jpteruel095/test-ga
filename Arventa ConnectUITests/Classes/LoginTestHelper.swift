@@ -34,6 +34,23 @@ class LoginTestHelper{
         return false
     }
     
+    public class func didLoginIfNot(account: TestAccount = .whs, inTestCase testCase: XCTestCase?) -> Bool{
+        let app = XCUIApplication()
+        if app.textFields["Username"].exists {
+            self.enterCredentialsAndTapLogin(username: account.getUsername(),
+                                             password: account.getPassword())
+            
+            let greetingUserLabel = app.staticTexts["greetingUserLabel"]
+            let exists = NSPredicate(format: "exists == 1")
+            testCase?.expectation(for: exists, evaluatedWith: greetingUserLabel, handler: nil)
+            testCase?.waitForExpectations(timeout: 10, handler: nil)
+            
+            XCTAssertNotNil(greetingUserLabel.label.range(of: account.getName()))
+            return true
+        }
+        return false
+    }
+    
     public class func enterOTPCode(code: String){
         let app = XCUIApplication()
         let str = Array(code).map { String($0) }
