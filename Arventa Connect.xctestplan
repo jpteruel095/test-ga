@@ -26,9 +26,19 @@
     },
     {
       "skippedTests" : [
+        "Arventa_ConnectLoginUITest\/test_TC1a02_LoginSuccessWVerification()",
+        "Arventa_ConnectLoginUITest\/test_TC1a05_LoginWrongCode()",
+        "Arventa_ConnectLoginUITest\/test_TC1a06_LoginCodeOffline()",
+        "Arventa_ConnectLoginUITest\/test_TC1a07_ResendCode()",
+        "Arventa_ConnectLoginUITest\/test_TC1a08_ResendCodeOffline()",
+        "Arventa_ConnectLoginUITest\/test_TC1a09_ExitVerification()",
+        "Arventa_ConnectLoginUITest\/test_TC1a2_LoginSuccessWVerification()",
         "Arventa_ConnectLoginUITest\/test_TC1a4_LoginWhileOffline()",
+        "Arventa_ConnectLoginUITest\/test_TC1a5_LoginWrongCode()",
         "Arventa_ConnectLoginUITest\/test_TC1a6_LoginCodeOffline()",
-        "Arventa_ConnectLoginUITest\/test_TC1a8_ResendCodeOffline()"
+        "Arventa_ConnectLoginUITest\/test_TC1a7_ResendCode()",
+        "Arventa_ConnectLoginUITest\/test_TC1a8_ResendCodeOffline()",
+        "Arventa_ConnectLoginUITest\/test_TC1a9_ExitVerification()"
       ],
       "target" : {
         "containerPath" : "container:Arventa Connect.xcodeproj",

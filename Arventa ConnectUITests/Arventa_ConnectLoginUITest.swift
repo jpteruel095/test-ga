@@ -19,9 +19,9 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     
     // MARK: Helpers
     /**
-     - 1.1 - Login Success - Without Mobile Verification
+     - Description: 1.1 - Login Success - Without Mobile Verification
      */
-    func test_TC1a1_LoginSuccessWOVerification() throws {
+    func test_TC1a01_LoginSuccessWOVerification() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -48,9 +48,10 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     }
     
     /**
-     - 1.2 - Login Success - Without Mobile Verification
+     - Description: 1.2 - Login Success - Without Mobile Verification
+     - Important: Be careful of running this as it could lock the user out after certain number of attempts.     
      */
-    func test_TC1a2_LoginSuccessWVerification() throws {
+    func test_TC1a02_LoginSuccessWVerification() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -81,9 +82,10 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     }
     
     /**
-     - 1.3 - Login Failed - Invalid Credentials
+     - Description: 1.3 - Login Failed - Invalid Credentials
+     - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a3_LoginInvalidCredentials() throws {
+    func test_TC1a03_LoginInvalidCredentials() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -106,10 +108,10 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     }
     
     /**
-     - 1.4 - Login Failed - Offline When Logging in.
-     - Cannot be tested on Firebase Testlab - Error occurs
+     - Description: 1.4 - Login Failed - Offline When Logging in.
+     - Note: Cannot be tested on Firebase Testlab - Error occurs
      */
-    func test_TC1a4_LoginWhileOffline() throws {
+    func test_TC1a04_LoginWhileOffline() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -133,9 +135,10 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     }
     
     /**
-     - 1.5 - Login Failed - Wrong Mobile Verification Code
+     - Description: 1.5 - Login Failed - Wrong Mobile Verification Code
+     - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a5_LoginWrongCode() throws {
+    func test_TC1a05_LoginWrongCode() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -151,7 +154,7 @@ class Arventa_ConnectLoginUITest: XCTestCase {
                                       inTestCase: self)
         
         XCTAssert(app.staticTexts["Store Manifest"].exists)
-        LoginTestHelper.enterCredentialsAndTapLogin(username: "sm_numlock1",
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "whsrogomi1",
                                                     password: "watsoN#12345")
         
         let verifyLabel = app.staticTexts["Verify your account"]
@@ -177,10 +180,11 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     }
     
     /**
-     - 1.6 - Login Failed - Wrong Mobile Verification Code
-     - Cannot be tested on Firebase Testlab - Error occurs
+     - Description: 1.6 - Login Failed - Wrong Mobile Verification Code
+     - Note: Cannot be tested on Firebase Testlab - Error occurs
+     - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a6_LoginCodeOffline() throws {
+    func test_TC1a06_LoginCodeOffline() throws {
         let app = XCUIApplication()
         app.launch()
         
@@ -223,9 +227,10 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     }
     
     /**
-     - 1.7 - Resend Mobile Verification Code
+     - Description: 1.7 - Resend Mobile Verification Code
+     - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a7_ResendCode() throws {
+    func test_TC1a07_ResendCode() throws {
         let app = XCUIApplication()
         app.launch()
         
@@ -262,10 +267,11 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     }
     
     /**
-     - 1.8 - Resend Mobile Verification Code - Offline
-     - Cannot be tested on Firebase Testlab - Error occurs
+     - Description: 1.8 - Resend Mobile Verification Code - Offline
+     - Note: Cannot be tested on Firebase Testlab - Error occurs
+     - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a8_ResendCodeOffline() throws {
+    func test_TC1a08_ResendCodeOffline() throws {
         let app = XCUIApplication()
         app.launch()
         
@@ -280,7 +286,7 @@ class Arventa_ConnectLoginUITest: XCTestCase {
                                       inTestCase: self)
         
         XCTAssert(app.staticTexts["Store Manifest"].exists)
-        LoginTestHelper.enterCredentialsAndTapLogin(username: "sm_numlock1",
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "whsrogomi1",
                                                     password: "watsoN#12345")
         
         let verifyLabel = app.staticTexts["Verify your account"]
@@ -304,9 +310,10 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     }
     
     /**
-     - 1.9 - Exit Mobile Verification Screen
+     - Description: 1.9 - Exit Mobile Verification Screen
+     - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a9_ExitVerification() throws {
+    func test_TC1a09_ExitVerification() throws {
         let app = XCUIApplication()
         app.launch()
         
@@ -321,7 +328,7 @@ class Arventa_ConnectLoginUITest: XCTestCase {
                                       inTestCase: self)
         
         XCTAssert(app.staticTexts["Store Manifest"].exists)
-        LoginTestHelper.enterCredentialsAndTapLogin(username: "sm_numlock1",
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "whsrogomi1",
                                                     password: "watsoN#12345")
         
         let verifyLabel = app.staticTexts["Verify your account"]
@@ -335,7 +342,7 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     }
     
     /**
-     - 1.10 - App Dropdown
+     - Description: 1.10 - App Dropdown
      */
     func test_TC1a10_AppDropdown() throws {
         let app = XCUIApplication()
@@ -360,7 +367,7 @@ class Arventa_ConnectLoginUITest: XCTestCase {
     }
     
     /**
-     - 1.11 - Login Into The Apps - Success
+     - Description: 1.11 - Login Into The Apps - Success
      */
     func test_TC1a11_LoginToAllApps() throws {
         
