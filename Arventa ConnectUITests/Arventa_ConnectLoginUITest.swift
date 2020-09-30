@@ -8,71 +8,67 @@
 import XCTest
 
 class Arventa_ConnectLoginUITest: XCTestCase {
+    /**
+     - Naming Convention
+     - test_TC1a1_LoginSuccessWOVerification
+     - * test - required by XCTest to annotate test
+     - * _ - underscore, used to seperate parts of name
+     - * TC1a1 - Test Case 1.1
+     - * LoginSuccessWOVerification - shortening descriptions Login Success Without Mobile Verification
+     */
     
     // MARK: Helpers
     /**
      - 1.1 - Login Success - Without Mobile Verification
      */
-    func testLoginSuccessWOVerification() throws {
+    func test_TC1a1_LoginSuccessWOVerification() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
 
-        TestHelpers.forceLogout(app: app)
-        
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        app.textFields["Username"].tap()
-        app.textFields["Username"].typeText("whs_numlock")
-        
-        app.secureTextFields["Password"].tap()
-        app.secureTextFields["Password"].typeText("watsoN#12345")
-        
-        app.keyboards.buttons["done"].tap()
-        app.buttons["LOG IN"].tap()
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "whs_numlock",
+                                                    password: "watsoN#12345")
         
         let greetingUserLabel = app.staticTexts["greetingUserLabel"]
-        
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: greetingUserLabel, handler: nil)
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
         
         XCTAssertNotNil(greetingUserLabel.label.range(of:"whs_numlock Rogomi"))
         
-        app.buttons["sideMenuButton"].tap()
-        app.staticTexts["Log out"]
-            .coordinate(withNormalizedOffset: .zero)
-            .tap()
+//        app.buttons["sideMenuButton"].tap()
+//        app.staticTexts["Log out"]
+//            .coordinate(withNormalizedOffset: .zero)
+//            .tap()
         
-        TestHelpers.validateLoginPage(app: app)
+//        TestHelpers.validateLoginPage()
     }
     
     /**
      - 1.2 - Login Success - Without Mobile Verification
      */
-    func testLoginSuccessWVerification() throws {
+    func test_TC1a2_LoginSuccessWVerification() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
         
-        TestHelpers.forceLogout(app: app)
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        TestHelpers.validateLoginPage(app: app)
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
         
         // Initially, the default selected app is always WHS Monitor
-        app.staticTexts["WHS Monitor"]
-            .coordinate(withNormalizedOffset: .zero)
-            .tap()
+        TestHelpers.tapOverStaticText("WHS Monitor")
+        TestHelpers.expectActionSheet(title: "Which app would you like to log into?",
+                                      andTap: "Store Manifest",
+                                      inTestCase: self)
         
-        let actionsheet = app.sheets["Which app would you like to log into?"]
-        actionsheet.buttons["Store Manifest"].tap()
         XCTAssert(app.staticTexts["Store Manifest"].exists)
         
-        TestHelpers.enterCredentialsAndTapLogin(app: app,
-                                                username: "sm_numlock1",
-                                                password: "watsoN#12345")
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "sm_numlock1",
+                                                    password: "watsoN#12345")
         
         let verifyLabel = app.staticTexts["Verify your account"]
         let exists = NSPredicate(format: "exists == 1")
@@ -81,79 +77,292 @@ class Arventa_ConnectLoginUITest: XCTestCase {
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
         
         app.textFields.firstMatch.tap()
-        TestHelpers.enterOTPCode(app: app, code: "123123")
+        LoginTestHelper.enterOTPCode(code: "123123")
     }
     
     /**
      - 1.3 - Login Failed - Invalid Credentials
      */
-    func testLoginInvalidCredentials() throws {
+    func test_TC1a3_LoginInvalidCredentials() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
         
-        TestHelpers.forceLogout(app: app)
-
-        TestHelpers.enterCredentialsAndTapLogin(app: app,
-                                                username: "failaccount01",
-                                                password: "password123")
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
         
-        // wait
-        let alert = app.alerts["Error"]
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "failaccount01",
+                                                    password: "password123")
         
-        let exists = NSPredicate(format: "exists == 1")
-        expectation(for: exists, evaluatedWith: alert, handler: nil)
-        waitForExpectations(timeout: 5, handler: nil)
-
-        XCTAssert(alert.staticTexts["Please enter a valid Username and Password."].exists)
-        alert.buttons["OK"].tap()
-        TestHelpers.validateLoginPage(app: app, emptyFields: false)
+        
+        TestHelpers.expectAlert(withTitle: "Error",
+                                andAssertMessage: "Please enter a valid Username and Password.",
+                                thenTap: "OK",
+                                butWait: true,
+                                inTestCase: self)
+        
+        LoginTestHelper.validateLoginPage(emptyFields: false)
     }
     
     /**
      - 1.4 - Login Failed - Offline When Logging in.
      - Cannot be tested on Firebase Testlab - Error occurs
      */
-//    func testLoginWhileOffline() throws {
-//        // UI tests must launch the application that they test.
-//        let app = XCUIApplication()
-//        app.launch()
-//        
-//        TestHelpers.forceLogout(app: app)
-//
-//        let settingsApp = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
-//        settingsApp.launch()
-//        settingsApp.tables.cells["Airplane Mode"].tap()
-//
-//        // Relaunch app without restarting it
-//        app.activate()
-//
-//        app.textFields["Username"].tap()
-//        app.textFields["Username"].typeText("failaccount01")
-//
-//        app.secureTextFields["Password"].tap()
-//        app.secureTextFields["Password"].typeText("password123")
-//
-//        app.keyboards.buttons["done"].tap()
-//        app.buttons["LOG IN"].tap()
-//
-//        // wait
-//        let alert = app.alerts["Error"]
-//
-//        let exists = NSPredicate(format: "exists == 1")
-//        expectation(for: exists, evaluatedWith: alert, handler: nil)
-//        waitForExpectations(timeout: 5, handler: nil)
-//
-//        XCTAssert(alert.staticTexts["You are currently offline."].exists)
-//        alert.buttons["OK"].tap()
-//
-//        settingsApp.launch()
-//        settingsApp.tables.cells["Airplane Mode"].tap()
-//
-//        // Relaunch app without restarting it
-//        app.activate()
-//        TestHelpers.validateLoginPage(app: app, emptyFields: false)
-//    }
+    func test_TC1a4_LoginWhileOffline() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
+
+        TestHelpers.executeWhileOffline {
+            LoginTestHelper.enterCredentialsAndTapLogin(username: "failaccount01",
+                                                    password: "password123")
+            
+            TestHelpers.expectAlert(withTitle: "Error",
+                                    andAssertMessage: "You are currently offline.",
+                                    thenTap: "OK",
+                                    butWait: true,
+                                    inTestCase: self)
+        }
+        
+        LoginTestHelper.validateLoginPage(emptyFields: false)
+    }
     
+    /**
+     - 1.5 - Login Failed - Wrong Mobile Verification Code
+     */
+    func test_TC1a5_LoginWrongCode() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
+        
+        // Initially, the default selected app is always WHS Monitor
+        TestHelpers.tapOverStaticText("WHS Monitor")
+        TestHelpers.expectActionSheet(title: "Which app would you like to log into?",
+                                      andTap: "Store Manifest",
+                                      inTestCase: self)
+        
+        XCTAssert(app.staticTexts["Store Manifest"].exists)
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "sm_numlock1",
+                                                    password: "watsoN#12345")
+        
+        let verifyLabel = app.staticTexts["Verify your account"]
+        let exists = NSPredicate(format: "exists == 1")
+        expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        
+        app.textFields.firstMatch.tap()
+        
+        //This assumes that the OTP is really not 123123
+        LoginTestHelper.enterOTPCode(code: "123123")
+        app.toolbars["Toolbar"].buttons["Done"].tap()
+        
+        app.buttons["CONTINUE"].tap()
+        TestHelpers.expectAlert(withTitle: "Error",
+                                andAssertMessage: "Invalid Security Code.",
+                                thenTap: "OK",
+                                butWait: true,
+                                inTestCase: self)
+        
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+    }
     
+    /**
+     - 1.6 - Login Failed - Wrong Mobile Verification Code
+     - Cannot be tested on Firebase Testlab - Error occurs
+     */
+    func test_TC1a6_LoginCodeOffline() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
+        
+        // Initially, the default selected app is always WHS Monitor
+        TestHelpers.tapOverStaticText("WHS Monitor")
+        TestHelpers.expectActionSheet(title: "Which app would you like to log into?",
+                                      andTap: "Store Manifest",
+                                      inTestCase: self)
+        
+        XCTAssert(app.staticTexts["Store Manifest"].exists)
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "sm_numlock1",
+                                                    password: "watsoN#12345")
+        
+        let verifyLabel = app.staticTexts["Verify your account"]
+        let exists = NSPredicate(format: "exists == 1")
+        expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        
+        TestHelpers.executeWhileOffline {
+            app.textFields.firstMatch.tap()
+            
+            //This assumes that the OTP is really not 123123
+            LoginTestHelper.enterOTPCode(code: "123123")
+            app.toolbars["Toolbar"].buttons["Done"].tap()
+            
+            app.buttons["CONTINUE"].tap()
+            TestHelpers.expectAlert(withTitle: "Error",
+                                    andAssertMessage: "You are currently offline.",
+                                    thenTap: "OK",
+                                    butWait: true,
+                                    inTestCase: self)
+        }
+        
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+    }
+    
+    /**
+     - 1.7 - Resend Mobile Verification Code
+     */
+    func test_TC1a7_ResendCode() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
+        
+        // Initially, the default selected app is always WHS Monitor
+        TestHelpers.tapOverStaticText("WHS Monitor")
+        TestHelpers.expectActionSheet(title: "Which app would you like to log into?",
+                                      andTap: "Store Manifest",
+                                      inTestCase: self)
+        
+        XCTAssert(app.staticTexts["Store Manifest"].exists)
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "sm_numlock1",
+                                                password: "watsoN#12345")
+        
+        let verifyLabel = app.staticTexts["Verify your account"]
+        let exists = NSPredicate(format: "exists == 1")
+        expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        
+        app.toolbars["Toolbar"].buttons["Done"].tap()
+        
+        app.buttons["Resend code"].tap()
+        TestHelpers.expectAlert(withTitle: "Success",
+                                andAssertMessage: "The code has been sent.",
+                                thenTap: "OK",
+                                butWait: true,
+                                inTestCase: self)
+        
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+    }
+    
+    /**
+     - 1.8 - Resend Mobile Verification Code - Offline
+     - Cannot be tested on Firebase Testlab - Error occurs
+     */
+    func test_TC1a8_ResendCodeOffline() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
+        
+        // Initially, the default selected app is always WHS Monitor
+        TestHelpers.tapOverStaticText("WHS Monitor")
+        TestHelpers.expectActionSheet(title: "Which app would you like to log into?",
+                                      andTap: "Store Manifest",
+                                      inTestCase: self)
+        
+        XCTAssert(app.staticTexts["Store Manifest"].exists)
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "sm_numlock1",
+                                                    password: "watsoN#12345")
+        
+        let verifyLabel = app.staticTexts["Verify your account"]
+        let exists = NSPredicate(format: "exists == 1")
+        expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        
+        app.toolbars["Toolbar"].buttons["Done"].tap()
+        
+        TestHelpers.executeWhileOffline {
+            app.buttons["Resend code"].tap()
+            TestHelpers.expectAlert(withTitle: "Error",
+                                    andAssertMessage: "You are currently offline.",
+                                    thenTap: "OK",
+                                    butWait: true,
+                                    inTestCase: self)
+        }
+        
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+    }
+    
+    /**
+     - 1.9 - Exit Mobile Verification Screen
+     */
+    func test_TC1a9_ExitVerification() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
+        
+        // Initially, the default selected app is always WHS Monitor
+        TestHelpers.tapOverStaticText("WHS Monitor")
+        TestHelpers.expectActionSheet(title: "Which app would you like to log into?",
+                                      andTap: "Store Manifest",
+                                      inTestCase: self)
+        
+        XCTAssert(app.staticTexts["Store Manifest"].exists)
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "sm_numlock1",
+                                                    password: "watsoN#12345")
+        
+        let verifyLabel = app.staticTexts["Verify your account"]
+        let exists = NSPredicate(format: "exists == 1")
+        expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        
+        app.buttons["backButton"].tap()
+        LoginTestHelper.validateLoginPage(emptyFields: false)
+    }
+    
+    /**
+     - 1.10 - App Dropdown
+     */
+    func test_TC1a10_AppDropdown() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
+        
+        // Initially, the default selected app is always WHS Monitor
+        TestHelpers.tapOverStaticText("WHS Monitor")
+        let actionsheet = app.sheets["Which app would you like to log into?"]
+        XCTAssert(actionsheet.buttons["WHS Monitor"].exists)
+        XCTAssert(actionsheet.buttons["MSDS"].exists)
+        XCTAssert(actionsheet.buttons["Store Manifest"].exists)
+        XCTAssert(actionsheet.buttons["Pest Genie"].exists)
+        XCTAssert(actionsheet.buttons["Farm Minder"].exists)
+        XCTAssert(actionsheet.buttons["Chemical Caddy"].exists)
+        
+        actionsheet.buttons["Cancel"].tap()
+        LoginTestHelper.validateLoginPage()
+    }
+    
+    /**
+     - 1.11 - Login Into The Apps - Success
+     */
+    func test_TC1a11_LoginToAllApps() throws {
+        
+    }
 }

@@ -67,7 +67,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RISK &amp; COMPLIANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ld-YU-ZNH">
-                                                <rect key="frame" x="79" y="26.333333333333346" width="99.666666666666686" height="11.666666666666668"/>
+                                                <rect key="frame" x="79" y="26" width="98" height="12"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="10"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -97,20 +97,20 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuItemCell" id="2PK-3p-agD" customClass="SideMenuCell" customModule="Arventa_Connect" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="46.666667938232422"/>
+                                                <rect key="frame" x="0.0" y="28" width="414" height="47.333332061767578"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2PK-3p-agD" id="t2Z-jJ-UVx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="46.666667938232422"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="47.333332061767578"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUv-bW-lhf">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="47.333333333333336"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sidemenu/user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="OYB-9k-pjZ">
-                                                                    <rect key="frame" x="17" y="11.333333333333336" width="24" height="24"/>
+                                                                    <rect key="frame" x="17" y="11.666666666666664" width="24" height="24"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhh-6u-MKl">
-                                                                    <rect key="frame" x="61" y="14.000000000000002" width="43" height="18.666666666666671"/>
+                                                                    <rect key="frame" x="61" y="13.999999999999998" width="42.666666666666657" height="19.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -181,7 +181,7 @@
                                                                 <rect key="frame" x="17" y="12.666666666666629" width="24" height="24"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xc-qz-Yx0">
-                                                                <rect key="frame" x="61" y="14" width="59" height="21"/>
+                                                                <rect key="frame" x="61" y="14" width="56.333333333333343" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="eRq-hO-P96"/>
                                                                 </constraints>
@@ -205,7 +205,7 @@
                                                                 <rect key="frame" x="17" y="12.666666666666629" width="24" height="24"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eno-j5-mUN">
-                                                                <rect key="frame" x="61" y="14" width="55" height="21"/>
+                                                                <rect key="frame" x="61" y="14" width="53" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="jBe-Wk-rtz"/>
                                                                 </constraints>
@@ -601,6 +601,7 @@ John Doe</string>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4F-Bq-a92">
                                 <rect key="frame" x="16" y="54.333333333333343" width="24" height="24"/>
+                                <accessibility key="accessibilityConfiguration" identifier="backButton"/>
                                 <state key="normal" image="back-icon"/>
                                 <connections>
                                     <action selector="didTapBackButton:" destination="iO2-NI-TVr" eventType="touchUpInside" id="hEe-yT-XyX"/>

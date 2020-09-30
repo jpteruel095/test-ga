@@ -42,7 +42,7 @@ extension SignInViewController{
                                             style: .cancel,
                                             handler: nil))
         
-        self.showActionSheet(title: "Select Action", actions: actions, popoverSourceView: self.view)
+        self.showActionSheet(title: "Select Action", actions: actions, popoverSourceView: self.appDropdownLabel)
     }
     
     enum AccountType: String{
