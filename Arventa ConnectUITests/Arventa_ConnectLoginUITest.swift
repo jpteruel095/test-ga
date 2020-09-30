@@ -146,4 +146,6 @@ class Arventa_ConnectLoginUITest: XCTestCase {
 //        app.activate()
 //        self.validateLoginPage(app: app, emptyFields: false)
 //    }
+    
+    
 }
