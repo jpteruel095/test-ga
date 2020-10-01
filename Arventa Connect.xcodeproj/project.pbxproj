@@ -58,6 +58,13 @@
 		C61DD4F2251B1FC2006546DF /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4DB251B1FBC006546DF /* Lato-HeavyItalic.ttf */; };
 		C61DD4F7251B1FD5006546DF /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD4F6251B1FD5006546DF /* DashboardViewController.swift */; };
 		C6477DE02521C86E006408E1 /* VerifyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477DDF2521C86E006408E1 /* VerifyAccountViewController.swift */; };
+		C64790ED2525AD86006A9654 /* ArventaWeb+Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64790EC2525AD86006A9654 /* ArventaWeb+Product.swift */; };
+		C64790F12525AF5F006A9654 /* DB+Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EDA8AF2525A199006BF4B7 /* DB+Product.swift */; };
+		C64790F52525AF63006A9654 /* ArventaWeb+Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64790EC2525AD86006A9654 /* ArventaWeb+Product.swift */; };
+		C64790F92525B4A7006A9654 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C604EDB62525927600790341 /* Product.swift */; };
+		C64790FD2525B4D9006A9654 /* SyncableDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C604EDBC252592E200790341 /* SyncableDataProtocol.swift */; };
+		C64791012525B4FD006A9654 /* UpsertTestProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EDA8C52525A335006BF4B7 /* UpsertTestProductViewController.swift */; };
+		C64791022525B4FD006A9654 /* TestProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EDA8BD2525A326006BF4B7 /* TestProductsViewController.swift */; };
 		C64AEA5D25236E2000B3E187 /* StoryboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64AEA5C25236E2000B3E187 /* StoryboardVC.swift */; };
 		C64AEA6225237D8700B3E187 /* OverlayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64AEA6125237D8700B3E187 /* OverlayDelegate.swift */; };
 		C64AEA6825237F8500B3E187 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64AEA6725237F8500B3E187 /* User.swift */; };
@@ -187,6 +194,7 @@
 		C61DD4E0251B1FBE006546DF /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		C61DD4F6251B1FD5006546DF /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		C6477DDF2521C86E006408E1 /* VerifyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountViewController.swift; sourceTree = "<group>"; };
+		C64790EC2525AD86006A9654 /* ArventaWeb+Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArventaWeb+Product.swift"; sourceTree = "<group>"; };
 		C64AEA5C25236E2000B3E187 /* StoryboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardVC.swift; sourceTree = "<group>"; };
 		C64AEA6125237D8700B3E187 /* OverlayDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayDelegate.swift; sourceTree = "<group>"; };
 		C64AEA6725237F8500B3E187 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -359,6 +367,7 @@
 				C6AFA5F8251B4B40003551B4 /* ArventaWeb+Reachability.swift */,
 				C692AE0A252343FB00BDA109 /* ArventaWeb+Auth.swift */,
 				C64AEB3125241A8500B3E187 /* ArventaWeb+Profile.swift */,
+				C64790EC2525AD86006A9654 /* ArventaWeb+Product.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -826,6 +835,7 @@
 				C61DD4F7251B1FD5006546DF /* DashboardViewController.swift in Sources */,
 				C692AE082523439E00BDA109 /* ArventaInterface.swift in Sources */,
 				C6DF1694251C976F0034E9C5 /* ArventaDB.swift in Sources */,
+				C64790ED2525AD86006A9654 /* ArventaWeb+Product.swift in Sources */,
 				C61DD479251AFC64006546DF /* Extensions.swift in Sources */,
 				C604EDC82525965400790341 /* MainNavigationController.swift in Sources */,
 				C6477DE02521C86E006408E1 /* VerifyAccountViewController.swift in Sources */,
@@ -879,9 +889,11 @@
 				C673B04D2524843D00A628A2 /* Arventa_Connect.xcdatamodeld in Sources */,
 				C64AEB3F252422AE00B3E187 /* UserDefaultsExt.swift in Sources */,
 				C64AEB4A252422F400B3E187 /* RequestProtocol.swift in Sources */,
+				C64790F12525AF5F006A9654 /* DB+Product.swift in Sources */,
 				C673B03F252483F200A628A2 /* ArventaInterface.swift in Sources */,
 				C61DD486251AFEEC006546DF /* ArventaWeb.swift in Sources */,
 				C673B03B252483D000A628A2 /* AppDelegate.swift in Sources */,
+				C64791022525B4FD006A9654 /* TestProductsViewController.swift in Sources */,
 				C6D331442519FEAD003DD32D /* Arventa_ConnectTests.swift in Sources */,
 				C604EDF72525997900790341 /* IconLib.swift in Sources */,
 				C64AEB43252422DC00B3E187 /* ArventaWeb+Reachability.swift in Sources */,
@@ -892,11 +904,14 @@
 				C64AEB4F2524231200B3E187 /* NotificationCenterExt.swift in Sources */,
 				C673B0452524841600A628A2 /* SideMenuViewController.swift in Sources */,
 				C61DD482251AFEE9006546DF /* ArventaWeb+Endpoint.swift in Sources */,
+				C64790F52525AF63006A9654 /* ArventaWeb+Product.swift in Sources */,
 				C64AEB44252422DC00B3E187 /* ArventaWeb+Profile.swift in Sources */,
 				C679302C252509E100280D24 /* DB+Demo.swift in Sources */,
 				C64AEB542524231F00B3E187 /* AppTheme.swift in Sources */,
+				C64791012525B4FD006A9654 /* UpsertTestProductViewController.swift in Sources */,
 				C604EDE62525994500790341 /* DashboardViewController.swift in Sources */,
 				C61DD48B251AFF4E006546DF /* Helpers.swift in Sources */,
+				C64790FD2525B4D9006A9654 /* SyncableDataProtocol.swift in Sources */,
 				C604EDEC2525994A00790341 /* DeviceAdaptabilityDelegate.swift in Sources */,
 				C604EDEB2525994A00790341 /* OverlayDelegate.swift in Sources */,
 				C679302D252509E100280D24 /* DB+Migration.swift in Sources */,
@@ -905,6 +920,7 @@
 				C604EDED2525994A00790341 /* ArventaViewDelegate.swift in Sources */,
 				C61DD48A251AFF4E006546DF /* Extensions.swift in Sources */,
 				C673B037252483C700A628A2 /* MenuItem.swift in Sources */,
+				C64790F92525B4A7006A9654 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

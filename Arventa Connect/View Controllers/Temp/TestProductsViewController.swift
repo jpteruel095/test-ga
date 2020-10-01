@@ -10,18 +10,22 @@ import UIKit
 class TestProductsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var products: [[String: Any]] = []
+    var products: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         ArventaInterface.shared.getProducts { (products, error) in
             self.products = products
             self.tableView.reloadData()
         }
     }
-
 }
 
 extension TestProductsViewController: UITableViewDataSource{
@@ -32,7 +36,7 @@ extension TestProductsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell")!
         if let label = cell.viewWithTag(1000) as? UILabel{
-            guard let name = products[indexPath.row]["name"] as? String else{
+            guard let name = products[indexPath.row].name else{
                 label.text = String(format: "%d", indexPath.row + 1)
                 return cell
             }

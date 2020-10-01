@@ -69,7 +69,7 @@ extension ArventaDB{
     
     fileprivate func createDemoProductTable() throws{
         let fields = [
-            "id", "name", "created_at", "last_updated_at", "last_sync_at", "last_failed_at"
+            "id", "serverId", "name", "created_at", "last_updated_at", "last_sync_at", "last_failed_at"
         ]
         let createTableQuery = (queryForCreatingTableIfNotExist(tableName: "demoProducts", fields: fields) as NSString).utf8String
         var rc = sqlite3_exec(self.userDB, createTableQuery, nil, nil, nil)
@@ -94,16 +94,16 @@ extension ArventaDB{
             return key
         }
         
-        insertIntoTable(tableName: "demoProducts",
-                        fields: keys,
-                        values: values)
+//        try insertIntoTable(tableName: "demoProducts",
+//                        fields: keys,
+//                        values: values)
     }
     
     func queryForCreatingTableIfNotExist(tableName: String, fields: [String]) -> String{
         return "CREATE TABLE IF NOT EXISTS \(tableName)(\(fields.joined(separator: ",")))"
     }
     
-    func insertIntoTable(tableName: String, fields: [String], values: [Any]){
+    func insertIntoTable(tableName: String, fields: [String], values: [Any]) throws{
         var stmt: OpaquePointer?
         let rawQuery = "INSERT INTO \(tableName)(\(fields.joined(separator: ","))) VALUES(\(fields.map{ _ -> String in return "?"}.joined(separator: ",")))"
         let insertQuery = (rawQuery as NSString).utf8String
@@ -112,6 +112,7 @@ extension ArventaDB{
         if (rc != SQLITE_OK) {
             let errmsg = String(cString: sqlite3_errmsg(self.userDB))
             print("Failed to prepare insert statement: \(errmsg)");
+            throw Helpers.makeError(with: errmsg)
         }
         
         var i: Int32 = 1
@@ -127,45 +128,8 @@ extension ArventaDB{
         if(rc != SQLITE_DONE){
             let errmsg = String(cString: sqlite3_errmsg(self.userDB))
             print("Failed to insert data: \(errmsg)");
+            throw Helpers.makeError(with: errmsg)
         }
         sqlite3_finalize(stmt);
-    }
-    
-    func retrieveProductsFromDB() throws -> [[String: Any?]]{
-        var products: [[String: Any?]] = []
-        var rc: Int32
-        if (self.userDB == nil) {
-            try initializeUserDB()
-        }
-
-        var stmt: OpaquePointer?
-        let selectQuery = ("SELECT * FROM demoProducts;" as NSString).utf8String
-        sqlite3_prepare(self.userDB, selectQuery, -1, &stmt, nil);
-        rc = sqlite3_step(stmt)
-        
-        while (rc == SQLITE_ROW) {
-            print("Columns: ", sqlite3_column_count(stmt))
-            
-            var rawDict: [String: Any?] = [:]
-            for i in 0 ... sqlite3_column_count(stmt) - 1{
-                let key = String(format: "%s", sqlite3_column_name(stmt, i))
-                let type = sqlite3_column_type(stmt, i)
-                var value: Any?
-                if type == SQLITE_INTEGER{
-                    value = sqlite3_column_int(stmt, i)
-                }
-                else if type == SQLITE_TEXT{
-                    value = String(format: "%s", sqlite3_column_text(stmt, i))
-                }
-                else if type == SQLITE_NULL{
-                    value = nil
-                }
-                rawDict[key] = value
-            }
-            
-            products.append(rawDict)
-            rc = sqlite3_step(stmt)
-        }
-        return products
     }
 }

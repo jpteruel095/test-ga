@@ -16,4 +16,14 @@ extension ArventaInterface{
             completion(error)
         }
     }
+    
+    func getProducts(completion: @escaping([Product], Error?) -> Void){
+        do{
+            let products = try ArventaDB.shared.retrieveProductsFromDB()
+            completion(products, nil)
+        }catch{
+            print("Error while retrieving products", error)
+            completion([], error)
+        }
+    }
 }

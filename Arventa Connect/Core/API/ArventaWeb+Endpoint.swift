@@ -17,6 +17,7 @@ extension ArventaWeb{
         
         case menuasync
         
+        case savetestproduct
         var route: Route{
             switch self {
             case .token:
@@ -26,6 +27,9 @@ extension ArventaWeb{
                 
             case .menuasync:
                 return Route(path: "userservice/api/Profile/MenuAsync")
+                
+            case .savetestproduct:
+                return Route(path: "userservice/api/TestProduct/save")
             }
         }
     }

@@ -9,6 +9,7 @@ import Foundation
 
 protocol SyncableDataProtocol {
     var id: Int? { get set }
+    var serverId: Int? { get set }
     var created_at: Date? { get set }
     var last_update_at: Date? { get set }
     var last_sync_at: Date? { get set }

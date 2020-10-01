@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UpsertTestProductViewController: UIViewController {
+class UpsertTestProductViewController: UIViewController, ArventaViewDelegate {
     @IBOutlet weak var nameField: UITextField!
     
     override func viewDidLoad() {
@@ -17,7 +17,26 @@ class UpsertTestProductViewController: UIViewController {
     }
     
     @IBAction func didTapSaveButton(_ sender: Any) {
+        guard let name = nameField.nullableTrimmmedText else{
+            self.showInvalidInputMessageAlert(message: "Name must not be empty.")
+            return
+        }
         
+        guard let product = Product(JSON: [:]) else{
+            return
+        }
+        product.name = name
+        
+        ArventaInterface.shared.saveProduct(product) { (error) in
+            if let error = error{
+                self.showErrorMessageAlert(error: error)
+                return
+            }
+            
+            self.showMessageAlert(title: "Success", message: "Product has been saved."){
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
 
 }

@@ -122,6 +122,23 @@ class ArventaSync: NSObject{
         isSyncing = true
         print("Test run asynchronously")
         
+        //retrieve data from database that are syncable
+        do{
+            let products = try ArventaDB.shared.retrieveProductsFromDB()
+            let syncables = products.filter({$0.isSyncable})
+            syncables.forEach { (product) in
+                ArventaWeb.shared.uploadProduct(product: product){ product, error in
+                    if let error = error{
+                        print(error)
+                        return
+                    }
+                    ArventaDB.shared.updateServerID(product!.serverId!, forProduct: product!)
+                }
+            }
+        }catch{
+            print("Error occured while retrieving products")
+        }
+        
         //after everything, attempt to update from the server
         updateFromServer()
     }

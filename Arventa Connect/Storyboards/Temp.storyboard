@@ -22,14 +22,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" id="3jQ-tF-0VX">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3jQ-tF-0VX" id="Hfr-3Y-39T">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdp-S0-axt">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -60,7 +60,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Test Products" id="Zh9-9j-Ndu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bki-7X-w2V"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bki-7X-w2V">
+                            <connections>
+                                <segue destination="byc-DX-RJK" kind="show" id="Job-6O-nfv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -105,6 +109,7 @@
                             <constraint firstItem="Jq9-aD-zjx" firstAttribute="leading" secondItem="qDL-xe-1Sa" secondAttribute="leading" constant="20" id="qDp-mO-hqg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Product" id="otz-sH-vWz"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="nameField" destination="gDn-2c-YOl" id="tN9-8a-EQJ"/>
