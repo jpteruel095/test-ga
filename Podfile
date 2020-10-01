@@ -11,6 +11,8 @@ target 'Arventa Connect' do
   pod 'SwiftDate'
   pod 'ObjectMapper'
   pod 'ReachabilitySwift'
+  pod 'SDWebImage'
+  pod 'SAMKeychain'
   
   #UI
   pod 'IBAnimatable'
@@ -30,6 +32,7 @@ target 'Arventa Connect' do
 
   target 'Arventa ConnectUITests' do
     # Pods for testing
+    pod 'SwiftDate'
   end
 
 end

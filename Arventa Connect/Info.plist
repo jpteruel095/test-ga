@@ -40,6 +40,7 @@
 		<string>Lato-SemiboldItalic.ttf</string>
 		<string>Lato-Thin.ttf</string>
 		<string>Lato-ThinItalic.ttf</string>
+		<string>icon-arventa-font.ttf</string>
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>

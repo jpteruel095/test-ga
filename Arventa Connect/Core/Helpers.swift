@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 struct Helpers{
     static func showMessageAlertView(viewController: UIViewController,
@@ -74,11 +75,7 @@ struct Helpers{
     }
     
     static func makeOfflineError(code: Int = 0) -> Error{
-        NSError(domain: ArventaWeb.Constants.domainName,
-                       code: code,
-                       userInfo: [
-                        NSLocalizedDescriptionKey: "You are currently offline."
-                       ])
+        makeError(with: "You are currently offline.", code: code)
     }
     
     static func isOffline() -> Bool{
@@ -102,6 +99,32 @@ struct Helpers{
         }else{
             let width = (UIScreen.main.bounds.width/columns) - (8+4)
             return CGSize(width: width, height: defaultHeight)
+        }
+    }
+    
+    static func loadJSONFromResource(named resourceName: String) -> JSON{
+        guard let filePath = Bundle.main.url(forResource: resourceName, withExtension: "json"),
+              let data = try? Data(contentsOf: filePath),
+              let json = try? JSON(data: data) else {
+            return JSON()
+        }
+        return json
+    }
+    
+    static func loadJSONFromResourceAsync(named resourceName: String, completion: @escaping((JSON) -> Void)){
+        DispatchQueue.global(qos: .background).async {
+            guard let filePath = Bundle.main.url(forResource: resourceName, withExtension: "json"),
+               let data = try? Data(contentsOf: filePath),
+               let json = try? JSON(data: data) else {
+                DispatchQueue.main.async {
+                    completion(JSON())
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(json)
+            }
         }
     }
 }

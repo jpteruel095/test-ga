@@ -12,12 +12,24 @@ import SwiftyJSON
 extension ArventaWeb{
     // MARK: Endpoints
     enum Endpoint{
-        case login
+        case token
+        case useridentity
         
+        case menuasync
+        
+        case savetestproduct
         var route: Route{
             switch self {
-            case .login:
-                return Route(path: "api/v1/clients/login")
+            case .token:
+                return Route(path: "authservice/api/OAuth/v2/Token")
+            case .useridentity:
+                return Route(path: "authservice/api/OAuth/v2/GetUserIdentity")
+                
+            case .menuasync:
+                return Route(path: "userservice/api/Profile/MenuAsync")
+                
+            case .savetestproduct:
+                return Route(path: "userservice/api/TestProduct/save")
             }
         }
     }
@@ -34,21 +46,13 @@ extension ArventaWeb{
             return URL(string: "\(ArventaWeb.Constants.host)\(self.path)")!
         }
     }
-
-    enum LaravelMethod: String{
-        typealias RawValue = String
-        
-        case patch = "patch"
-        case put = "put"
-        case delete = "delete"
-    }
 }
 
 // MARK: Endpoints Extension
 extension ArventaWeb.Endpoint{
     var isGuest: Bool{
         switch self{
-        case .login:
+        case .token:
             return true
         default:
             return false
@@ -57,7 +61,7 @@ extension ArventaWeb.Endpoint{
     
     var httpMethod: HTTPMethod{
         switch self{
-        case .login:
+        case .token:
             return .post
         default:
             return route.method ?? .get
@@ -86,12 +90,12 @@ extension ArventaWeb.Endpoint{
         ])
         
         if !self.isGuest{
-//            if let current = User.current,
-//                let accessToken = current.accessToken{
-//                headers["Authorization"] = "Bearer \(accessToken)"
-//            }else{
-//                return nil
-//            }
+            if let current = UserToken.current,
+                let accessToken = current.accessToken{
+                headers["Authorization"] = "Bearer \(accessToken)"
+            }else{
+                return nil
+            }
         }
         
         return headers
@@ -157,10 +161,7 @@ extension ArventaWeb.Endpoint{
         //If the current request is a guest,
         // the header is not null
         guard let headers = headers else {
-            if let completion = completion{
-                completion(nil, Helpers.makeError(with: "Unauthorized access. Token may have expired."))
-                //must implement a force logout functionality here
-            }
+            completion?(nil, Helpers.makeError(with: "Unauthorized access. Token may have expired."))
             return
         }
         
@@ -242,10 +243,7 @@ extension ArventaWeb.Endpoint{
         //If the current request is a guest,
         // the header is not null
         guard let headers = headers else {
-            if let completion = completion{
-                completion(nil, Helpers.makeError(with: "Unauthorized access. Token may have expired."))
-                //must implement a force logout functionality here
-            }
+            completion?(nil, Helpers.makeError(with: "Unauthorized access. Token may have expired."))
             return
         }
         
@@ -311,15 +309,40 @@ extension ArventaWeb.Endpoint{
                     statusCode != 200{
                 print("Status \(statusCode)")
                 print(response)
-                if statusCode == 404{
-                    
+                
+                guard let json = try? JSON(response.result.get()),
+                      let code = json["code"].int,
+                      let message = json["message"].string else{
+                    completion?(nil, Helpers.makeError(with: "Unknown server error."))
                     return
                 }
-                else if statusCode == 401{
+                
+                if statusCode == 404{
+                    let exceptions: [Self] = [
+                        .menuasync
+                    ]
+                    if !exceptions.contains(self) {
+                        return
+                    }
+                }
+                else if statusCode == 401 || statusCode == 402{
                     if !self.isGuest{
-                        
+                        ArventaWeb.shared.refreshToken { (token, error) in
+                            if let error = error{
+                                print(error)
+                                NotificationCenter.default.post(name: .userTokenExpired, object: nil)
+                                return
+                            }
+                            
+                            self.request(parameters: parameters,
+                                         progressCallback: progressCallback,
+                                         completion: completion,
+                                         shouldLog: shouldLog,
+                                         shouldLogResult: shouldLogResult)
+                        }
                     }else{
-                        
+                        completion?(nil, Helpers.makeError(with: message,
+                                                           code: code))
                     }
                     return
                 }
@@ -327,7 +350,9 @@ extension ArventaWeb.Endpoint{
                     
                 }
                 else if statusCode == 500{
-                    
+                    completion?(nil, Helpers.makeError(with: message,
+                                                       code: code))
+                    return
                 }
             }
             

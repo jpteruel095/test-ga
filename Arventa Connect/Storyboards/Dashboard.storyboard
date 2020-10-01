@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Dashboard View Controller-->
+        <scene sceneID="trh-Sr-VAr">
+            <objects>
+                <viewController storyboardIdentifier="dashboardVC" id="d62-F6-SR1" customClass="DashboardViewController" customModule="Arventa_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1QO-Yc-oGG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LX-A4-Rwk" customClass="AnimatableView" customModule="IBAnimatable">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="215"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ta0-gZ-5x1">
+                                        <rect key="frame" x="20" y="84" width="24" height="24"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="sideMenuButton"/>
+                                        <state key="normal" image="menu-icon"/>
+                                        <connections>
+                                            <action selector="didTapSideMenuButton:" destination="d62-F6-SR1" eventType="touchUpInside" id="L8r-7X-jqM"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeY-na-FSA">
+                                        <rect key="frame" x="74" y="140" width="320" height="48"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="greetingUserLabel"/>
+                                        <string key="text">Good morning,
+John Doe</string>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                        <color key="textColor" red="0.31764705879999999" green="0.34509803919999998" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greetings/evening" translatesAutoresizingMaskIntoConstraints="NO" id="ROo-UC-pzn">
+                                        <rect key="frame" x="20" y="143" width="42" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ROo-UC-pzn" secondAttribute="height" multiplier="1:1" id="hR2-aF-kSP"/>
+                                            <constraint firstAttribute="width" constant="42" id="u9y-1B-sga"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ROo-UC-pzn" firstAttribute="top" secondItem="Ta0-gZ-5x1" secondAttribute="bottom" constant="35" id="4vj-hU-Voc"/>
+                                    <constraint firstItem="SeY-na-FSA" firstAttribute="centerY" secondItem="ROo-UC-pzn" secondAttribute="centerY" id="JnP-FJ-gfL"/>
+                                    <constraint firstItem="Ta0-gZ-5x1" firstAttribute="leading" secondItem="7LX-A4-Rwk" secondAttribute="leading" constant="20" id="SQQ-Yd-TiD"/>
+                                    <constraint firstItem="ROo-UC-pzn" firstAttribute="leading" secondItem="7LX-A4-Rwk" secondAttribute="leading" constant="20" id="hHl-d5-IEt"/>
+                                    <constraint firstAttribute="bottom" secondItem="SeY-na-FSA" secondAttribute="bottom" constant="27" id="jFz-0u-gfh"/>
+                                    <constraint firstItem="SeY-na-FSA" firstAttribute="leading" secondItem="ROo-UC-pzn" secondAttribute="trailing" constant="12" id="luu-he-Hdh"/>
+                                    <constraint firstAttribute="trailing" secondItem="SeY-na-FSA" secondAttribute="trailing" constant="20" id="nCm-ET-CiE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.31764705879999999" green="0.34509803919999998" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                        <point key="value" x="0.0" y="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4cu-dW-jni"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7LX-A4-Rwk" firstAttribute="top" secondItem="1QO-Yc-oGG" secondAttribute="top" id="EKJ-AG-9kc"/>
+                            <constraint firstItem="7LX-A4-Rwk" firstAttribute="leading" secondItem="4cu-dW-jni" secondAttribute="leading" id="Fhr-tc-U0x"/>
+                            <constraint firstItem="4cu-dW-jni" firstAttribute="top" secondItem="Ta0-gZ-5x1" secondAttribute="top" constant="-40" id="Fv8-f4-6qx"/>
+                            <constraint firstItem="4cu-dW-jni" firstAttribute="trailing" secondItem="7LX-A4-Rwk" secondAttribute="trailing" id="LKk-tN-snp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wx6-Hg-Q0h"/>
+                    <connections>
+                        <outlet property="greetingIconImageView" destination="ROo-UC-pzn" id="iQ6-rK-gYB"/>
+                        <outlet property="greetingLabel" destination="SeY-na-FSA" id="PWj-70-q0J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YAs-Nz-AQu" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.98550724637681" y="90.401785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="greetings/evening" width="68" height="70"/>
+        <image name="menu-icon" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

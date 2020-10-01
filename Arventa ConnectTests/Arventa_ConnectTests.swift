@@ -26,9 +26,9 @@ class Arventa_ConnectTests: XCTestCase {
         
         // Login Endpoint Test
         XCTAssertNotNil(ArventaWeb.shared.reachability)
-        XCTAssertTrue(ArventaWeb.Endpoint.login.isGuest)
-        XCTAssert(ArventaWeb.Endpoint.login.httpMethod == .post)
-        XCTAssertNoThrow(ArventaWeb.Endpoint.login.request())
+        XCTAssertTrue(ArventaWeb.Endpoint.token.isGuest)
+        XCTAssert(ArventaWeb.Endpoint.token.httpMethod == .post)
+        XCTAssertNoThrow(ArventaWeb.Endpoint.token.request())
     }
     
     func testHelpers() throws{
@@ -58,7 +58,6 @@ class Arventa_ConnectTests: XCTestCase {
         
         XCTAssertEqual(actionSheet.title, "Test Sheet")
         XCTAssertEqual(actionSheet.actions.count, 4)
-        
         XCTAssertEqual(Helpers.makeOfflineError().localizedDescription, "You are currently offline.")
     }
     
@@ -92,5 +91,22 @@ class Arventa_ConnectTests: XCTestCase {
         
         field.text = " 5 "
         XCTAssertEqual(field.parsedInteger, 5)
+        
+        // View to Image
+        let mock1 = mockVC
+        XCTAssertNotNil(mock1.view.asImage())
+        
+        // Test String Protocol subscripting
+        let trimmed = testString.trimmed
+        XCTAssertEqual(String(trimmed[3]), "s")
+        XCTAssertEqual(String(trimmed[1...2]), "hi")
+        XCTAssertEqual(String(trimmed[4..<8]), " is ")
+        XCTAssertEqual(String(trimmed[5...]), "is a test string")
+        XCTAssertEqual(String(trimmed[...7]), "This is ")
+        XCTAssertEqual(String(trimmed[..<7]), "This is")
+        
+        //Bundle and UUID Extensions
+        XCTAssertNotNil(Bundle.bundleID)
+        XCTAssertNotNil(UUID.deviceUUID)
     }
 }
