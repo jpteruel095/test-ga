@@ -15,11 +15,12 @@ class Arventa_ConnectTC2DashboardUITest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let greetingUserLabel = app.staticTexts["greetingUserLabel"]
         if !LoginTestHelper.didLoginIfNot(inTestCase: self){
+            let greetingUserLabel = app.staticTexts["greetingUserLabel"]
             XCTAssertNotNil(greetingUserLabel.label.range(of: TestAccount.whs.getName()))
         }
         
+        let greetingUserLabel = app.staticTexts["greetingUserLabel"]
         XCTAssertNotNil(greetingUserLabel.label.range(of: TestHelpers.getCurrentGreeting()))
         app.buttons["sideMenuButton"].tap()
         XCTAssert(app.staticTexts["Log out"].exists)

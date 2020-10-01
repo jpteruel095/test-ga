@@ -361,7 +361,9 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         XCTAssert(actionsheet.buttons["Farm Minder"].exists)
         XCTAssert(actionsheet.buttons["Chemical Caddy"].exists)
         
-        actionsheet.buttons["Cancel"].tap()
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            actionsheet.buttons["Cancel"].tap()
+        }
         LoginTestHelper.validateLoginPage()
     }
     
