@@ -56,7 +56,7 @@ class SideMenuViewController: UIViewController {
     }
     
     @objc func refreshMenuItems(_ sender: Any){
-        ArventaInterface.shared.getMenuItems { (items) in
+        ArventaInterface.shared.getMenuItems { (items, error) in
             self.menuItems = items
             self.initializeOnce = true
         }

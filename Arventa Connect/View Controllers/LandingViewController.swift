@@ -8,6 +8,7 @@
 import UIKit
 import SideMenu
 import SwiftDate
+import SwiftyJSON
 
 class LandingViewController: UIViewController, ArventaViewDelegate {
     static var shared: LandingViewController?
@@ -42,6 +43,19 @@ class LandingViewController: UIViewController, ArventaViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        ArventaInterface.shared.getProducts { (products, error) in
+            if let error = error{
+                self.showErrorMessageAlert(error: error)
+                return
+            }
+            
+            guard let products = products else{
+                self.showErrorMessageAlert(message: "No products")
+                return
+            }
+            
+            print("Products: ", JSON(products))
+        }
     }
     
     @objc func userDidLogout(_ sender: Any){

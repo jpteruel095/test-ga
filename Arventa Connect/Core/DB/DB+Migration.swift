@@ -131,23 +131,39 @@ extension ArventaDB{
         sqlite3_finalize(stmt);
     }
     
-//    func retrieveProductsFromDB() throws{
-//        var rc: Int32
-//        if (self.userDB == nil) {
-//            try self.initializeUserDB()
-//        }
-//
-//
-//        let buffer: NSMutableString = ""
-//        var stmt: OpaquePointer?
-//        let selectQuery = ("SELECT * FROM t1;" as NSString).utf8String
-//        sqlite3_prepare(self.userDB, selectQuery, -1, &stmt, nil);
-//        rc = sqlite3_step(stmt)
-//        while (rc == SQLITE_ROW) {
-//            buffer.append(String(format: "a:%s b:%s\n", sqlite3_column_text(stmt, 0), sqlite3_column_text(stmt, 1)))
-//            rc = sqlite3_step(stmt)
-//        }
-//        print(buffer)
-//        return buffer as String
-//    }
+    func retrieveProductsFromDB() throws -> [String: Any?]{
+        var rawDict: [String: Any?] = [:]
+        var rc: Int32
+        if (self.userDB == nil) {
+            try initializeUserDB()
+        }
+
+        var stmt: OpaquePointer?
+        let selectQuery = ("SELECT * FROM demoProducts;" as NSString).utf8String
+        sqlite3_prepare(self.userDB, selectQuery, -1, &stmt, nil);
+        rc = sqlite3_step(stmt)
+        
+        while (rc == SQLITE_ROW) {
+            print("Columns: ", sqlite3_column_count(stmt))
+            
+            for i in 0 ... sqlite3_column_count(stmt) - 1{
+                let key = String(format: "%s", sqlite3_column_name(stmt, i))
+                let type = sqlite3_column_type(stmt, i)
+                var value: Any?
+                if type == SQLITE_INTEGER{
+                    value = sqlite3_column_int(stmt, i)
+                }
+                else if type == SQLITE_TEXT{
+                    value = String(format: "%s", sqlite3_column_text(stmt, i))
+                }
+                else if type == SQLITE_NULL{
+                    value = nil
+                }
+                rawDict[key] = value
+            }
+            
+            rc = sqlite3_step(stmt)
+        }
+        return rawDict
+    }
 }

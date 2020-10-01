@@ -8,7 +8,17 @@
 import Foundation
 
 extension ArventaInterface{
-    func getMenuItems(completion: @escaping([MenuItem]) -> Void){
-        completion(MenuItem.retrieveAll())
+    func getMenuItems(completion: @escaping([MenuItem], Error?) -> Void){
+        completion(MenuItem.retrieveAll(), nil)
+    }
+    
+    func getProducts(completion: @escaping([String: Any]?, Error?) -> Void){
+        do{
+            let product = try ArventaDB.shared.retrieveProductsFromDB()
+            completion(product, nil)
+        }catch{
+            print("Error while retrieving products", error)
+            completion(nil, error)
+        }
     }
 }
