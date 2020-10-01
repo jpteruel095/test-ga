@@ -50,7 +50,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
      - Description: 1.2 - Login Success - Without Mobile Verification
      - Important: Be careful of running this as it could lock the user out after certain number of attempts.     
      */
-    func test_TC1a02_LoginSuccessWVerification() throws {
+    func NA_test_TC1a02_LoginSuccessWVerification() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -137,7 +137,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
      - Description: 1.5 - Login Failed - Wrong Mobile Verification Code
      - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a05_LoginWrongCode() throws {
+    func NA_test_TC1a05_LoginWrongCode() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -179,11 +179,11 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
     }
     
     /**
-     - Description: 1.6 - Login Failed - Wrong Mobile Verification Code
+     - Description: 1.6 - Login Failed - Offline When Verifying Mobile Code
      - Note: Cannot be tested on Firebase Testlab - Error occurs
      - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a06_LoginCodeOffline() throws {
+    func NA_test_TC1a06_LoginCodeOffline() throws {
         let app = XCUIApplication()
         app.launch()
         
@@ -229,7 +229,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
      - Description: 1.7 - Resend Mobile Verification Code
      - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a07_ResendCode() throws {
+    func NA_test_TC1a07_ResendCode() throws {
         let app = XCUIApplication()
         app.launch()
         
@@ -270,7 +270,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
      - Note: Cannot be tested on Firebase Testlab - Error occurs
      - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a08_ResendCodeOffline() throws {
+    func NA_test_TC1a08_ResendCodeOffline() throws {
         let app = XCUIApplication()
         app.launch()
         
@@ -312,7 +312,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
      - Description: 1.9 - Exit Mobile Verification Screen
      - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
-    func test_TC1a09_ExitVerification() throws {
+    func NA_test_TC1a09_ExitVerification() throws {
         let app = XCUIApplication()
         app.launch()
         
@@ -407,9 +407,12 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
     
     /**
      - Description: All Verification tests (to avoid getting locked)
-     - 1 - 1.02
+     - TC 1.02 - Login Success - Without Mobile Verification
+     - TC 1.05 - Login Failed - Wrong Mobile Verification Code
+     - TC 1.07 - Resend Mobile Verification Code
+     - TC 1.09 - Exit Mobile Verification Screen
      */
-    func test_TC1a02t09_LoginVerification() throws {
+    func test_TC1c02a05a07a09_LoginVerification() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -441,7 +444,6 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         
         // Test Case 1.5 - Testing error message when entering invalid code
         app.toolbars["Toolbar"].buttons["Done"].tap()
-        
         app.buttons["CONTINUE"].tap()
         TestHelpers.expectAlert(withTitle: "Error",
                                 andAssertMessage: "Invalid Security Code.",
@@ -450,15 +452,61 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
                                 inTestCase: self)
         
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        // Test Case 1.7 - Testing alert message when attempting to send the code
+        app.buttons["Resend code"].tap()
+        TestHelpers.expectAlert(withTitle: "Success",
+                                andAssertMessage: "The code has been sent.",
+                                thenTap: "OK",
+                                butWait: true,
+                                inTestCase: self)
         
-        // Test Case 1.6 - Testing error message when attempting to verify while offline
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        
+        // Test Case 1.9 - Testing action when tapping back button
+        app.buttons["backButton"].tap()
+        LoginTestHelper.validateLoginPage(emptyFields: false)
+    }
+    
+    /**
+     - Description: All Verification tests with offline (to avoid getting locked)
+     - TC 1.06 - Login Failed - Offline When Verifying Mobile Code
+     - TC 1.08 - Resend Mobile Verification Code - Offline
+     */
+    func test_TC1c06a08_LoginVerificationOffline() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        if !LoginTestHelper.didForceLogout(){
+            LoginTestHelper.validateLoginPage()
+        }
+        
+        // Initially, the default selected app is always WHS Monitor
+        TestHelpers.tapOverStaticText("WHS Monitor")
+        TestHelpers.expectActionSheet(title: "Which app would you like to log into?",
+                                      andTap: "WHS Monitor",
+                                      inTestCase: self)
+        
+        XCTAssert(app.staticTexts["WHS Monitor"].exists)
+        
+        LoginTestHelper.enterCredentialsAndTapLogin(username: "whsrogomi1",
+                                                    password: "watsoN#12345")
+        
+        // Test Case 1.2 - Testing access to verification screen after valid login
+        let verifyLabel = app.staticTexts["Verify your account"]
+        let exists = NSPredicate(format: "exists == 1")
+        expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        
+        app.textFields.firstMatch.tap()
+        LoginTestHelper.enterOTPCode(code: "123123")
+        
+        // Test Case 1.5 - Testing error message when entering invalid code
+        app.toolbars["Toolbar"].buttons["Done"].tap()
+        
         TestHelpers.executeWhileOffline {
-            app.textFields.firstMatch.tap()
-            
-            //This assumes that the OTP is really not 123123
-            LoginTestHelper.enterOTPCode(code: "123123")
-            app.toolbars["Toolbar"].buttons["Done"].tap()
-            
+            // Test Case 1.6 - Testing error message when attempting to verify while offline
             app.buttons["CONTINUE"].tap()
             TestHelpers.expectAlert(withTitle: "Error",
                                     andAssertMessage: "You are currently offline.",
@@ -475,21 +523,6 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
                                     butWait: true,
                                     inTestCase: self)
         }
-        
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
-        
-        // Test Case 1.7 - Testing alert message when attempting to send the code
-        app.buttons["Resend code"].tap()
-        TestHelpers.expectAlert(withTitle: "Success",
-                                andAssertMessage: "The code has been sent.",
-                                thenTap: "OK",
-                                butWait: true,
-                                inTestCase: self)
-        
-        XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
-        
-        // Test Case 1.9 - Testing action when tapping back button
-        app.buttons["backButton"].tap()
-        LoginTestHelper.validateLoginPage(emptyFields: false)
     }
 }

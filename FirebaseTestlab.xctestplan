@@ -17,6 +17,7 @@
   },
   "testTargets" : [
     {
+      "enabled" : false,
       "target" : {
         "containerPath" : "container:Arventa Connect.xcodeproj",
         "identifier" : "C6D3313E2519FEAD003DD32D",
@@ -32,7 +33,11 @@
         "Arventa_ConnectTC1LoginUITest\/test_TC1a06_LoginCodeOffline()",
         "Arventa_ConnectTC1LoginUITest\/test_TC1a07_ResendCode()",
         "Arventa_ConnectTC1LoginUITest\/test_TC1a08_ResendCodeOffline()",
-        "Arventa_ConnectTC1LoginUITest\/test_TC1a09_ExitVerification()"
+        "Arventa_ConnectTC1LoginUITest\/test_TC1a09_ExitVerification()",
+        "Arventa_ConnectTC1LoginUITest\/test_TC1c02a05a06a07a08a09_LoginVerification()",
+        "Arventa_ConnectTC1LoginUITest\/test_TC1c02a05a07a09_LoginVerification()",
+        "Arventa_ConnectTC1LoginUITest\/test_TC1c06a08_LoginVerification()",
+        "Arventa_ConnectTC1LoginUITest\/test_TC1c06a08_LoginVerificationOffline()"
       ],
       "target" : {
         "containerPath" : "container:Arventa Connect.xcodeproj",

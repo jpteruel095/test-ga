@@ -10,8 +10,8 @@ import SideMenu
 import SwiftDate
 import SwiftyJSON
 
-class LandingViewController: UIViewController, ArventaViewDelegate {
-    static var shared: LandingViewController?
+class DashboardViewController: UIViewController, ArventaViewDelegate {
+    static var shared: DashboardViewController?
     
     @IBOutlet weak var greetingIconImageView: UIImageView!
     @IBOutlet weak var greetingLabel: UILabel!
@@ -20,22 +20,11 @@ class LandingViewController: UIViewController, ArventaViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        ArventaInterface
-            .shared
-            .sideMenu
-            .addScreenEdgePanGesturesToPresent(toView: view,
-                                               forMenu: .left)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(userDidLogout(_:)), name: .userDidLogout, object: nil)
-        LandingViewController.shared = self
+        DashboardViewController.shared = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if willShowLogin(){
-            return
-        }
         
         refreshView()
     }
@@ -57,10 +46,6 @@ class LandingViewController: UIViewController, ArventaViewDelegate {
             print("Products: ", JSON(products))
         }
     }
-    
-    @objc func userDidLogout(_ sender: Any){
-        let _ = willShowLogin()
-    }
 
     @IBAction func didTapSideMenuButton(_ sender: Any) {
         guard let sideMenuNVC = ArventaInterface.shared.sideMenu.leftMenuNavigationController else{
@@ -70,7 +55,7 @@ class LandingViewController: UIViewController, ArventaViewDelegate {
     }
 }
 
-extension LandingViewController{
+extension DashboardViewController{
     func refreshView(){
         guard let fullName = User.current?.fullName else{
             return
@@ -105,7 +90,7 @@ extension LandingViewController{
         }
     }
 }
-extension LandingViewController: SideMenuNavigationControllerDelegate, OverlayDelegate{
+extension DashboardViewController: SideMenuNavigationControllerDelegate, OverlayDelegate{
     func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
         self.showDarkOverlay()
     }

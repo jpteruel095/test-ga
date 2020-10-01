@@ -10,6 +10,8 @@ import UIKit
 enum StoryboardVC: String{
     // MARK: List of storyboards used within the app
     case main
+    case auth
+    case dashboard
     
     // MARK: Temporary to avoid git conflicts
 //    case temp
