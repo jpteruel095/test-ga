@@ -57,6 +57,7 @@
 		C61DD4F1251B1FC2006546DF /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4D3251B1FB8006546DF /* Lato-SemiboldItalic.ttf */; };
 		C61DD4F2251B1FC2006546DF /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4DB251B1FBC006546DF /* Lato-HeavyItalic.ttf */; };
 		C61DD4F7251B1FD5006546DF /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD4F6251B1FD5006546DF /* DashboardViewController.swift */; };
+		C63A372F252613F90062615C /* Sync+Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A372E252613F90062615C /* Sync+Products.swift */; };
 		C6477DE02521C86E006408E1 /* VerifyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477DDF2521C86E006408E1 /* VerifyAccountViewController.swift */; };
 		C64790ED2525AD86006A9654 /* ArventaWeb+Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64790EC2525AD86006A9654 /* ArventaWeb+Product.swift */; };
 		C64790F12525AF5F006A9654 /* DB+Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EDA8AF2525A199006BF4B7 /* DB+Product.swift */; };
@@ -103,9 +104,9 @@
 		C673B0492524842100A628A2 /* StoryboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64AEA5C25236E2000B3E187 /* StoryboardVC.swift */; };
 		C673B04D2524843D00A628A2 /* Arventa_Connect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6D331322519FEAB003DD32D /* Arventa_Connect.xcdatamodeld */; };
 		C67930032524F47100280D24 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C67930022524F47100280D24 /* libsqlcipher.a */; };
-		C67930232524FA0300280D24 /* DB+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930222524FA0300280D24 /* DB+Demo.swift */; };
+		C67930232524FA0300280D24 /* DB+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930222524FA0300280D24 /* DB+Common.swift */; };
 		C67930282524FD7B00280D24 /* DB+Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930272524FD7B00280D24 /* DB+Migration.swift */; };
-		C679302C252509E100280D24 /* DB+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930222524FA0300280D24 /* DB+Demo.swift */; };
+		C679302C252509E100280D24 /* DB+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930222524FA0300280D24 /* DB+Common.swift */; };
 		C679302D252509E100280D24 /* DB+Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67930272524FD7B00280D24 /* DB+Migration.swift */; };
 		C679303A25250A7900280D24 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C67930022524F47100280D24 /* libsqlcipher.a */; };
 		C692AE082523439E00BDA109 /* ArventaInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692AE072523439E00BDA109 /* ArventaInterface.swift */; };
@@ -193,6 +194,7 @@
 		C61DD4DF251B1FBE006546DF /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		C61DD4E0251B1FBE006546DF /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		C61DD4F6251B1FD5006546DF /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		C63A372E252613F90062615C /* Sync+Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sync+Products.swift"; sourceTree = "<group>"; };
 		C6477DDF2521C86E006408E1 /* VerifyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountViewController.swift; sourceTree = "<group>"; };
 		C64790EC2525AD86006A9654 /* ArventaWeb+Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArventaWeb+Product.swift"; sourceTree = "<group>"; };
 		C64AEA5C25236E2000B3E187 /* StoryboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardVC.swift; sourceTree = "<group>"; };
@@ -213,7 +215,7 @@
 		C673B02F252480BF00A628A2 /* Interface+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface+Auth.swift"; sourceTree = "<group>"; };
 		C67930012524F46B00280D24 /* Arventa-Connect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Arventa-Connect-Bridging-Header.h"; path = "sqlcipher/Arventa-Connect-Bridging-Header.h"; sourceTree = "<group>"; };
 		C67930022524F47100280D24 /* libsqlcipher.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsqlcipher.a; path = sqlcipher/libsqlcipher.a; sourceTree = "<group>"; };
-		C67930222524FA0300280D24 /* DB+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+Demo.swift"; sourceTree = "<group>"; };
+		C67930222524FA0300280D24 /* DB+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+Common.swift"; sourceTree = "<group>"; };
 		C67930272524FD7B00280D24 /* DB+Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+Migration.swift"; sourceTree = "<group>"; };
 		C692AE072523439E00BDA109 /* ArventaInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArventaInterface.swift; sourceTree = "<group>"; };
 		C692AE0A252343FB00BDA109 /* ArventaWeb+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArventaWeb+Auth.swift"; sourceTree = "<group>"; };
@@ -539,7 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				C6DF1693251C976F0034E9C5 /* ArventaDB.swift */,
-				C67930222524FA0300280D24 /* DB+Demo.swift */,
+				C67930222524FA0300280D24 /* DB+Common.swift */,
 				C67930272524FD7B00280D24 /* DB+Migration.swift */,
 				C6EDA8AF2525A199006BF4B7 /* DB+Product.swift */,
 			);
@@ -550,6 +552,7 @@
 			isa = PBXGroup;
 			children = (
 				C6DF1696251C97AB0034E9C5 /* ArventaSync.swift */,
+				C63A372E252613F90062615C /* Sync+Products.swift */,
 			);
 			path = Sync;
 			sourceTree = "<group>";
@@ -834,6 +837,7 @@
 				C61DD47E251AFCA3006546DF /* Helpers.swift in Sources */,
 				C61DD4F7251B1FD5006546DF /* DashboardViewController.swift in Sources */,
 				C692AE082523439E00BDA109 /* ArventaInterface.swift in Sources */,
+				C63A372F252613F90062615C /* Sync+Products.swift in Sources */,
 				C6DF1694251C976F0034E9C5 /* ArventaDB.swift in Sources */,
 				C64790ED2525AD86006A9654 /* ArventaWeb+Product.swift in Sources */,
 				C61DD479251AFC64006546DF /* Extensions.swift in Sources */,
@@ -864,7 +868,7 @@
 				C6D331342519FEAB003DD32D /* Arventa_Connect.xcdatamodeld in Sources */,
 				C65BA484252475AC001128E1 /* MenuItem.swift in Sources */,
 				C6AFA5F9251B4B40003551B4 /* ArventaWeb+Reachability.swift in Sources */,
-				C67930232524FA0300280D24 /* DB+Demo.swift in Sources */,
+				C67930232524FA0300280D24 /* DB+Common.swift in Sources */,
 				C604ED612525800100790341 /* IconLib.swift in Sources */,
 				C673B030252480BF00A628A2 /* Interface+Auth.swift in Sources */,
 				C692AE0B252343FB00BDA109 /* ArventaWeb+Auth.swift in Sources */,
@@ -906,7 +910,7 @@
 				C61DD482251AFEE9006546DF /* ArventaWeb+Endpoint.swift in Sources */,
 				C64790F52525AF63006A9654 /* ArventaWeb+Product.swift in Sources */,
 				C64AEB44252422DC00B3E187 /* ArventaWeb+Profile.swift in Sources */,
-				C679302C252509E100280D24 /* DB+Demo.swift in Sources */,
+				C679302C252509E100280D24 /* DB+Common.swift in Sources */,
 				C64AEB542524231F00B3E187 /* AppTheme.swift in Sources */,
 				C64791012525B4FD006A9654 /* UpsertTestProductViewController.swift in Sources */,
 				C604EDE62525994500790341 /* DashboardViewController.swift in Sources */,

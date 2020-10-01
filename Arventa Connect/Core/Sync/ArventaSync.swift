@@ -8,22 +8,16 @@
 import UIKit
 import Reachability
 
-typealias SyncFunction = (() -> Void)
-class SyncFunctionWrapper{
-    var closure: SyncFunction
-    
-    init(_ closure: @escaping SyncFunction) {
-        self.closure = closure
-    }
-}
+typealias SyncFunction = ((Error?) -> Void)
 
 class ArventaSync: NSObject{
     static var shared = ArventaSync()
     
     // MARK: App Syncing Variables
     var isSyncing = false
-    var syncStack: [SyncFunctionWrapper] = []
     var shouldInterrupt = false
+    var errorCounter = 0
+    var maximumErrors = 10
     
     // MARK: Initial configuration
     func configure(){
@@ -88,7 +82,12 @@ class ArventaSync: NSObject{
     }
     
     @objc func syncingTriggered(_ sender: Any){
-        self.startSyncing()
+        var modelType: AnyClass? = nil
+        if let sender = sender as? NSNotification,
+           let object = sender.object as? AnyClass{
+            modelType = object
+        }
+        self.startSyncing(modelType: modelType)
     }
     
     // MARK: Initial Download Process
@@ -104,55 +103,45 @@ class ArventaSync: NSObject{
         history?.email = user.email
         history?.downloadedAt = Date()
         history?.saveToUserDefaults()
-        
     }
     
     // MARK: Synchronization
-    func startSyncing(){
+    // NOTE: When triggering another sync after a sync, make sure to make "isSyncing" to false
+    func startSyncing(modelType: AnyClass? = nil){
         guard let _ = User.current,
-              !isSyncing, !ArventaWeb.shared.isOffline() else{
-            //will not start if not logged in
-            //will queue
-            syncStack.append(SyncFunctionWrapper({
-                self.startSyncing()
-            }))
+              !isSyncing, !ArventaWeb.shared.isOffline(),
+              errorCounter < maximumErrors else{
+            //will do nothing
             return
         }
         
         isSyncing = true
         print("Test run asynchronously")
         
-        //retrieve data from database that are syncable
-        do{
-            let products = try ArventaDB.shared.retrieveProductsFromDB()
-            let syncables = products.filter({$0.isSyncable})
-            syncables.forEach { (product) in
-                ArventaWeb.shared.uploadProduct(product: product){ product, error in
-                    if let error = error{
-                        print(error)
-                        return
-                    }
-                    ArventaDB.shared.updateServerID(product!.serverId!, forProduct: product!)
-                }
-            }
-        }catch{
-            print("Error occured while retrieving products")
+        // start syncing products
+        if self.didStartSyncingProducts(),
+           modelType != nil || modelType == Product.self{
+            // if syncing did start, it will stop the rest of the code blocks
+            return
         }
         
+        // start syncing storages
+        // start syncing risks
+        // etc. etc.
+        
+        
+        print("Finished syncing")
         //after everything, attempt to update from the server
         updateFromServer()
     }
     
-    func updateFromServer(){
-        if let wrapper = syncStack.first{
-            //if there are stack of sync closures
-            // will continue to call them
-            // until they are all removed
-            wrapper.closure()
-            syncStack.removeAll(where: {$0 === wrapper})
-            return
-        }
+    // MARK: Retrieve updates from server
+    func updateFromServer(modelType: AnyClass? = nil){
+        isSyncing = false
         
         //proceed with updating from server
+        if modelType != nil || modelType == Product.self{
+            // download products
+        }
     }
 }

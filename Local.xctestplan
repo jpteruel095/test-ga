@@ -1,12 +1,6 @@
 {
   "configurations" : [
-    {
-      "id" : "9ACC2B5D-5939-4061-B164-8D4BD8239388",
-      "name" : "Configuration 1",
-      "options" : {
 
-      }
-    }
   ],
   "defaultOptions" : {
     "targetForVariableExpansion" : {
@@ -31,9 +25,7 @@
         "Arventa_ConnectTC1LoginUITest\/test_TC1a06_LoginCodeOffline()",
         "Arventa_ConnectTC1LoginUITest\/test_TC1a07_ResendCode()",
         "Arventa_ConnectTC1LoginUITest\/test_TC1a08_ResendCodeOffline()",
-        "Arventa_ConnectTC1LoginUITest\/test_TC1a09_ExitVerification()",
-        "Arventa_ConnectTC1LoginUITest\/test_TC1c02a05a07a09_LoginVerification()",
-        "Arventa_ConnectTC1LoginUITest\/test_TC1c06a08_LoginVerificationOffline()"
+        "Arventa_ConnectTC1LoginUITest\/test_TC1a09_ExitVerification()"
       ],
       "target" : {
         "containerPath" : "container:Arventa Connect.xcodeproj",

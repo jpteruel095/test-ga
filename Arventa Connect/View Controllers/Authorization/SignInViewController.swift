@@ -70,7 +70,7 @@ class SignInViewController: UIViewController, ArventaViewDelegate, HUDDelegate {
             }
             
             if token.isMultifactorRequired{
-                if let verifyAccountVC = StoryboardVC.main.viewController(forIdentifier: "verifyAccountVC") as? VerifyAccountViewController{
+                if let verifyAccountVC = StoryboardVC.auth.viewController(forIdentifier: "verifyAccountVC") as? VerifyAccountViewController{
                     verifyAccountVC.userToken = token
                     verifyAccountVC.resendRequest = request
                     self.show(verifyAccountVC, sender: sender)

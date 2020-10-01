@@ -11,10 +11,10 @@ extension ArventaDB{
     func insertProduct(_ product: Product) throws{
         //execute INSERT STATEMENT here and save
         let dict: [String: Any] = [
-            "id": 1,
+            "id": self.getLatestID(forKey: .testProductLatestID),
             "name": product.name!,
-            "created_at": Date().toString(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"),
-            "last_updated_at": Date().toString(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+            "created_at": Date().toString(),
+            "last_updated_at": Date().toString()
         ]
         
         var keys: [String] = []
@@ -27,12 +27,10 @@ extension ArventaDB{
         }
         
         //if failed to save, shall throw Error
-        try insertIntoTable(tableName: "demoProducts",
-                        fields: keys,
-                        values: values)
+        try insertIntoTable(tableName: "demoProducts", dict: dict)
         
         //if success, shall trigger syncing
-        NotificationCenter.default.post(name: .databaseDidUpdate, object: product)
+        NotificationCenter.default.post(name: .databaseDidUpdate, object: Product.self)
     }
     
     func retrieveProductsFromDB() throws -> [Product]{
@@ -48,8 +46,6 @@ extension ArventaDB{
         rc = sqlite3_step(stmt)
         
         while (rc == SQLITE_ROW) {
-            print("Columns: ", sqlite3_column_count(stmt))
-            
             var rawDict: [String: Any?] = [:]
             for i in 0 ... sqlite3_column_count(stmt) - 1{
                 let key = String(format: "%s", sqlite3_column_name(stmt, i))
@@ -71,8 +67,7 @@ extension ArventaDB{
             rc = sqlite3_step(stmt)
         }
         return products.compactMap { (rawProduct) -> Product? in
-            guard let raw = rawProduct as? [String: Any],
-                  let product = Product(JSON: raw) else{
+            guard let product = Product(JSON: rawProduct as [String : Any]) else{
                 return nil
             }
             
@@ -80,9 +75,33 @@ extension ArventaDB{
         }
     }
     
-    func updateServerID(_ id: Int, forProduct: Product){
+    func updateServerID(_ id: Int, forProduct product: Product) throws{
         // update query
         print("Will update sync values here")
         //but do not trigger database update event
+        let dateStr = Date().toString()
+        let dict: [String: Any] = [
+            "serverId": id,
+            "last_updated_at": dateStr,
+            "last_synced_at": dateStr
+        ]
+        
+        try self.updateTable(tableName: "demoProducts",
+                             set: dict,
+                             where: product.id)
+    }
+    
+    func markAsFailed(product: Product) throws{
+        // update query
+        print("Will update sync values here")
+        //but do not trigger database update event
+        let dateStr = Date().toString()
+        let dict: [String: Any] = [
+            "last_failed_at": dateStr
+        ]
+        
+        try self.updateTable(tableName: "demoProducts",
+                             set: dict,
+                             where: product.id)
     }
 }

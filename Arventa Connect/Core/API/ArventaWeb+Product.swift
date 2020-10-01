@@ -15,9 +15,12 @@ extension ArventaWeb{
         ]
         Endpoint.savetestproduct.request(parameters: params, completion: { (json, error) in
             if let error = error{
-//                completion?(nil, error)
+                guard error.getCode() != 402 else{
+                    completion?(nil, error)
+                    return
+                }
                 
-                product.serverId = 100
+                product.serverId = 100 + product.id
                 completion?(product, nil)
                 return
             }

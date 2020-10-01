@@ -14,6 +14,8 @@ enum UserDefaultKey: String {
     case userObject
     
     case loginHistory
+    
+    case testProductLatestID
 }
 
 extension UserDefaults {

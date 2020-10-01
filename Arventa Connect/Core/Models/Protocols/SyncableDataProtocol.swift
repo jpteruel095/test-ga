@@ -8,21 +8,25 @@
 import Foundation
 
 protocol SyncableDataProtocol {
-    var id: Int? { get set }
+    var id: Int { get set }
     var serverId: Int? { get set }
-    var created_at: Date? { get set }
-    var last_update_at: Date? { get set }
-    var last_sync_at: Date? { get set }
+    var created_at: Date { get set }
+    var last_updated_at: Date { get set }
+    var last_synced_at: Date? { get set }
     var last_failed_at: Date? { get set }
 }
 
 extension SyncableDataProtocol{
     var isSyncable: Bool{
-        guard let updateDate = last_update_at,
-              let syncDate = last_sync_at else{
+        if last_failed_at != nil{
+            return false
+        }
+        
+        guard let _ = serverId,
+              let syncDate = last_synced_at else{
             return true
         }
         
-        return updateDate.compare(.isLater(than: syncDate))
+        return last_updated_at.addingTimeInterval(-60).compare(.isLater(than: syncDate))
     }
 }

@@ -8,13 +8,13 @@
 import ObjectMapper
 
 class Product: Mappable, SyncableDataProtocol{
-    var id: Int?
+    var id: Int = 1
     var serverId: Int?
     var name: String?
     
-    var created_at: Date?
-    var last_update_at: Date?
-    var last_sync_at: Date?
+    var created_at: Date = Date()
+    var last_updated_at: Date = Date()
+    var last_synced_at: Date?
     var last_failed_at: Date?
     
     required init?(map: Map) {
@@ -24,10 +24,14 @@ class Product: Mappable, SyncableDataProtocol{
     func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
+        serverId <- map["serverId"]
         
-        created_at <- (map["created_at"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"))
-        last_update_at <- (map["last_update_at"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"))
-        last_sync_at <- (map["last_sync_at"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"))
-        last_failed_at <- (map["last_failed_at"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"))
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let transform = DateFormatterTransform(dateFormatter: formatter)
+        created_at <- (map["created_at"], transform)
+        last_updated_at <- (map["last_updated_at"], transform)
+        last_synced_at <- (map["last_synced_at"], transform)
+        last_failed_at <- (map["last_failed_at"], transform)
     }
 }

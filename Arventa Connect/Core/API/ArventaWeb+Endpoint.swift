@@ -325,7 +325,7 @@ extension ArventaWeb.Endpoint{
                         return
                     }
                 }
-                else if statusCode == 401{
+                else if statusCode == 401 || statusCode == 402{
                     if !self.isGuest{
                         ArventaWeb.shared.refreshToken { (token, error) in
                             if let error = error{
