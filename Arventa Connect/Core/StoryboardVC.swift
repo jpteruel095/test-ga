@@ -12,6 +12,7 @@ enum StoryboardVC: String{
     case main
     case auth
     case dashboard
+    case temp
     
     // MARK: Temporary to avoid git conflicts
 //    case temp

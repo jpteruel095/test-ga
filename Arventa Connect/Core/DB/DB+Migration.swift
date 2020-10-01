@@ -131,8 +131,8 @@ extension ArventaDB{
         sqlite3_finalize(stmt);
     }
     
-    func retrieveProductsFromDB() throws -> [String: Any?]{
-        var rawDict: [String: Any?] = [:]
+    func retrieveProductsFromDB() throws -> [[String: Any?]]{
+        var products: [[String: Any?]] = []
         var rc: Int32
         if (self.userDB == nil) {
             try initializeUserDB()
@@ -146,6 +146,7 @@ extension ArventaDB{
         while (rc == SQLITE_ROW) {
             print("Columns: ", sqlite3_column_count(stmt))
             
+            var rawDict: [String: Any?] = [:]
             for i in 0 ... sqlite3_column_count(stmt) - 1{
                 let key = String(format: "%s", sqlite3_column_name(stmt, i))
                 let type = sqlite3_column_type(stmt, i)
@@ -162,8 +163,9 @@ extension ArventaDB{
                 rawDict[key] = value
             }
             
+            products.append(rawDict)
             rc = sqlite3_step(stmt)
         }
-        return rawDict
+        return products
     }
 }

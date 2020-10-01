@@ -104,8 +104,15 @@ extension SideMenuViewController: UITableViewDelegate{
         let item = menuItems[indexPath.row]
         self.selectedMenuItem = item
 
+        
         tableView.deselectRow(at: indexPath, animated: true)
         self.dismiss(animated: true, completion: nil)
+        
+        if indexPath.row == 0 {
+            MainNavigationController.current?.goToDashboardVC()
+        }else{
+            MainNavigationController.current?.goToTestProducts()
+        }
     }
 }
 

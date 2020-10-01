@@ -8,7 +8,12 @@
 import Foundation
 
 extension ArventaInterface{
-    func saveProduct(){
-        
+    func saveProduct(_ product: Product, completion: @escaping(Error?) -> Void){
+        do{
+            try ArventaDB.shared.insertProduct(product)
+            completion(nil)
+        }catch{
+            completion(error)
+        }
     }
 }

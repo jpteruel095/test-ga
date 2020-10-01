@@ -12,13 +12,13 @@ extension ArventaInterface{
         completion(MenuItem.retrieveAll(), nil)
     }
     
-    func getProducts(completion: @escaping([String: Any]?, Error?) -> Void){
+    func getProducts(completion: @escaping([[String: Any?]], Error?) -> Void){
         do{
-            let product = try ArventaDB.shared.retrieveProductsFromDB()
-            completion(product, nil)
+            let products = try ArventaDB.shared.retrieveProductsFromDB()
+            completion(products, nil)
         }catch{
             print("Error while retrieving products", error)
-            completion(nil, error)
+            completion([], error)
         }
     }
 }

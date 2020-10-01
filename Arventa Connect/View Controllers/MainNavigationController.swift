@@ -59,12 +59,21 @@ extension MainNavigationController{
     func goToBlankVC(){
         if let blankVC = StoryboardVC.main.viewController(forIdentifier: "blankVC"){
             self.setViewControllers([blankVC], animated: false)
+            self.setNavigationBarHidden(true, animated: false)
         }
     }
     
     func goToDashboardVC(){
         if let dashboardVC = StoryboardVC.dashboard.viewController(forIdentifier: "dashboardVC") as? DashboardViewController{
-            self.setViewControllers([dashboardVC], animated: true)
+            self.setViewControllers([dashboardVC], animated: false)
+            self.setNavigationBarHidden(true, animated: false)
+        }
+    }
+    
+    func goToTestProducts(){
+        if let testProductVC = StoryboardVC.temp.viewController(forIdentifier: "testProductsVC") as? TestProductsViewController{
+            self.setViewControllers([testProductVC], animated: false)
+            self.setNavigationBarHidden(false, animated: false)
         }
     }
 }

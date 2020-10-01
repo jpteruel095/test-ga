@@ -11,8 +11,6 @@ import SwiftDate
 import SwiftyJSON
 
 class DashboardViewController: UIViewController, ArventaViewDelegate {
-    static var shared: DashboardViewController?
-    
     @IBOutlet weak var greetingIconImageView: UIImageView!
     @IBOutlet weak var greetingLabel: UILabel!
     
@@ -20,31 +18,12 @@ class DashboardViewController: UIViewController, ArventaViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        DashboardViewController.shared = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         refreshView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        ArventaInterface.shared.getProducts { (products, error) in
-            if let error = error{
-                self.showErrorMessageAlert(error: error)
-                return
-            }
-            
-            guard let products = products else{
-                self.showErrorMessageAlert(message: "No products")
-                return
-            }
-            
-            print("Products: ", JSON(products))
-        }
     }
 
     @IBAction func didTapSideMenuButton(_ sender: Any) {
