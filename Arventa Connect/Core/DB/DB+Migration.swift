@@ -100,12 +100,13 @@ extension ArventaDB{
     }
     
     func queryForCreatingTableIfNotExist(tableName: String, fields: [String]) -> String{
-        return "CREATE TABLE IF NOT EXISTS \(tableName)(\(fields.joined(separator: ","))"
+        return "CREATE TABLE IF NOT EXISTS \(tableName)(\(fields.joined(separator: ",")))"
     }
     
     func insertIntoTable(tableName: String, fields: [String], values: [Any]){
         var stmt: OpaquePointer?
-        let insertQuery = ("INSERT INTO \(tableName)(\(fields.joined(separator: ",")) VALUES(\(fields.map{ _ -> String in return "?"})" as NSString).utf8String
+        let rawQuery = "INSERT INTO \(tableName)(\(fields.joined(separator: ","))) VALUES(\(fields.map{ _ -> String in return "?"}.joined(separator: ",")))"
+        let insertQuery = (rawQuery as NSString).utf8String
         
         var rc = sqlite3_prepare(self.userDB, insertQuery, -1, &stmt, nil);
         if (rc != SQLITE_OK) {
@@ -135,8 +136,8 @@ extension ArventaDB{
 //        if (self.userDB == nil) {
 //            try self.initializeUserDB()
 //        }
-//        
-//        
+//
+//
 //        let buffer: NSMutableString = ""
 //        var stmt: OpaquePointer?
 //        let selectQuery = ("SELECT * FROM t1;" as NSString).utf8String

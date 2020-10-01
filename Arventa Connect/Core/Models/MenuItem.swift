@@ -14,15 +14,16 @@ enum AccessType: String{
     case NOACCESS
 }
 class MenuItem: Mappable, MenuItemProtocol{
-    var id: Int{ return menuID }
+    var id: Int{ return menuId }
     var name: String{ return caption }
+    var iconname: String? { return fontIconName }
     
-    var menuID: Int = 1
+    var menuId: Int = 1
     var caption: String = "N/A"
-    var parentID: Int?
+    var parentMenuId: Int?
     var menuLevel: Int = 1
     var access: AccessType = .FULL
-    var actionName: String?
+    var fontIconName: String?
     var displayOrder: Int = 1
     
     required init?(map: Map) {
@@ -30,18 +31,18 @@ class MenuItem: Mappable, MenuItemProtocol{
     }
     
     func mapping(map: Map) {
-        menuID <- map["menuId"]
+        menuId <- map["menuId"]
         caption <- map["caption"]
-        parentID <- map["parentMenuId"]
+        parentMenuId <- map["parentMenuId"]
         menuLevel <- map["menuLevel"]
         access <- map["access"]
-        actionName <- map["actionName"]
+        fontIconName <- map["fontIconName"]
         displayOrder <- map["displayOrder"]
     }
     
     func saveToCoreData(for user: User){
         let menuItem = MenuItemData(context: AppDelegate.shared.currentContext())
-        menuItem.menuID = Int32(menuID)
+        menuItem.menuID = Int32(menuId)
         menuItem.json = self.toJSONString()
         AppDelegate.shared.saveContext()
     }

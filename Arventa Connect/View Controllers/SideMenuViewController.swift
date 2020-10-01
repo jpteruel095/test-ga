@@ -10,6 +10,13 @@ import UIKit
 protocol MenuItemProtocol {
     var id: Int { get }
     var name: String { get }
+    var iconname: String? { get }
+}
+
+extension MenuItemProtocol{
+    var iconname: String?{
+        return nil
+    }
 }
 
 struct DemoMenuItem: MenuItemProtocol{
@@ -78,7 +85,9 @@ extension SideMenuViewController: UITableViewDataSource{
         
         //configure texts
         cell.titleLabel.text = item.name
-        
+        if let icon = item.iconname{
+            cell.iconLabel.text = ArventaFontIcon.getUnicodeForIcon(named: icon)
+        }
         //update background color
         if item.id == selectedMenuItem?.id{
             cell.backgroundColor = UIColor(hexString: "ECEEEF").withAlphaComponent(0.15)
@@ -103,4 +112,5 @@ extension SideMenuViewController: UITableViewDelegate{
 class SideMenuCell: UITableViewCell{
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var iconLabel: UILabel!
 }
