@@ -58,6 +58,7 @@
 		C61DD4F2251B1FC2006546DF /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61DD4DB251B1FBC006546DF /* Lato-HeavyItalic.ttf */; };
 		C61DD4F7251B1FD5006546DF /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DD4F6251B1FD5006546DF /* DashboardViewController.swift */; };
 		C63A372F252613F90062615C /* Sync+Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A372E252613F90062615C /* Sync+Products.swift */; };
+		C63A373625263A9E0062615C /* Sync+Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A372E252613F90062615C /* Sync+Products.swift */; };
 		C6477DE02521C86E006408E1 /* VerifyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477DDF2521C86E006408E1 /* VerifyAccountViewController.swift */; };
 		C64790ED2525AD86006A9654 /* ArventaWeb+Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64790EC2525AD86006A9654 /* ArventaWeb+Product.swift */; };
 		C64790F12525AF5F006A9654 /* DB+Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EDA8AF2525A199006BF4B7 /* DB+Product.swift */; };
@@ -910,6 +911,7 @@
 				C61DD482251AFEE9006546DF /* ArventaWeb+Endpoint.swift in Sources */,
 				C64790F52525AF63006A9654 /* ArventaWeb+Product.swift in Sources */,
 				C64AEB44252422DC00B3E187 /* ArventaWeb+Profile.swift in Sources */,
+				C63A373625263A9E0062615C /* Sync+Products.swift in Sources */,
 				C679302C252509E100280D24 /* DB+Common.swift in Sources */,
 				C64AEB542524231F00B3E187 /* AppTheme.swift in Sources */,
 				C64791012525B4FD006A9654 /* UpsertTestProductViewController.swift in Sources */,
