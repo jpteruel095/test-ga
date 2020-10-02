@@ -21,6 +21,7 @@ class TestHelpers{
                                   thenTap buttonTitle: String,
                                   butWait shouldWait: Bool = false,
                                   forUpTo seconds: Double = 10,
+                                  shouldTakeScreenshot takeScreenshot: Bool = false,
                                   inTestCase testCase: XCTestCase?){
         let app = XCUIApplication()
         
@@ -33,6 +34,10 @@ class TestHelpers{
         }
         
         XCTAssert(alert.staticTexts[message].exists)
+        if takeScreenshot {
+            TestHelpers.takeScreenshot(inTestCase: testCase)
+        }
+        
         alert.buttons[buttonTitle].tap()
     }
     
@@ -40,6 +45,7 @@ class TestHelpers{
                                         andTap buttonTitle: String,
                                         butWait shouldWait: Bool = false,
                                         forUpTo seconds: Double = 10,
+                                        shouldTakeScreenshot takeScreenshot: Bool = false,
                                         inTestCase testCase: XCTestCase?){
         let app = XCUIApplication()
         
@@ -51,7 +57,19 @@ class TestHelpers{
             testCase?.waitForExpectations(timeout: seconds, handler: nil)
         }
         
+        if takeScreenshot {
+            TestHelpers.takeScreenshot(inTestCase: testCase)
+        }
+        
         actionsheet.buttons[buttonTitle].tap()
+    }
+    
+    public class func takeScreenshot(inTestCase testCase: XCTestCase?) {
+        let fullScreenshot = XCUIScreen.main.screenshot()
+        let screenshot = XCTAttachment(screenshot: fullScreenshot)
+
+        screenshot.lifetime = .keepAlways
+        testCase?.add(screenshot)
     }
     
     public class func executeWhileOffline(function: () -> Void){
