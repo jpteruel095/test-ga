@@ -22,6 +22,7 @@ class Arventa_ConnectTC2DashboardUITest: XCTestCase {
         
         let greetingUserLabel = app.staticTexts["greetingUserLabel"]
         XCTAssertNotNil(greetingUserLabel.label.range(of: TestHelpers.getCurrentGreeting()))
+        TestHelpers.takeScreenshot(inTestCase: self)
         app.buttons["sideMenuButton"].tap()
         XCTAssert(app.staticTexts["Log out"].exists)
         
@@ -50,6 +51,7 @@ class Arventa_ConnectTC2DashboardUITest: XCTestCase {
         XCTAssert(app.staticTexts["Profile"].exists)
         XCTAssert(app.staticTexts["Settings"].exists)
         XCTAssert(app.staticTexts["Log out"].exists)
+        TestHelpers.takeScreenshot(inTestCase: self)
         
         app.buttons["closeButton"].tap()
         XCTAssert(greetingUserLabel.exists)

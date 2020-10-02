@@ -313,14 +313,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		C604EDDD252598CB00790341 /* Authorization */ = {
+		C604EDDD252598CB00790341 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
 				C6AFA59F251B391C003551B4 /* SignInViewController.swift */,
 				C614A2892523542900DC8BF7 /* SignInVC+Developer.swift */,
 				C6477DDF2521C86E006408E1 /* VerifyAccountViewController.swift */,
 			);
-			path = Authorization;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		C604EDDE252598E800790341 /* Dashboard */ = {
@@ -378,7 +378,7 @@
 		C61DD494251B12FA006546DF /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C604EDDD252598CB00790341 /* Authorization */,
+				C604EDDD252598CB00790341 /* Authentication */,
 				C604EDDE252598E800790341 /* Dashboard */,
 				C6EDA8BC2525A314006BF4B7 /* Temp */,
 				C6AFA5EF251B4AF3003551B4 /* Protocols */,

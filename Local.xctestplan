@@ -13,7 +13,9 @@
       "containerPath" : "container:Arventa Connect.xcodeproj",
       "identifier" : "C6D331252519FEAB003DD32D",
       "name" : "Arventa Connect"
-    }
+    },
+    "uiTestingScreenshotsLifetime" : "keepAlways",
+    "userAttachmentLifetime" : "keepAlways"
   },
   "testTargets" : [
     {

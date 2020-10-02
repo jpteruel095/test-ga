@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // MARK: Singleton
 extension AppDelegate{
-    static var shared: Self{
+    static var shared: AppDelegate{
         return UIApplication.shared.delegate as! Self
     }
 }

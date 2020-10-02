@@ -28,6 +28,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         if !LoginTestHelper.didForceLogout(){
             LoginTestHelper.validateLoginPage()
         }
+        TestHelpers.takeScreenshot(inTestCase: self)
         LoginTestHelper.enterCredentialsAndTapLogin(username: "whs_numlock",
                                                     password: "watsoN#12345")
         
@@ -37,6 +38,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
         
         XCTAssertNotNil(greetingUserLabel.label.range(of:"whs_numlock Rogomi"))
+        TestHelpers.takeScreenshot(inTestCase: self)
         
 //        app.buttons["sideMenuButton"].tap()
 //        app.staticTexts["Log out"]
@@ -63,9 +65,11 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         TestHelpers.tapOverStaticText("WHS Monitor")
         TestHelpers.expectActionSheet(title: "Which app would you like to log into?",
                                       andTap: "Store Manifest",
+                                      shouldTakeScreenshot: true,
                                       inTestCase: self)
         
         XCTAssert(app.staticTexts["Store Manifest"].exists)
+        TestHelpers.takeScreenshot(inTestCase: self)
         
         LoginTestHelper.enterCredentialsAndTapLogin(username: "sm_numlock1",
                                                     password: "watsoN#12345")
@@ -75,6 +79,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
         waitForExpectations(timeout: 10, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        TestHelpers.takeScreenshot(inTestCase: self)
         
         app.textFields.firstMatch.tap()
         LoginTestHelper.enterOTPCode(code: "123123")
@@ -101,6 +106,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
                                 andAssertMessage: "Please enter a valid Username and Password.",
                                 thenTap: "OK",
                                 butWait: true,
+                                shouldTakeScreenshot: true,
                                 inTestCase: self)
         
         LoginTestHelper.validateLoginPage(emptyFields: false)
@@ -360,6 +366,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         XCTAssert(actionsheet.buttons["Pest Genie"].exists)
         XCTAssert(actionsheet.buttons["Farm Minder"].exists)
         XCTAssert(actionsheet.buttons["Chemical Caddy"].exists)
+        TestHelpers.takeScreenshot(inTestCase: self)
         
         if UIDevice.current.userInterfaceIdiom == .phone{
             actionsheet.buttons["Cancel"].tap()
@@ -396,6 +403,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
             waitForExpectations(timeout: 10, handler: nil)
             
             XCTAssertNotNil(greetingUserLabel.label.range(of: account.getName()))
+            TestHelpers.takeScreenshot(inTestCase: self)
             
             app.buttons["sideMenuButton"].tap()
             app.staticTexts["Log out"]
@@ -440,9 +448,11 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
         waitForExpectations(timeout: 10, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
+        TestHelpers.takeScreenshot(inTestCase: self)
         
         app.textFields.firstMatch.tap()
         LoginTestHelper.enterOTPCode(code: "123123")
+        TestHelpers.takeScreenshot(inTestCase: self)
         
         // Test Case 1.5 - Testing error message when entering invalid code
         app.toolbars["Toolbar"].buttons["Done"].tap()
@@ -451,6 +461,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
                                 andAssertMessage: "Invalid Security Code.",
                                 thenTap: "OK",
                                 butWait: true,
+                                shouldTakeScreenshot: true,
                                 inTestCase: self)
         
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
@@ -460,6 +471,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
                                 andAssertMessage: "The code has been sent.",
                                 thenTap: "OK",
                                 butWait: true,
+                                shouldTakeScreenshot: true,
                                 inTestCase: self)
         
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
