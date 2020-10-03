@@ -29,8 +29,8 @@ jobs:
           mkdir "$HOME/Results"
           cp -r ./testresultsexp/ $HOME/Results/
           cd $HOME/Results/
+          echo "Current Files:"
           ls
-          xchtmlreport -r TestResult.xcresult
           i=0
           j=""
           for FILE in *; do
@@ -40,7 +40,11 @@ jobs:
               mv "$FILE" "test$i.xcresult"
           done
           echo "j = $j"
+          echo "New Files:"
+          ls
           xchtmlreport $j
+          echo "Final Files:"
+          ls
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.0
         with:
