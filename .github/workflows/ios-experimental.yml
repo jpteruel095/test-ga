@@ -55,6 +55,6 @@ jobs:
         uses: actions/upload-artifact@v2.2.0
         with:
           name: TestResults
-          path: ${{ resultsdir }}
+          path: "{{ resultsdir }}"
           if-no-files-found: error
           retention-days: 5
