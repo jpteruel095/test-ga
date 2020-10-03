@@ -21,6 +21,7 @@ jobs:
                                        -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
                                        -derivedDataPath "$HOME/DerivedData/"
       - name: Test Arventa Connect
+        continue-on-error: true
         run: |
           xcodebuild test-without-building -scheme "Arventa Connect" \
                                            -workspace "Arventa Connect.xcworkspace" \
@@ -48,7 +49,6 @@ jobs:
           xchtmlreport $args
           echo "Results Folder:"
           ls
-        continue-on-error: true
       - name: Upload Test Result Artifact
         uses: actions/upload-artifact@v2.2.0
         with:
