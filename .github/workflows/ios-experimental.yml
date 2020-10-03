@@ -42,11 +42,11 @@ jobs:
           echo "Did change scheme value: '$scheme'"
           if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-          mkdir '~/Results'
-          mkdir '~/Results/$scheme'
-          mkdir '~/Results/$scheme/Logs'
-          mkdir '~/Results/$scheme/Logs/Test'
-          touch '~/Results/$scheme/Logs/Test/simp.txt'
+          mkdir '$HOME/Results'
+          mkdir '$HOME/Results/$scheme'
+          mkdir '$HOME/Results/$scheme/Logs'
+          mkdir '$HOME/Results/$scheme/Logs/Test'
+          touch '$HOME/Results/$scheme/Logs/Test/simp.txt'
           resultsdir=$(echo "~/Results/$scheme/Logs/Test/")
           echo $resultsdir | cat >resultsdir
           echo Results saved on: $resultsdir
@@ -55,6 +55,6 @@ jobs:
         uses: actions/upload-artifact@v2.2.0
         with:
           name: TestResults
-          path: ${{ 'resultsdir' }}
+          path: ${{ resultsdir }}
           if-no-files-found: error
           retention-days: 5
