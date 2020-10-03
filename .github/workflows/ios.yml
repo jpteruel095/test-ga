@@ -40,11 +40,10 @@ jobs:
           if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device" -derivedDataPath "~/Results/$scheme"
-          zip -r "/Users/runner/Results/Zipped/Results.zip" "/Users/runner/Results/$scheme/Logs/Test/"
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.0
         with:
           name: ResultZip
-          path: "/Users/runner/Results/Zipped/Results.zip"
+          path: "~/Results/$scheme/Logs/Test/"
           if-no-files-found: error
           retention-days: 5
