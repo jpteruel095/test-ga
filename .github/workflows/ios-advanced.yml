@@ -41,6 +41,7 @@ jobs:
           done
           cd $HOME/Results/
           xchtmlreport $args
+        continue-on-error: true
       - name: Upload Test Result Artifact
         uses: actions/upload-artifact@v2.2.0
         with:
