@@ -29,7 +29,7 @@ jobs:
       - name: Compile Test Results
         run: |
           bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
-          cd "$HOME/DerivedData/Arventa Connect/Logs/Test/"
+          cd "$HOME/DerivedData/Logs/Test/"
           mkdir $HOME/Results
           count=0
           args=""
