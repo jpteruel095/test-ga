@@ -20,21 +20,30 @@ jobs:
                                        -workspace "Arventa Connect.xcworkspace" \
                                        -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
                                        -derivedDataPath "$HOME/DerivedData/"
-      - name: Test Arventa Connect
+      - name: Test Arventa Connect (iPhone 11 Pro Max)
         continue-on-error: true
         run: |
           xcodebuild test-without-building -scheme "Arventa Connect" \
                                            -workspace "Arventa Connect.xcworkspace" \
                                            -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
                                            -derivedDataPath "$HOME/DerivedData/"
+      - name: Test Arventa Connect (iPhone 8 Plus)
+        continue-on-error: true
+        run: |
           xcodebuild test-without-building -scheme "Arventa Connect" \
                                            -workspace "Arventa Connect.xcworkspace" \
                                            -destination "platform=iOS Simulator,name=iPhone 8 Plus" \
                                            -derivedDataPath "$HOME/DerivedData/"
+      - name: Test Arventa Connect (iPhone SE 2)
+          continue-on-error: true
+          run: |
           xcodebuild test-without-building -scheme "Arventa Connect" \
                                            -workspace "Arventa Connect.xcworkspace" \
                                            -destination "platform=iOS Simulator,name=iPhone SE" \
                                            -derivedDataPath "$HOME/DerivedData/"
+      - name: Test Arventa Connect (iPad Pro (11-inch))
+          continue-on-error: true
+          run: |
           xcodebuild test-without-building -scheme "Arventa Connect" \
                                            -workspace "Arventa Connect.xcworkspace" \
                                            -destination "platform=iOS Simulator,name=iPad Pro (11-inch)" \
