@@ -30,6 +30,8 @@ jobs:
         run: |
           bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
           cd "$HOME/DerivedData/Logs/Test/"
+          echo "DerivedData Tests Folder:"
+          ls
           mkdir $HOME/Results
           count=0
           args=""
@@ -38,9 +40,12 @@ jobs:
             filename="test$count.xcresult"
             args="$args-r $filename "
             cp $FILE $HOME/Results/$filename
+            echo "New file: $HOME/Results/$filename"
           done
           cd $HOME/Results/
           xchtmlreport $args
+          echo "Results Folder:"
+          ls
         continue-on-error: true
       - name: Upload Test Result Artifact
         uses: actions/upload-artifact@v2.2.0
