@@ -1,4 +1,4 @@
-name: iOS advanced workflow
+name: iOS multiple testing workflow
 
 on:
   push:
