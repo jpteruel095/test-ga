@@ -47,7 +47,7 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.0
         with:
-          name: ResultZip
-          path: "~/Results/{{ scheme }}/Logs/Test/"
+          name: TestResults
+          path: "~/Results/Arventa Connect/Logs/Test/"
           if-no-files-found: error
           retention-days: 5
