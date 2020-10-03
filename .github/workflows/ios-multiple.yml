@@ -74,7 +74,10 @@ jobs:
                                            -workspace "Arventa Connect.xcworkspace" \
                                            -destination "platform=iOS Simulator,name=iPad Pro (11-inch) (2nd generation)" \
                                            -derivedDataPath "$HOME/DerivedData/"
-          for FILE in $HOME/DerivedData/Logs/Test/*.xcresult; do
+          echo "Current directory: "
+          pwd
+          cd $HOME/DerivedData/Logs/Test/
+          for FILE in *.xcresult; do
             echo "Current file: $FILE"
             cp -r "$FILE" "$HOME/Results/$FILE";
             echo "New location: $HOME/Results/$FILE"
