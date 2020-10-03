@@ -46,10 +46,8 @@ jobs:
         continue-on-error: true
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.0
-        env:
-          resultsdir: ${{ 'resultsdir' }}
         with:
           name: ResultZip
-          path: $resultsdir
+          path: "~/Results/{{ scheme }}/Logs/Test/"
           if-no-files-found: error
           retention-days: 5
