@@ -42,7 +42,7 @@ jobs:
             count=`expr $count + 1`
             filename="test$count.xcresult"
             args="$args-r $filename "
-            cp $FILE $HOME/Results/$filename
+            cp "$FILE" $HOME/Results/$filename
             echo "New file: $HOME/Results/$filename"
           done
           cd $HOME/Results/
