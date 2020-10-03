@@ -86,7 +86,7 @@ jobs:
         run: |
           bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
           cd $HOME/Results/
-          echo "Raw Test Results Folder:"
+          echo "Raw Results Folder:"
           ls
           count=0
           args=""
