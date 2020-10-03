@@ -21,6 +21,7 @@ jobs:
           echo $default | cat >default
           echo Using default scheme: $default
       - name: Build
+        id: buildstep
         env:
           scheme: ${{ 'default' }}
           platform: ${{ 'iOS Simulator' }}
@@ -33,7 +34,7 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
       - name: Test
         env:
-          scheme: ${{ 'default' }}
+          scheme: ${{ steps.buildstep.outputs.scheme }}
           platform: ${{ 'iOS Simulator' }}
         id: teststep
         run: |
@@ -56,6 +57,6 @@ jobs:
         uses: actions/upload-artifact@v2.2.0
         with:
           name: TestResults
-          path: ${{ steps.teststep.outputs.resultsdir }}
+          path: "~/Results/Arventa Connect/Logs/Test"
           if-no-files-found: error
           retention-days: 5
