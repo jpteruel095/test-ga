@@ -27,8 +27,9 @@ jobs:
         run: |
           bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh)
           mkdir "$HOME/Results"
-          cp -r ./testresultconv $HOME/Results/
+          cp -r ./testresultconv/ $HOME/Results/
           cd $HOME/Results/
+          ls
           xchtmlreport -r TestResult.xcresult
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.0
