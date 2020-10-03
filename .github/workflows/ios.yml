@@ -41,6 +41,7 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device" -derivedDataPath "~/Results/$scheme"
           resultsdir="~/Results/$scheme/Logs/Test/"
+        continue-on-error: true
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.0
         with:
