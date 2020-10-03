@@ -18,13 +18,13 @@ jobs:
         run: |
           xcodebuild build-for-testing -scheme "Arventa Connect" \
                                        -workspace "Arventa Connect.xcworkspace" \
-                                       -destination "platform=iOS Simulator,name='iPhone 11 Pro Max" \
+                                       -destination "platform=iOS Simulator,name='iPhone 11 Pro Max'" \
                                        -derivedDataPath "$HOME/DerivedData/"
       - name: Test Arventa Connect
         run: |
           xcodebuild test-without-building -scheme "Arventa Connect" \
                                            -workspace "Arventa Connect.xcworkspace" \
-                                           -destination "platform=iOS Simulator,name='iPhone 11 Pro Max" \
+                                           -destination "platform=iOS Simulator,name='iPhone 11 Pro Max'" \
                                            -derivedDataPath "$HOME/DerivedData/"                                 
       - name: Compile Test Results
         run: |
