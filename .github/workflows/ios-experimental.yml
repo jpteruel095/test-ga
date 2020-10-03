@@ -27,10 +27,20 @@ jobs:
         run: |
           bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
           mkdir "$HOME/Results"
-          cp -r ./testresultconv/ $HOME/Results/
+          cp -r ./testresultsexp/ $HOME/Results/
           cd $HOME/Results/
           ls
           xchtmlreport -r TestResult.xcresult
+          i=0
+          j=""
+          for FILE in *; do
+              i=`expr $i + 1`
+              echo "Rename '$FILE' to: test$i.xcresult"
+              j="$j-r test$i.xcresult "
+              mv "$FILE" "test$i.xcresult"
+          done
+          echo "j = $j"
+          xchtmlreport $j
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.0
         with:
