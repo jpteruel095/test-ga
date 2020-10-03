@@ -1,0 +1,50 @@
+name: iOS advanced workflow
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build and Test default scheme using any available iPhone simulator
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build Arventa Connect
+        run: |
+          xcodebuild build-for-testing -scheme "Arventa Connect" \
+                                       -workspace "Arventa Connect.xcworkspace" \
+                                       -destination "platform=iOS Simulator,name='iPhone 11 Pro Max" \
+                                       -derivedDataPath "$HOME/DerivedData/"
+      - name: Test Arventa Connect
+        run: |
+          xcodebuild test-without-building -scheme "Arventa Connect" \
+                                           -workspace "Arventa Connect.xcworkspace" \
+                                           -destination "platform=iOS Simulator,name='iPhone 11 Pro Max" \
+                                           -derivedDataPath "$HOME/DerivedData/"                                 
+      - name: Compile Test Results
+        run: |
+          bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
+          cd "$HOME/DerivedData/Arventa Connect/Logs/Test/"
+          mkdir $HOME/Results
+          count=0
+          args=""
+          for FILE in *.xcresult; do
+            count=`expr $count + 1`
+            filename="test$count.xcresult"
+            args="$args-r $filename "
+            cp $FILE $HOME/Results/$filename
+          done
+          cd $HOME/Results/
+          xchtmlreport $args
+      - name: Upload Test Result Artifact
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: TestResults
+          path: "~/Results"
+          if-no-files-found: error
+          retention-days: 5
