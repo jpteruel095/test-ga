@@ -33,9 +33,11 @@ jobs:
           echo "DerivedData Tests Folder:"
           ls
           mkdir $HOME/Results
+          echo "Created folder at: $HOME/Results"
           count=0
           args=""
           for FILE in *.xcresult; do
+            echo "Current file: $FILE"
             count=`expr $count + 1`
             filename="test$count.xcresult"
             args="$args-r $filename "
