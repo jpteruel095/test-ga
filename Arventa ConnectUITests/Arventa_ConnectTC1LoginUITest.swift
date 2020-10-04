@@ -51,7 +51,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
     
     /**
      - Description: 1.2 - Login Success - Without Mobile Verification
-     - Important: Be careful of running this as it could lock the user out after certain number of attempts.     
+     - Important: Be careful of running this as it could lock the user out after certain number of attempts.
      */
     func NA_test_TC1a02_LoginSuccessWVerification() throws {
         // UI tests must launch the application that they test.
@@ -117,7 +117,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
      - Description: 1.4 - Login Failed - Offline When Logging in.
      - Note: Cannot be tested on Firebase Testlab - Error occurs
      */
-    func test_TC1a04_LoginWhileOffline() throws {
+    func NA_test_TC1a04_LoginWhileOffline() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -423,7 +423,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
      - TC 1.07 - Resend Mobile Verification Code
      - TC 1.09 - Exit Mobile Verification Screen
      */
-    func test_TC1c02a05a07a09_LoginVerification() throws {
+    func NA_test_TC1c02a05a07a09_LoginVerification() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -487,7 +487,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
      - TC 1.06 - Login Failed - Offline When Verifying Mobile Code
      - TC 1.08 - Resend Mobile Verification Code - Offline
      */
-    func test_TC1c06a08_LoginVerificationOffline() throws {
+    func NA_test_TC1c06a08_LoginVerificationOffline() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()

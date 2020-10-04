@@ -158,6 +158,13 @@ jobs:
             echo "New location: $HOME/Results/$FILE"
           done
 
+      # switches back to xcode to test iOS 14
+      - name: Switch back to Xcode 12
+        run: |
+          echo "Switch back to Xcode 12 to compile HTML reports"
+          sudo xcode-select -switch /Applications/Xcode_12.app
+
+      # compiles test result
       - name: Compile Test Results
         run: |
           bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
