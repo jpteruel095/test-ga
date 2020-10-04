@@ -1,10 +1,10 @@
-name: iOS Simulator Change Version
+name: Arventa Connect Github Actions Testing
 
 on:
   push:
-    branches: [ master ]
+    branches: [ testing ]
   pull_request:
-    branches: [ master ]
+    branches: [ testing ]
 
 jobs:
   build:
@@ -14,7 +14,56 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Switch to Xcode 12
+        run: |
+          echo "Going to test on iOS 14 through Xcode 12"
+          sudo xcode-select -switch /Applications/Xcode_12.app
       - name: Build Arventa Connect
         run: |
-          echo "Listing down all xcode versions (?)"
-          ls -d /Applications/Xcode*.app
+          mkdir $HOME/Results
+          echo "Created folder at: $HOME/Results"
+          xcodebuild build-for-testing -scheme "Arventa Connect" \
+                                       -workspace "Arventa Connect.xcworkspace" \
+                                       -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
+                                       -derivedDataPath "$HOME/DerivedData/"
+      - name: Test Arventa Connect (iPhone 11 Pro Max)
+        continue-on-error: true
+        run: |
+          xcodebuild test-without-building -scheme "Arventa Connect" \
+                                           -workspace "Arventa Connect.xcworkspace" \
+                                           -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
+                                           -derivedDataPath "$HOME/DerivedData/"
+          echo "Current directory: "
+          pwd
+          cd $HOME/DerivedData/Logs/Test/
+          for FILE in *.xcresult; do
+            echo "Current file: $FILE"
+            cp -r "$FILE" "$HOME/Results/$FILE";
+            echo "New location: $HOME/Results/$FILE"
+          done
+      - name: Compile Test Results
+        run: |
+          bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
+          cd $HOME/Results/
+          echo "Raw Results Folder:"
+          ls
+          count=0
+          args=""
+          for FILE in *.xcresult; do
+            echo "Current file: $FILE"
+            count=`expr $count + 1`
+            filename="test$count.xcresult"
+            args="$args-r $filename "
+            mv "$FILE" $filename
+            echo "New name: $filename"
+          done
+          xchtmlreport $args
+          echo "Final Results Folder:"
+          ls
+      - name: Upload Test Result Artifact
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: TestResults
+          path: "~/Results"
+          if-no-files-found: error
+          retention-days: 5
