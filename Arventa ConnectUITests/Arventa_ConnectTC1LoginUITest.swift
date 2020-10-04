@@ -31,15 +31,16 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         TestHelpers.takeScreenshot(inTestCase: self)
         LoginTestHelper.enterCredentialsAndTapLogin(username: "whs_numlock",
                                                     password: "watsoN#12345")
+        XCTAssert(app.activityIndicators["In progress"].exists)
         
         let greetingUserLabel = app.staticTexts["greetingUserLabel"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: greetingUserLabel, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
         
         XCTAssertNotNil(greetingUserLabel.label.range(of:"whs_numlock Rogomi"))
         TestHelpers.takeScreenshot(inTestCase: self)
-        
+                
 //        app.buttons["sideMenuButton"].tap()
 //        app.staticTexts["Log out"]
 //            .coordinate(withNormalizedOffset: .zero)
@@ -77,7 +78,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         let verifyLabel = app.staticTexts["Verify your account"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
         TestHelpers.takeScreenshot(inTestCase: self)
         
@@ -165,7 +166,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         let verifyLabel = app.staticTexts["Verify your account"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
         
         app.textFields.firstMatch.tap()
@@ -210,7 +211,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         let verifyLabel = app.staticTexts["Verify your account"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
         
         TestHelpers.executeWhileOffline {
@@ -256,7 +257,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         let verifyLabel = app.staticTexts["Verify your account"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
         
         app.toolbars["Toolbar"].buttons["Done"].tap()
@@ -297,7 +298,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         let verifyLabel = app.staticTexts["Verify your account"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
         
         app.toolbars["Toolbar"].buttons["Done"].tap()
@@ -339,7 +340,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         let verifyLabel = app.staticTexts["Verify your account"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
         
         app.buttons["backButton"].tap()
@@ -400,7 +401,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
             let greetingUserLabel = app.staticTexts["greetingUserLabel"]
             let exists = NSPredicate(format: "exists == 1")
             expectation(for: exists, evaluatedWith: greetingUserLabel, handler: nil)
-            waitForExpectations(timeout: 10, handler: nil)
+            waitForExpectations(timeout: 20, handler: nil)
             
             XCTAssertNotNil(greetingUserLabel.label.range(of: account.getName()))
             TestHelpers.takeScreenshot(inTestCase: self)
@@ -446,7 +447,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         let verifyLabel = app.staticTexts["Verify your account"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
         TestHelpers.takeScreenshot(inTestCase: self)
         
@@ -510,7 +511,7 @@ class Arventa_ConnectTC1LoginUITest: XCTestCase {
         let verifyLabel = app.staticTexts["Verify your account"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: verifyLabel, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
         XCTAssert(app.staticTexts["Code is sent to ********2544"].exists)
         
         app.textFields.firstMatch.tap()
