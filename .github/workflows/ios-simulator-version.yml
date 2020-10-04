@@ -12,25 +12,175 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: List down all xcode versions
+      # checks out to latest branch commit
+      - name: Checkout
+        uses: actions/checkout@v2
+      # switches to xcode to test iOS 14
+      - name: Switch to Xcode 12
         run: |
-            echo "Listing down all xcode versions (?)"
-            ls -d /Applications/Xcode*.app
+          echo "Testing on iOS 14 through Xcode 12"
+          sudo xcode-select -switch /Applications/Xcode_12.app
+      # builds for all version
+      - name: Build Arventa Connect
+        run: |
+          echo "Build for all (?)"
+          mkdir $HOME/Results
+          echo "Created folder at: $HOME/Results"
+          xcodebuild build-for-testing -scheme "Arventa Connect" \
+                                       -workspace "Arventa Connect.xcworkspace" \
+                                       -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
+                                       -derivedDataPath "$HOME/DerivedData/"
+      # test on iPhone 11 Pro Max @ 14.0
+      - name: Test Arventa Connect (iPhone 11 Pro Max 14.0)
+        continue-on-error: true
+        run: |
+          xcodebuild test-without-building -scheme "Arventa Connect" \
+                                           -workspace "Arventa Connect.xcworkspace" \
+                                           -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
+                                           -derivedDataPath "$HOME/DerivedData/"
+          echo "Current directory: "
+          pwd
+          cd $HOME/DerivedData/Logs/Test/
+          for FILE in *.xcresult; do
+            echo "Current file: $FILE"
+            cp -r "$FILE" "$HOME/Results/$FILE";
+            echo "New location: $HOME/Results/$FILE"
+          done
+      # test on iPad Pro 11-inch @ 14.0
+      - name: Test Arventa Connect (iPad Pro (11-inch) (2nd generation) 14.0)
+        continue-on-error: true
+        run: |
+          xcodebuild test-without-building -scheme "Arventa Connect" \
+                                            -workspace "Arventa Connect.xcworkspace" \
+                                            -destination "platform=iOS Simulator,name=iPad Pro (11-inch) (2nd generation)" \
+                                            -derivedDataPath "$HOME/DerivedData/"
+          echo "Current directory: "
+          pwd
+          cd $HOME/DerivedData/Logs/Test/
+          for FILE in *.xcresult; do
+            echo "Current file: $FILE"
+            cp -r "$FILE" "$HOME/Results/$FILE";
+            echo "New location: $HOME/Results/$FILE"
+          done
 
-      - name: List down all simulators for Xcode 12
+      # switches to xcode 11 to test iOS 13
+      - name: Switch to Xcode 11
         run: |
-            echo "Listing down all simulators for Xcode 12"
-            sudo xcode-select -switch /Applications/Xcode_12.app
-            instruments -s devices
+          echo "Testing on iOS 13 through Xcode 11.7"
+          sudo xcode-select -switch /Applications/Xcode_11.7.app
 
-      - name: List down all simulators for Xcode 11
+      # test on iPhone 11 @ 13.7
+      - name: Test Arventa Connect (iPhone 11 13.7)
+        continue-on-error: true
         run: |
-            echo "Listing down all simulators for Xcode 11"
-            sudo xcode-select -switch /Applications/Xcode_11.7.app
-            instruments -s devices
+          xcodebuild test-without-building -scheme "Arventa Connect" \
+                                           -workspace "Arventa Connect.xcworkspace" \
+                                           -destination "platform=iOS Simulator,name=iPhone 11" \
+                                           -derivedDataPath "$HOME/DerivedData/"
+          echo "Current directory: "
+          pwd
+          cd $HOME/DerivedData/Logs/Test/
+          for FILE in *.xcresult; do
+            echo "Current file: $FILE"
+            cp -r "$FILE" "$HOME/Results/$FILE";
+            echo "New location: $HOME/Results/$FILE"
+          done
+      # test on iPhone 11 Pro @ 13.7
+      - name: Test Arventa Connect (iPhone 11 Pro 13.7)
+        continue-on-error: true
+        run: |
+          xcodebuild test-without-building -scheme "Arventa Connect" \
+                                            -workspace "Arventa Connect.xcworkspace" \
+                                            -destination "platform=iOS Simulator,name=iPhone 11 Pro" \
+                                            -derivedDataPath "$HOME/DerivedData/"
+          echo "Current directory: "
+          pwd
+          cd $HOME/DerivedData/Logs/Test/
+          for FILE in *.xcresult; do
+            echo "Current file: $FILE"
+            cp -r "$FILE" "$HOME/Results/$FILE";
+            echo "New location: $HOME/Results/$FILE"
+          done
+      # test on iPhone 8 Plus Pro @ 13.7
+      - name: Test Arventa Connect (iPhone 8 Plus 13.7)
+        continue-on-error: true
+        run: |
+          xcodebuild test-without-building -scheme "Arventa Connect" \
+                                            -workspace "Arventa Connect.xcworkspace" \
+                                            -destination "platform=iOS Simulator,name=iPhone 8 Plus" \
+                                            -derivedDataPath "$HOME/DerivedData/"
+          echo "Current directory: "
+          pwd
+          cd $HOME/DerivedData/Logs/Test/
+          for FILE in *.xcresult; do
+            echo "Current file: $FILE"
+            cp -r "$FILE" "$HOME/Results/$FILE";
+            echo "New location: $HOME/Results/$FILE"
+          done
 
-      - name: List down all simulators for Xcode 10
+      # switches to xcode 10 to test iOS 12
+      - name: Switch to Xcode 10
         run: |
-            echo "Listing down all simulators for Xcode 10"
-            sudo xcode-select -switch /Applications/Xcode_10.3.app
-            instruments -s devices
+          echo "Testing on iOS 12 through Xcode 10.3"
+          sudo xcode-select -switch /Applications/Xcode_10.3.app
+
+      # test on iPhone 7 @ 12.4
+      - name: Test Arventa Connect (iPhone 7 @ 12.4)
+        continue-on-error: true
+        run: |
+          xcodebuild test-without-building -scheme "Arventa Connect" \
+                                            -workspace "Arventa Connect.xcworkspace" \
+                                            -destination "platform=iOS Simulator,name=iPhone 7" \
+                                            -derivedDataPath "$HOME/DerivedData/"
+          echo "Current directory: "
+          pwd
+          cd $HOME/DerivedData/Logs/Test/
+          for FILE in *.xcresult; do
+            echo "Current file: $FILE"
+            cp -r "$FILE" "$HOME/Results/$FILE";
+            echo "New location: $HOME/Results/$FILE"
+          done
+
+      # test on iPhone SE @ 12.4
+      - name: Test Arventa Connect (iPhone SE @ 12.4)
+        continue-on-error: true
+        run: |
+          xcodebuild test-without-building -scheme "Arventa Connect" \
+                                            -workspace "Arventa Connect.xcworkspace" \
+                                            -destination "platform=iOS Simulator,name=iPhone SE" \
+                                            -derivedDataPath "$HOME/DerivedData/"
+          echo "Current directory: "
+          pwd
+          cd $HOME/DerivedData/Logs/Test/
+          for FILE in *.xcresult; do
+            echo "Current file: $FILE"
+            cp -r "$FILE" "$HOME/Results/$FILE";
+            echo "New location: $HOME/Results/$FILE"
+          done
+
+      - name: Compile Test Results
+        run: |
+          bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
+          cd $HOME/Results/
+          echo "Raw Results Folder:"
+          ls
+          count=0
+          args=""
+          for FILE in *.xcresult; do
+            echo "Current file: $FILE"
+            count=`expr $count + 1`
+            filename="test$count.xcresult"
+            args="$args-r $filename "
+            mv "$FILE" $filename
+            echo "New name: $filename"
+          done
+          xchtmlreport $args
+          echo "Final Results Folder:"
+          ls
+      - name: Upload Test Result Artifact
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: TestResults
+          path: "~/Results"
+          if-no-files-found: error
+          retention-days: 5
