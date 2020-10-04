@@ -43,7 +43,7 @@ class LoginTestHelper{
             let greetingUserLabel = app.staticTexts["greetingUserLabel"]
             let exists = NSPredicate(format: "exists == 1")
             testCase?.expectation(for: exists, evaluatedWith: greetingUserLabel, handler: nil)
-            testCase?.waitForExpectations(timeout: 10, handler: nil)
+            testCase?.waitForExpectations(timeout: 20, handler: nil)
             
             XCTAssertNotNil(greetingUserLabel.label.range(of: account.getName()))
             return true
