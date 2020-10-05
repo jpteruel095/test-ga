@@ -18,33 +18,33 @@ jobs:
       # Prepare reusable commands
       - name: Prepare Reusable Shells
         run: |
-        mkdir $HOME/Results_iOS13_14
-        echo "Created folder at: $HOME/Results_iOS13_14"
+          mkdir $HOME/Results_iOS13_14
+          echo "Created folder at: $HOME/Results_iOS13_14"
 
-        mkdir $HOME/Results_iOS12
-        echo "Created folder at: $HOME/Results_iOS12"
+          mkdir $HOME/Results_iOS12
+          echo "Created folder at: $HOME/Results_iOS12"
 
-        echo "
-          echo \"Current directory: \"
-          pwd
-          cd \$HOME/DerivedData/Logs/Test/
-          for FILE in *.xcresult; do
-            echo "Current file: \$FILE"
-            cp -r "\$FILE" "\$HOME/Results_iOS13_14/\$FILE";
-            echo "New location: \$HOME/Results_iOS13_14/\$FILE"
-          done
-        " >> ~/cp_ios13_14.sh && chmod 755 ~/cp_ios13_14.sh
-      
-        echo "
-          echo \"Current directory: \"
-          pwd
-          cd \$HOME/DerivedData/Logs/Test/
-          for FILE in *.xcresult; do
-            echo "Current file: \$FILE"
-            cp -r "\$FILE" "\$HOME/Results_iOS12/\$FILE";
-            echo "New location: \$HOME/Results_iOS12/\$FILE"
-          done
-        " >> ~/cp_ios12.sh && chmod 755 ~/cp_ios12.sh
+          echo "
+            echo \"Current directory: \"
+            pwd
+            cd \$HOME/DerivedData/Logs/Test/
+            for FILE in *.xcresult; do
+              echo "Current file: \$FILE"
+              cp -r "\$FILE" "\$HOME/Results_iOS13_14/\$FILE";
+              echo "New location: \$HOME/Results_iOS13_14/\$FILE"
+            done
+          " >> ~/cp_ios13_14.sh && chmod 755 ~/cp_ios13_14.sh
+        
+          echo "
+            echo \"Current directory: \"
+            pwd
+            cd \$HOME/DerivedData/Logs/Test/
+            for FILE in *.xcresult; do
+              echo "Current file: \$FILE"
+              cp -r "\$FILE" "\$HOME/Results_iOS12/\$FILE";
+              echo "New location: \$HOME/Results_iOS12/\$FILE"
+            done
+          " >> ~/cp_ios12.sh && chmod 755 ~/cp_ios12.sh
 
       # Switch to Xcode 12 for building
       - name: Switch to Xcode 12
