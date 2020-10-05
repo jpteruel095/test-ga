@@ -21,7 +21,7 @@ jobs:
         mkdir $HOME/Results_iOS13_14
         echo "Created folder at: $HOME/Results_iOS12"
 
-        mkdir $HOME/Results_iOS13_14
+        mkdir $HOME/Results_iOS12
         echo "Created folder at: $HOME/Results_iOS12"
 
         echo "
