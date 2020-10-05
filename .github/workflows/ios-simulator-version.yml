@@ -65,7 +65,7 @@ jobs:
       # compiles test result
       - name: Compile Test Results
         run: |
-          bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '1.0.0'
+          bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh)
           cd $HOME/Results/
           echo "Raw Results Folder:"
           ls
