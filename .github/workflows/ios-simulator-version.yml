@@ -204,7 +204,7 @@ jobs:
       - name: Upload Test Result Artifact (iOS 12)
         uses: actions/upload-artifact@v2.2.0
         with:
-          name: Test Results for iOS 13 and 14
+          name: Test Results for iOS 12
           path: "~/Results_iOS12"
           if-no-files-found: error
           retention-days: 5
