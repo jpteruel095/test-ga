@@ -56,35 +56,16 @@ jobs:
             echo "New location: $HOME/Results/$FILE"
           done
 
-      # test on iPhone SE @ 12.4
-      - name: Test Arventa Connect (iPhone SE @ 12.4)
-        continue-on-error: true
+      # switches back to xcode 11 to compile
+      - name: Switch back to Xcode 11
         run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                            -workspace "Arventa Connect.xcworkspace" \
-                                            -destination "platform=iOS Simulator,name=iPhone SE" \
-                                            -derivedDataPath "$HOME/DerivedData/"
-      - name: Copy Test Results (iPhone SE @ 12.4)
-        run: |
-          echo "Current directory: "
-          pwd
-          cd $HOME/DerivedData/Logs/Test/
-          for FILE in *.xcresult; do
-            echo "Current file: $FILE"
-            cp -r "$FILE" "$HOME/Results/$FILE";
-            echo "New location: $HOME/Results/$FILE"
-          done
-
-      # switches back to xcode 12 to compile
-      - name: Switch back to Xcode 12
-        run: |
-          echo "Switch back to Xcode 12 to compile HTML reports"
-          sudo xcode-select -switch /Applications/Xcode_12.app
+          echo "Switch back to Xcode 11 to compile HTML reports"
+          sudo xcode-select -switch /Applications/Xcode_11.7.app
 
       # compiles test result
       - name: Compile Test Results
         run: |
-          bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
+          bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '1.0.0'
           cd $HOME/Results/
           echo "Raw Results Folder:"
           ls
