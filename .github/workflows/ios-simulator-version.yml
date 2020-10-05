@@ -30,93 +30,6 @@ jobs:
                                        -workspace "Arventa Connect.xcworkspace" \
                                        -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
                                        -derivedDataPath "$HOME/DerivedData/"
-      # test on iPhone 11 Pro Max @ 14.0
-      - name: Test Arventa Connect (iPhone 11 Pro Max 14.0)
-        continue-on-error: true
-        run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                           -workspace "Arventa Connect.xcworkspace" \
-                                           -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
-                                           -derivedDataPath "$HOME/DerivedData/"
-          echo "Current directory: "
-          pwd
-          cd $HOME/DerivedData/Logs/Test/
-          for FILE in *.xcresult; do
-            echo "Current file: $FILE"
-            cp -r "$FILE" "$HOME/Results/$FILE";
-            echo "New location: $HOME/Results/$FILE"
-          done
-      # test on iPad Pro 11-inch @ 14.0
-      - name: Test Arventa Connect (iPad Pro (11-inch) (2nd generation) 14.0)
-        continue-on-error: true
-        run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                            -workspace "Arventa Connect.xcworkspace" \
-                                            -destination "platform=iOS Simulator,name=iPad Pro (11-inch) (2nd generation)" \
-                                            -derivedDataPath "$HOME/DerivedData/"
-          echo "Current directory: "
-          pwd
-          cd $HOME/DerivedData/Logs/Test/
-          for FILE in *.xcresult; do
-            echo "Current file: $FILE"
-            cp -r "$FILE" "$HOME/Results/$FILE";
-            echo "New location: $HOME/Results/$FILE"
-          done
-
-      # switches to xcode 11 to test iOS 13
-      - name: Switch to Xcode 11
-        run: |
-          echo "Testing on iOS 13 through Xcode 11.7"
-          sudo xcode-select -switch /Applications/Xcode_11.7.app
-
-      # test on iPhone 11 @ 13.7
-      - name: Test Arventa Connect (iPhone 11 13.7)
-        continue-on-error: true
-        run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                           -workspace "Arventa Connect.xcworkspace" \
-                                           -destination "platform=iOS Simulator,name=iPhone 11" \
-                                           -derivedDataPath "$HOME/DerivedData/"
-          echo "Current directory: "
-          pwd
-          cd $HOME/DerivedData/Logs/Test/
-          for FILE in *.xcresult; do
-            echo "Current file: $FILE"
-            cp -r "$FILE" "$HOME/Results/$FILE";
-            echo "New location: $HOME/Results/$FILE"
-          done
-      # test on iPhone 11 Pro @ 13.7
-      - name: Test Arventa Connect (iPhone 11 Pro 13.7)
-        continue-on-error: true
-        run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                            -workspace "Arventa Connect.xcworkspace" \
-                                            -destination "platform=iOS Simulator,name=iPhone 11 Pro" \
-                                            -derivedDataPath "$HOME/DerivedData/"
-          echo "Current directory: "
-          pwd
-          cd $HOME/DerivedData/Logs/Test/
-          for FILE in *.xcresult; do
-            echo "Current file: $FILE"
-            cp -r "$FILE" "$HOME/Results/$FILE";
-            echo "New location: $HOME/Results/$FILE"
-          done
-      # test on iPhone 8 Plus Pro @ 13.7
-      - name: Test Arventa Connect (iPhone 8 Plus 13.7)
-        continue-on-error: true
-        run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                            -workspace "Arventa Connect.xcworkspace" \
-                                            -destination "platform=iOS Simulator,name=iPhone 8 Plus" \
-                                            -derivedDataPath "$HOME/DerivedData/"
-          echo "Current directory: "
-          pwd
-          cd $HOME/DerivedData/Logs/Test/
-          for FILE in *.xcresult; do
-            echo "Current file: $FILE"
-            cp -r "$FILE" "$HOME/Results/$FILE";
-            echo "New location: $HOME/Results/$FILE"
-          done
 
       # switches to xcode 10 to test iOS 12
       - name: Switch to Xcode 10
@@ -132,6 +45,8 @@ jobs:
                                             -workspace "Arventa Connect.xcworkspace" \
                                             -destination "platform=iOS Simulator,name=iPhone 7" \
                                             -derivedDataPath "$HOME/DerivedData/"
+      - name: Copy Test Results (iPhone 7 @ 12.4)
+        run: |
           echo "Current directory: "
           pwd
           cd $HOME/DerivedData/Logs/Test/
@@ -149,6 +64,8 @@ jobs:
                                             -workspace "Arventa Connect.xcworkspace" \
                                             -destination "platform=iOS Simulator,name=iPhone SE" \
                                             -derivedDataPath "$HOME/DerivedData/"
+      - name: Copy Test Results (iPhone SE @ 12.4)
+        run: |
           echo "Current directory: "
           pwd
           cd $HOME/DerivedData/Logs/Test/
@@ -158,7 +75,7 @@ jobs:
             echo "New location: $HOME/Results/$FILE"
           done
 
-      # switches back to xcode to test iOS 14
+      # switches back to xcode 12 to compile
       - name: Switch back to Xcode 12
         run: |
           echo "Switch back to Xcode 12 to compile HTML reports"
