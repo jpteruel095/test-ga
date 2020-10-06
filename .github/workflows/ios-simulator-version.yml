@@ -41,13 +41,13 @@ jobs:
               echo \"Current file: \$FILE\"
               if [ -f \"\$FILE/TestSummaries.plist\" ]; then
                 if [ -f \"\$HOME/Results_iOS12/\$FILE\" ]; then
-                  echo "Existing at \$HOME/Results_iOS12/\$FILE\"
+                  echo \"Existing at \$HOME/Results_iOS12/\$FILE\";
                 else
                   cp -r \"\$FILE\" \"\$HOME/Results_iOS12/\$FILE\";
-                  echo \"New location: \$HOME/Results_iOS12/\$FILE\"
-                fi
+                  echo \"New location: \$HOME/Results_iOS12/\$FILE\";
+                fi;
               else
-                echo \"Not a compilable result\"
+                echo \"Not a compilable result\";
               fi
             done
           " >> ~/cp_ios12.sh && chmod 755 ~/cp_ios12.sh
