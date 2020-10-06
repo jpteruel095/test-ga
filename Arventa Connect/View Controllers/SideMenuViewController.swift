@@ -19,12 +19,14 @@ extension MenuItemProtocol{
     }
 }
 
-struct DemoMenuItem: MenuItemProtocol{
+struct EncodedMenuItem: MenuItemProtocol{
     var id: Int
     var name: String
+    var iconname: String?
 }
 
 class SideMenuViewController: UIViewController {
+    @IBOutlet weak var closeButtonContainerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var initializeOnce = false
@@ -35,9 +37,8 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        menuItems = [
-            DemoMenuItem(id: 1, name: "Home"),
-        ]
+        closeButtonContainerView.isHidden = UIDevice.is_iPad()
+        menuItems = [EncodedMenuItem(id: 1, name: "Home", iconname: "icon-arventa-home")]
         
         selectedMenuItem = menuItems.first
         
@@ -57,19 +58,30 @@ class SideMenuViewController: UIViewController {
     
     @objc func refreshMenuItems(_ sender: Any){
         ArventaInterface.shared.getMenuItems { (items, error) in
-            self.menuItems = items
+            self.menuItems.removeAll()
+            if !items.contains(where: {$0.id == 1}){
+                self.menuItems = [EncodedMenuItem(id: 1, name: "Home", iconname: "icon-arventa-home")]
+            }
+            self.menuItems.append(contentsOf: items)
             self.initializeOnce = true
         }
     }
     
     @IBAction func didTapCloseButton(_ sender: Any) {
+        if UIDevice.is_iPad(){
+            return
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didTapLogoutButton(_ sender: Any) {
+        if UIDevice.is_iPad(){
+            ArventaInterface.shared.signOut()
+            return
+        }
+        
         self.dismiss(animated: true, completion: {
-            ArventaInterface.shared
-                .signOut()
+            ArventaInterface.shared.signOut()
         })
     }
 }
@@ -103,15 +115,18 @@ extension SideMenuViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = menuItems[indexPath.row]
         self.selectedMenuItem = item
-
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        self.dismiss(animated: true, completion: nil)
         
         if indexPath.row == 0 {
             MainNavigationController.current?.goToDashboardVC()
         }else{
             MainNavigationController.current?.goToTestProducts()
+        }
+        
+        if UIDevice.is_iPhone(){
+            self.dismiss(animated: true, completion: nil)
+        }else if UIDevice.is_iPad(){
+            tableView.reloadSections(IndexSet([indexPath.section]),
+                                     with: .fade)
         }
     }
 }

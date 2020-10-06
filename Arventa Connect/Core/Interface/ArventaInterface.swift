@@ -13,7 +13,7 @@ class ArventaInterface{
     
     var sideMenu: SideMenuManager = {
         let sideMenu = SideMenuManager.default
-        guard let sideMenuVC = StoryboardVC.main.viewController(forIdentifier: "sideMenuVC") else{
+        guard let sideMenuVC = StoryboardVC.main.viewController(withId: "sideMenuVC") else{
             fatalError("Side Menu VC doesn't exist.")
         }
         

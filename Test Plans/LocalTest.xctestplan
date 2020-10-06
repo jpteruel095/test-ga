@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "16253FC1-7548-4210-A611-23CDF5977381",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Arventa Connect.xcodeproj",
+        "identifier" : "C6D3313E2519FEAD003DD32D",
+        "name" : "Arventa ConnectTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Arventa Connect.xcodeproj",
+        "identifier" : "C6D331492519FEAD003DD32D",
+        "name" : "Arventa ConnectUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

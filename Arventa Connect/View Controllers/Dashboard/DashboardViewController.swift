@@ -11,6 +11,7 @@ import SwiftDate
 import SwiftyJSON
 
 class DashboardViewController: UIViewController, ArventaViewDelegate {
+    @IBOutlet weak var menuBarButtonContainerView: UIView!
     @IBOutlet weak var greetingIconImageView: UIImageView!
     @IBOutlet weak var greetingLabel: UILabel!
     
@@ -18,6 +19,7 @@ class DashboardViewController: UIViewController, ArventaViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        menuBarButtonContainerView.isHidden = UIDevice.is_iPad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,7 +29,8 @@ class DashboardViewController: UIViewController, ArventaViewDelegate {
     }
 
     @IBAction func didTapSideMenuButton(_ sender: Any) {
-        guard let sideMenuNVC = ArventaInterface.shared.sideMenu.leftMenuNavigationController else{
+        guard let sideMenuNVC = ArventaInterface.shared.sideMenu.leftMenuNavigationController,
+            UIDevice.is_iPhone() else{
             return
         }
         self.present(sideMenuNVC, animated: true, completion: nil)

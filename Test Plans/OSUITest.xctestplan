@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "A89D23DA-6AB6-4434-85A9-13F3F81EC321",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "ArventaConnectLocalUITests",
+        "ArventaConnectOfflineUITests",
+        "Arventa_ConnectTC1LoginUITest\/test_TC1a03_LoginInvalidCredentials()",
+        "Arventa_ConnectTC1LoginUITest\/test_TC1a11_LoginToAllApps()"
+      ],
+      "target" : {
+        "containerPath" : "container:Arventa Connect.xcodeproj",
+        "identifier" : "C6D331492519FEAD003DD32D",
+        "name" : "Arventa ConnectUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

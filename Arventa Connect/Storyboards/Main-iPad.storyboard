@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iHl-cZ-vjY">
+    <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="JpQ-4N-Opy">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="dib-Ug-MNn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mak-uJ-RgI">
+                        <rect key="frame" x="100" y="0.0" width="0.0" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nAS-b5-yX2" kind="relationship" relationship="rootViewController" id="gg6-b3-PVi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2H8-Ve-hUg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="42" y="-225"/>
+        </scene>
+        <!--sideMenuVC-->
+        <scene sceneID="3iC-dL-R0C">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="sideMenuVC" id="nAS-b5-yX2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lXP-5R-sWk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oue-Lk-14e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="603" y="-225"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="AK3-Y0-Zur">
+            <objects>
+                <splitViewController allowDoubleColumnStyle="YES" id="iHl-cZ-vjY" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="dib-Ug-MNn" kind="relationship" relationship="masterViewController" id="NCe-EG-EGl"/>
+                        <segue destination="osm-ac-hAQ" kind="relationship" relationship="detailViewController" id="b7E-EO-Gy7"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VmV-Pc-pGW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-706" y="78"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="m1K-0m-mXR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="osm-ac-hAQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nJS-LV-rlH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-38" y="364"/>
+        </scene>
+    </scenes>
+</document>

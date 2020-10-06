@@ -354,3 +354,13 @@ extension Error{
         return (self as NSError).code
     }
 }
+
+extension UIDevice{
+    static func is_iPhone() -> Bool{
+        return UIDevice.current.userInterfaceIdiom == .phone
+    }
+    
+    static func is_iPad() -> Bool{
+        return UIDevice.current.userInterfaceIdiom == .pad
+    }
+}

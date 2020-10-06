@@ -21,6 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()
         ArventaInterface.shared.configure()
+        
+        if UIDevice.is_iPad(){
+            if let splitVC = StoryboardVC.main_ipad.initialViewController as? UISplitViewController{
+                splitVC.preferredDisplayMode = .allVisible
+                window?.rootViewController = splitVC
+            }
+        }
         return true
     }
 

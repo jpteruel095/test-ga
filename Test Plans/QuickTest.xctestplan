@@ -1,0 +1,39 @@
+{
+  "configurations" : [
+    {
+      "id" : "C1F68B80-F8FF-4F54-B2C4-58BB7E2E1CAC",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Arventa Connect.xcodeproj",
+        "identifier" : "C6D3313E2519FEAD003DD32D",
+        "name" : "Arventa ConnectTests"
+      }
+    },
+    {
+      "skippedTests" : [
+        "ArventaConnectLocalUITests",
+        "ArventaConnectOfflineUITests",
+        "ArventaConnectTCOSUICompatibilityTest",
+        "Arventa_ConnectTC1LoginUITest\/test_TC1a03_LoginInvalidCredentials()",
+        "Arventa_ConnectTC1LoginUITest\/test_TC1a10_AppDropdown()",
+        "Arventa_ConnectTC1LoginUITest\/test_TC1a11_LoginToAllApps()"
+      ],
+      "target" : {
+        "containerPath" : "container:Arventa Connect.xcodeproj",
+        "identifier" : "C6D331492519FEAD003DD32D",
+        "name" : "Arventa ConnectUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

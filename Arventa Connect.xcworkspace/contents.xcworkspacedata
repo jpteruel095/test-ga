@@ -7,10 +7,4 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Local.xctestplan">
-   </FileRef>
-   <FileRef
-      location = "group:FirebaseTestlab.xctestplan">
-   </FileRef>
 </Workspace>

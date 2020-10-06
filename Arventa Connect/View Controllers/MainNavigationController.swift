@@ -17,11 +17,13 @@ class MainNavigationController: UINavigationController, ArventaViewDelegate{
         
         MainNavigationController.current = self
         
-        ArventaInterface
-            .shared
-            .sideMenu
-            .addScreenEdgePanGesturesToPresent(toView: view,
-                                               forMenu: .left)
+        if UIDevice.is_iPhone(){
+            ArventaInterface
+                .shared
+                .sideMenu
+                .addScreenEdgePanGesturesToPresent(toView: view,
+                                                   forMenu: .left)
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(userDidLogin(_:)), name: .userDidLogin, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(userDidLogout(_:)), name: .userDidLogout, object: nil)
@@ -57,21 +59,21 @@ class MainNavigationController: UINavigationController, ArventaViewDelegate{
 
 extension MainNavigationController{
     func goToBlankVC(){
-        if let blankVC = StoryboardVC.main.viewController(forIdentifier: "blankVC"){
+        if let blankVC = StoryboardVC.main.viewController(withId: "blankVC"){
             self.setViewControllers([blankVC], animated: false)
             self.setNavigationBarHidden(true, animated: false)
         }
     }
     
     func goToDashboardVC(){
-        if let dashboardVC = StoryboardVC.dashboard.viewController(forIdentifier: "dashboardVC") as? DashboardViewController{
+        if let dashboardVC = StoryboardVC.dashboard.viewController(withId: "dashboardVC") as? DashboardViewController{
             self.setViewControllers([dashboardVC], animated: false)
             self.setNavigationBarHidden(true, animated: false)
         }
     }
     
     func goToTestProducts(){
-        if let testProductVC = StoryboardVC.temp.viewController(forIdentifier: "testProductsVC") as? TestProductsViewController{
+        if let testProductVC = StoryboardVC.temp.viewController(withId: "testProductsVC") as? TestProductsViewController{
             self.setViewControllers([testProductVC], animated: false)
             self.setNavigationBarHidden(false, animated: false)
         }

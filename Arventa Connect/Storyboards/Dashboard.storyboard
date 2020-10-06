@@ -23,42 +23,71 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LX-A4-Rwk" customClass="AnimatableView" customModule="IBAnimatable">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="215"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ta0-gZ-5x1">
-                                        <rect key="frame" x="20" y="84" width="24" height="24"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="sideMenuButton"/>
-                                        <state key="normal" image="menu-icon"/>
-                                        <connections>
-                                            <action selector="didTapSideMenuButton:" destination="d62-F6-SR1" eventType="touchUpInside" id="L8r-7X-jqM"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeY-na-FSA">
-                                        <rect key="frame" x="74" y="140" width="320" height="48"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="greetingUserLabel"/>
-                                        <string key="text">Good morning,
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="haW-kf-4UQ">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="82"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCl-Gv-KoB">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ta0-gZ-5x1">
+                                                        <rect key="frame" x="20" y="44" width="24" height="24"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="sideMenuButton"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="Aft-NN-KxH"/>
+                                                        </constraints>
+                                                        <state key="normal" image="menu-icon"/>
+                                                        <connections>
+                                                            <action selector="didTapSideMenuButton:" destination="d62-F6-SR1" eventType="touchUpInside" id="L8r-7X-jqM"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Ta0-gZ-5x1" secondAttribute="bottom" constant="20" id="7F0-Vv-zZ5"/>
+                                                    <constraint firstItem="Ta0-gZ-5x1" firstAttribute="top" secondItem="vCl-Gv-KoB" secondAttribute="top" constant="44" id="BUN-bs-GsC"/>
+                                                    <constraint firstItem="Ta0-gZ-5x1" firstAttribute="leading" secondItem="vCl-Gv-KoB" secondAttribute="leading" constant="20" id="Cq5-gi-fyr"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRQ-sO-bHC">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeY-na-FSA">
+                                                        <rect key="frame" x="82" y="17" width="312" height="48"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="greetingUserLabel"/>
+                                                        <string key="text">Good morning,
 John Doe</string>
-                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
-                                        <color key="textColor" red="0.31764705879999999" green="0.34509803919999998" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greetings/evening" translatesAutoresizingMaskIntoConstraints="NO" id="ROo-UC-pzn">
-                                        <rect key="frame" x="20" y="143" width="42" height="42"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="ROo-UC-pzn" secondAttribute="height" multiplier="1:1" id="hR2-aF-kSP"/>
-                                            <constraint firstAttribute="width" constant="42" id="u9y-1B-sga"/>
-                                        </constraints>
-                                    </imageView>
+                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                                        <color key="textColor" red="0.31764705879999999" green="0.34509803919999998" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greetings/evening" translatesAutoresizingMaskIntoConstraints="NO" id="ROo-UC-pzn">
+                                                        <rect key="frame" x="20" y="20" width="42" height="42"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ROo-UC-pzn" secondAttribute="height" multiplier="1:1" id="hR2-aF-kSP"/>
+                                                            <constraint firstAttribute="width" constant="42" id="u9y-1B-sga"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="SeY-na-FSA" firstAttribute="centerY" secondItem="ROo-UC-pzn" secondAttribute="centerY" id="EOG-vV-x10"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SeY-na-FSA" secondAttribute="trailing" constant="20" id="Oh3-Nw-aCs"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ROo-UC-pzn" secondAttribute="bottom" constant="20" id="Y9w-Sn-EET"/>
+                                                    <constraint firstItem="ROo-UC-pzn" firstAttribute="leading" secondItem="HRQ-sO-bHC" secondAttribute="leading" constant="20" id="Zjz-a2-ne4"/>
+                                                    <constraint firstItem="SeY-na-FSA" firstAttribute="leading" secondItem="ROo-UC-pzn" secondAttribute="trailing" constant="20" id="fkb-0k-WGL"/>
+                                                    <constraint firstItem="ROo-UC-pzn" firstAttribute="top" secondItem="HRQ-sO-bHC" secondAttribute="top" constant="20" id="pww-Ym-7tG"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="ROo-UC-pzn" firstAttribute="top" secondItem="Ta0-gZ-5x1" secondAttribute="bottom" constant="35" id="4vj-hU-Voc"/>
-                                    <constraint firstItem="SeY-na-FSA" firstAttribute="centerY" secondItem="ROo-UC-pzn" secondAttribute="centerY" id="JnP-FJ-gfL"/>
-                                    <constraint firstItem="Ta0-gZ-5x1" firstAttribute="leading" secondItem="7LX-A4-Rwk" secondAttribute="leading" constant="20" id="SQQ-Yd-TiD"/>
-                                    <constraint firstItem="ROo-UC-pzn" firstAttribute="leading" secondItem="7LX-A4-Rwk" secondAttribute="leading" constant="20" id="hHl-d5-IEt"/>
-                                    <constraint firstAttribute="bottom" secondItem="SeY-na-FSA" secondAttribute="bottom" constant="27" id="jFz-0u-gfh"/>
-                                    <constraint firstItem="SeY-na-FSA" firstAttribute="leading" secondItem="ROo-UC-pzn" secondAttribute="trailing" constant="12" id="luu-he-Hdh"/>
-                                    <constraint firstAttribute="trailing" secondItem="SeY-na-FSA" secondAttribute="trailing" constant="20" id="nCm-ET-CiE"/>
+                                    <constraint firstAttribute="trailing" secondItem="haW-kf-4UQ" secondAttribute="trailing" id="Anc-Xw-T3Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="haW-kf-4UQ" secondAttribute="bottom" id="YFH-md-is2"/>
+                                    <constraint firstItem="haW-kf-4UQ" firstAttribute="leading" secondItem="7LX-A4-Rwk" secondAttribute="leading" id="yGL-0e-9W2"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -78,7 +107,7 @@ John Doe</string>
                         <constraints>
                             <constraint firstItem="7LX-A4-Rwk" firstAttribute="top" secondItem="1QO-Yc-oGG" secondAttribute="top" id="EKJ-AG-9kc"/>
                             <constraint firstItem="7LX-A4-Rwk" firstAttribute="leading" secondItem="4cu-dW-jni" secondAttribute="leading" id="Fhr-tc-U0x"/>
-                            <constraint firstItem="4cu-dW-jni" firstAttribute="top" secondItem="Ta0-gZ-5x1" secondAttribute="top" constant="-40" id="Fv8-f4-6qx"/>
+                            <constraint firstItem="4cu-dW-jni" firstAttribute="top" secondItem="haW-kf-4UQ" secondAttribute="top" id="GKs-CI-YYQ"/>
                             <constraint firstItem="4cu-dW-jni" firstAttribute="trailing" secondItem="7LX-A4-Rwk" secondAttribute="trailing" id="LKk-tN-snp"/>
                         </constraints>
                     </view>
@@ -86,6 +115,7 @@ John Doe</string>
                     <connections>
                         <outlet property="greetingIconImageView" destination="ROo-UC-pzn" id="iQ6-rK-gYB"/>
                         <outlet property="greetingLabel" destination="SeY-na-FSA" id="PWj-70-q0J"/>
+                        <outlet property="menuBarButtonContainerView" destination="vCl-Gv-KoB" id="2zm-Af-RUk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAs-Nz-AQu" sceneMemberID="firstResponder"/>

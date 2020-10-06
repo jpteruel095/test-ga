@@ -10,23 +10,23 @@ import UIKit
 enum StoryboardVC: String{
     // MARK: List of storyboards used within the app
     case main
+    case main_ipad = "Main-iPad"
     case auth
     case dashboard
     case temp
     
-    // MARK: Temporary to avoid git conflicts
-//    case temp
-    /**
-            When adding a new storyboard, I highly suggest using a single word and make it capitalized on the first letter.
-     E.g., Main = case main
-        Auth = case auth
-     */
+    var isManuallyEncoded: Bool{
+        let manual: [StoryboardVC] = [
+            .main_ipad
+        ]
+        return manual.contains(self)
+    }
     
     // MARK: Getting the storyboard instance. It will throw a fatalError if the app doesn't find the storyboard file.
     var storyboard: UIStoryboard{
-//        if self == .temp{
-//            return UIStoryboard(name: "Temp-PAT", bundle: nil)
-//        }
+        if self.isManuallyEncoded{
+            return UIStoryboard(name: rawValue, bundle: nil)
+        }
         return UIStoryboard(name: rawValue.capitalized, bundle: nil)
     }
         
@@ -36,7 +36,7 @@ enum StoryboardVC: String{
     }
     
     // MARK: Getting a specific view controller using an identifier. It will throw a fatalError if the identifier doesn't exist inside the said storyboard. Better check the view controller's Storyboard ID inside the Identity Inspector
-    func viewController(forIdentifier identifier: String) -> UIViewController?{
+    func viewController(withId identifier: String) -> UIViewController?{
         storyboard.instantiateViewController(withIdentifier: identifier)
     }
 }

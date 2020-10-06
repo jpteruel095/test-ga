@@ -24,7 +24,9 @@ class LoginTestHelper{
         let app = XCUIApplication()
         if app.staticTexts["greetingUserLabel"].exists {
             //will execute only if exists
-            app.buttons["sideMenuButton"].tap()
+            if UIDevice.is_iPhone(){
+                app.buttons["sideMenuButton"].tap()
+            }
             app.staticTexts["Log out"]
                 .coordinate(withNormalizedOffset: .zero)
                 .tap()

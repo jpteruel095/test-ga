@@ -42,7 +42,9 @@ extension SignInViewController{
                                             style: .cancel,
                                             handler: nil))
         
-        self.showActionSheet(title: "Select Action", actions: actions, popoverSourceView: self.appDropdownLabel)
+        self.showActionSheet(title: "Select Action",
+                             actions: actions,
+                             popoverSourceView: self.appDropdownLabel)
     }
     
     enum AccountType: String{
@@ -155,7 +157,8 @@ extension SignInViewController{
         }
         actions.append(.cancelButton())
         self.showActionSheet(title: "Select Account (\(accountType.rawValue))",
-                             actions: actions)
+                             actions: actions,
+                             popoverSourceView: self.appDropdownLabel)
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {

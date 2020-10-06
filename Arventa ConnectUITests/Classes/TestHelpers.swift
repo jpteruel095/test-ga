@@ -9,6 +9,13 @@ import XCTest
 import SwiftDate
 
 class TestHelpers{
+    public class func startAndWaitForABit(seconds: UInt32 = 2) -> XCUIApplication{
+        let app = XCUIApplication()
+        app.launch()
+        sleep(seconds)
+        return app
+    }
+    
     public class func tapOverStaticText(_ text: String){
         let app = XCUIApplication()
         app.staticTexts[text]
