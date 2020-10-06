@@ -40,91 +40,95 @@ jobs:
             for FILE in *.xcresult; do
               echo \"Current file: \$FILE\"
               if [ -f \"\$FILE/TestSummaries.plist\" ]; then
-                cp -r \"\$FILE\" \"\$HOME/Results_iOS12/\$FILE\";
-                echo \"New location: \$HOME/Results_iOS12/\$FILE\"
+                if [ -f \"\$HOME/Results_iOS12/\$FILE\" ]; then
+                  echo "Existing at \$HOME/Results_iOS12/\$FILE\"
+                else
+                  cp -r \"\$FILE\" \"\$HOME/Results_iOS12/\$FILE\";
+                  echo \"New location: \$HOME/Results_iOS12/\$FILE\"
+                fi
               else
                 echo \"Not a compilable result\"
               fi
             done
           " >> ~/cp_ios12.sh && chmod 755 ~/cp_ios12.sh
 
-      # Switch to Xcode 12 for building
-      - name: Switch to Xcode 12
-        run: |
-          echo "Testing on iOS 14 through Xcode 12"
-          sudo xcode-select -switch /Applications/Xcode_12.app
+      # # Switch to Xcode 12 for building
+      # - name: Switch to Xcode 12
+      #   run: |
+      #     echo "Testing on iOS 14 through Xcode 12"
+      #     sudo xcode-select -switch /Applications/Xcode_12.app
 
-      # builds for all version
-      - name: Build Arventa Connect
-        run: |
-          xcodebuild build-for-testing -scheme "Arventa Connect" \
-                                       -workspace "Arventa Connect.xcworkspace" \
-                                       -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
-                                       -derivedDataPath "$HOME/DerivedData/"
-      # test on iPhone 11 Pro Max @ 14.0
-      - name: Test Arventa Connect (iPhone 11 Pro Max 14.0)
-        continue-on-error: true
-        run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                           -workspace "Arventa Connect.xcworkspace" \
-                                           -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
-                                           -derivedDataPath "$HOME/DerivedData/" \
-                                           -testPlan TestCasesTest
-      - name: Copy Results (iPhone 11 Pro Max 14.0)
-        run: ~/cp_ios13_14.sh
+      # # builds for all version
+      # - name: Build Arventa Connect
+      #   run: |
+      #     xcodebuild build-for-testing -scheme "Arventa Connect" \
+      #                                  -workspace "Arventa Connect.xcworkspace" \
+      #                                  -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
+      #                                  -derivedDataPath "$HOME/DerivedData/"
+      # # test on iPhone 11 Pro Max @ 14.0
+      # - name: Test Arventa Connect (iPhone 11 Pro Max 14.0)
+      #   continue-on-error: true
+      #   run: |
+      #     xcodebuild test-without-building -scheme "Arventa Connect" \
+      #                                      -workspace "Arventa Connect.xcworkspace" \
+      #                                      -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" \
+      #                                      -derivedDataPath "$HOME/DerivedData/" \
+      #                                      -testPlan TestCasesTest
+      # - name: Copy Results (iPhone 11 Pro Max 14.0)
+      #   run: ~/cp_ios13_14.sh
 
-      # test on iPad Pro 11-inch @ 14.0
-      - name: Test Arventa Connect (iPad Pro (11-inch) (2nd generation) 14.0)
-        continue-on-error: true
-        run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                            -workspace "Arventa Connect.xcworkspace" \
-                                            -destination "platform=iOS Simulator,name=iPad Pro (11-inch) (2nd generation)" \
-                                            -derivedDataPath "$HOME/DerivedData/" \
-                                            -testPlan TestCasesTest
-      - name: Copy Results (iPad Pro (11-inch) (2nd generation) 14.0)
-        run: ~/cp_ios13_14.sh
+      # # test on iPad Pro 11-inch @ 14.0
+      # - name: Test Arventa Connect (iPad Pro (11-inch) (2nd generation) 14.0)
+      #   continue-on-error: true
+      #   run: |
+      #     xcodebuild test-without-building -scheme "Arventa Connect" \
+      #                                       -workspace "Arventa Connect.xcworkspace" \
+      #                                       -destination "platform=iOS Simulator,name=iPad Pro (11-inch) (2nd generation)" \
+      #                                       -derivedDataPath "$HOME/DerivedData/" \
+      #                                       -testPlan TestCasesTest
+      # - name: Copy Results (iPad Pro (11-inch) (2nd generation) 14.0)
+      #   run: ~/cp_ios13_14.sh
 
-      # switches to xcode 11 to test iOS 13
-      - name: Switch to Xcode 11
-        run: |
-          echo "Testing on iOS 13 through Xcode 11.7"
-          sudo xcode-select -switch /Applications/Xcode_11.7.app
+      # # switches to xcode 11 to test iOS 13
+      # - name: Switch to Xcode 11
+      #   run: |
+      #     echo "Testing on iOS 13 through Xcode 11.7"
+      #     sudo xcode-select -switch /Applications/Xcode_11.7.app
 
-      # test on iPhone 11 @ 13.7
-      - name: Test Arventa Connect (iPhone 11 13.7)
-        continue-on-error: true
-        run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                           -workspace "Arventa Connect.xcworkspace" \
-                                           -destination "platform=iOS Simulator,name=iPhone 11" \
-                                           -derivedDataPath "$HOME/DerivedData/" \
-                                           -testPlan OSUITest
-      - name: Copy Results (iPhone 11 13.7)
-        run: ~/cp_ios13_14.sh
-      # test on iPhone 11 Pro @ 13.7
-      - name: Test Arventa Connect (iPhone 11 Pro 13.7)
-        continue-on-error: true
-        run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                            -workspace "Arventa Connect.xcworkspace" \
-                                            -destination "platform=iOS Simulator,name=iPhone 11 Pro" \
-                                            -derivedDataPath "$HOME/DerivedData/" \
-                                            -testPlan OSUITest
-      - name: Copy Results (iPhone 11 Pro 13.7)
-        run: ~/cp_ios13_14.sh
+      # # test on iPhone 11 @ 13.7
+      # - name: Test Arventa Connect (iPhone 11 13.7)
+      #   continue-on-error: true
+      #   run: |
+      #     xcodebuild test-without-building -scheme "Arventa Connect" \
+      #                                      -workspace "Arventa Connect.xcworkspace" \
+      #                                      -destination "platform=iOS Simulator,name=iPhone 11" \
+      #                                      -derivedDataPath "$HOME/DerivedData/" \
+      #                                      -testPlan OSUITest
+      # - name: Copy Results (iPhone 11 13.7)
+      #   run: ~/cp_ios13_14.sh
+      # # test on iPhone 11 Pro @ 13.7
+      # - name: Test Arventa Connect (iPhone 11 Pro 13.7)
+      #   continue-on-error: true
+      #   run: |
+      #     xcodebuild test-without-building -scheme "Arventa Connect" \
+      #                                       -workspace "Arventa Connect.xcworkspace" \
+      #                                       -destination "platform=iOS Simulator,name=iPhone 11 Pro" \
+      #                                       -derivedDataPath "$HOME/DerivedData/" \
+      #                                       -testPlan OSUITest
+      # - name: Copy Results (iPhone 11 Pro 13.7)
+      #   run: ~/cp_ios13_14.sh
 
-      # test on iPhone 8 Plus Pro @ 13.7
-      - name: Test Arventa Connect (iPhone 8 Plus 13.7)
-        continue-on-error: true
-        run: |
-          xcodebuild test-without-building -scheme "Arventa Connect" \
-                                            -workspace "Arventa Connect.xcworkspace" \
-                                            -destination "platform=iOS Simulator,name=iPhone 8 Plus" \
-                                            -derivedDataPath "$HOME/DerivedData/" \
-                                            -testPlan OSUITest
-      - name: Copy Results (iPhone 8 Plus 13.7)
-        run: ~/cp_ios13_14.sh
+      # # test on iPhone 8 Plus Pro @ 13.7
+      # - name: Test Arventa Connect (iPhone 8 Plus 13.7)
+      #   continue-on-error: true
+      #   run: |
+      #     xcodebuild test-without-building -scheme "Arventa Connect" \
+      #                                       -workspace "Arventa Connect.xcworkspace" \
+      #                                       -destination "platform=iOS Simulator,name=iPhone 8 Plus" \
+      #                                       -derivedDataPath "$HOME/DerivedData/" \
+      #                                       -testPlan OSUITest
+      # - name: Copy Results (iPhone 8 Plus 13.7)
+      #   run: ~/cp_ios13_14.sh
 
       # Switch to Xcode 12 to build for iOS12 scheme
       - name: Switch to Xcode 12 for iOS 12 scheme build
