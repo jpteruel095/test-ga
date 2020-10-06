@@ -78,7 +78,7 @@ jobs:
                                             -workspace "Arventa Connect.xcworkspace" \
                                             -destination "platform=iOS Simulator,name=iPad Pro (11-inch) (2nd generation)" \
                                             -derivedDataPath "$HOME/DerivedData/"
-      - name: Copy Results (iPhone 11 Pro Max 14.0)
+      - name: Copy Results (iPad Pro (11-inch) (2nd generation) 14.0)
         run: ~/cp_ios13_14.sh
 
       # switches to xcode 11 to test iOS 13
@@ -182,9 +182,10 @@ jobs:
           retention-days: 5
 
       # compiles test result for iOS 12
-      - name: Compile Test Results (iOS 13 and 14)
+      - name: Compile Test Results (iOS 12)
+        continue-on-error: true
         run: |
-          bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '1.6.1'
+          bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '1.6.0'
           cd $HOME/Results_iOS12/
           echo "Raw Results Folder (iOS 12):"
           ls
@@ -202,7 +203,6 @@ jobs:
           echo "Final Results Folder:"
           ls
       - name: Upload Test Result Artifact (iOS 12)
-        continue-on-error: true
         uses: actions/upload-artifact@v2.2.0
         with:
           name: Test Results for iOS 12
