@@ -172,38 +172,38 @@ jobs:
         run: ~/cp_ios12.sh
 
       # switches back to xcode to test iOS 14
-      - name: Switch back to Xcode 12
-        run: |
-          echo "Switch back to Xcode 12 to compile HTML reports"
-          sudo xcode-select -switch /Applications/Xcode_12.app
+      # - name: Switch back to Xcode 12
+      #   run: |
+      #     echo "Switch back to Xcode 12 to compile HTML reports"
+      #     sudo xcode-select -switch /Applications/Xcode_12.app
 
-      # compiles test result for iOS 13 and 14
-      - name: Compile Test Results (iOS 13 and 14)
-        run: |
-          bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
-          cd $HOME/Results_iOS13_14/
-          echo "Raw Results Folder (iOS 13 and 14):"
-          ls
-          count=0
-          args=""
-          for FILE in *.xcresult; do
-            echo "Current file: $FILE"
-            count=`expr $count + 1`
-            filename="test$count.xcresult"
-            args="$args-r $filename "
-            mv "$FILE" $filename
-            echo "New name: $filename"
-          done
-          xchtmlreport $args
-          echo "Final Results Folder:"
-          ls
-      - name: Upload Test Result Artifact (iOS 13 and 14)
-        uses: actions/upload-artifact@v2.2.0
-        with:
-          name: Test Results for iOS 13 and 14
-          path: "~/Results_iOS13_14"
-          if-no-files-found: error
-          retention-days: 5
+      # # compiles test result for iOS 13 and 14
+      # - name: Compile Test Results (iOS 13 and 14)
+      #   run: |
+      #     bash <(curl -s https://raw.githubusercontent.com/TitouanVanBelle/XCTestHTMLReport/master/install.sh) '2.0.0'
+      #     cd $HOME/Results_iOS13_14/
+      #     echo "Raw Results Folder (iOS 13 and 14):"
+      #     ls
+      #     count=0
+      #     args=""
+      #     for FILE in *.xcresult; do
+      #       echo "Current file: $FILE"
+      #       count=`expr $count + 1`
+      #       filename="test$count.xcresult"
+      #       args="$args-r $filename "
+      #       mv "$FILE" $filename
+      #       echo "New name: $filename"
+      #     done
+      #     xchtmlreport $args
+      #     echo "Final Results Folder:"
+      #     ls
+      # - name: Upload Test Result Artifact (iOS 13 and 14)
+      #   uses: actions/upload-artifact@v2.2.0
+      #   with:
+      #     name: Test Results for iOS 13 and 14
+      #     path: "~/Results_iOS13_14"
+      #     if-no-files-found: error
+      #     retention-days: 5
 
       # compiles test result for iOS 12
       - name: Compile Test Results (iOS 12)
