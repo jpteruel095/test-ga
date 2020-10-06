@@ -202,6 +202,7 @@ jobs:
           echo "Final Results Folder:"
           ls
       - name: Upload Test Result Artifact (iOS 12)
+        continue-on-error: true
         uses: actions/upload-artifact@v2.2.0
         with:
           name: Test Results for iOS 12
