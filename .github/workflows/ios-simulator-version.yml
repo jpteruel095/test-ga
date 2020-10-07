@@ -213,17 +213,7 @@ jobs:
           cd $HOME/Results_iOS12/
           echo "Raw Results Folder (iOS 12):"
           ls
-          count=0
-          args=""
-          for FILE in *.xcresult; do
-            echo "Current file: $FILE"
-            count=`expr $count + 1`
-            filename="test$count.xcresult"
-            args="$args-r $filename "
-            mv "$FILE" $filename
-            echo "New name: $filename"
-          done
-          xchtmlreport $args
+          xchtmlreport -r .
           echo "Final Results Folder:"
           ls
       - name: Upload Test Result Artifact (iOS 12)
