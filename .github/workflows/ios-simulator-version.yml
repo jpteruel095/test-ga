@@ -40,7 +40,7 @@ jobs:
             for FILE in *.xcresult; do
               echo \"Current file: \$FILE\"
               if [ -f \"\$FILE/TestSummaries.plist\" ]; then
-                if [ -f \"\$HOME/Results_iOS12/\$FILE\" ]; then
+                if [ -d \"\$HOME/Results_iOS12/\$FILE\" ]; then
                   echo \"Already exists at \$HOME/Results_iOS12/\$FILE\"
                 else
                   cp -r \"\$FILE\" \"\$HOME/Results_iOS12/\$FILE\"
